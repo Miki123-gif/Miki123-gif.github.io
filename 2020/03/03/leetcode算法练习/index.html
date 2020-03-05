@@ -16,7 +16,7 @@
   <meta name="description" content=" keywords: author: Miki language: zh-CN timezone: ">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>leetcode算法练习(1) ~ Miki&#39;s blog</title>
+  <title>哈希图 and 移动窗口 ~ Miki&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    1.3k 字
+                    1.5k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      5 分钟
+                      6 分钟
                   </span>&nbsp;
                 
 
@@ -170,7 +170,10 @@
 
 <h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">2</span>, <span class="number">11</span>, <span class="number">11</span>, <span class="number">15</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">7</span>]</span><br><span class="line">target = <span class="number">9</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> list1:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> list1[list1.index(i) + <span class="number">1</span>:]:</span><br><span class="line">            <span class="keyword">if</span> i + j == target:</span><br><span class="line">                <span class="keyword">return</span> print([list1.index(i), list1.index(j)])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">find()</span><br></pre></td></tr></table></figure>
 
-<h3 id="算法-哈希字典查找"><a href="#算法-哈希字典查找" class="headerlink" title="算法 哈希字典查找"></a>算法 哈希字典查找</h3><ol>
+<h3 id="算法-哈希字典查找"><a href="#算法-哈希字典查找" class="headerlink" title="算法 哈希字典查找"></a>算法 哈希字典查找</h3><blockquote>
+<p><strong>什么是哈希图呢，python中的字典就是用的哈希图来查找，假设我们现在有5个抽屉，序号为0，1，2，3，4，现在一个对象key，经过哈希算法，会生成一个固定长度的数字，这个数字mod5，求出假如余数是1，那么这个数据value对应的就会存放在1这个抽屉中，假如这时候又一个数据余数是1，这个数据也会存放在1中，所以python中的字典不允许有两个一样的key，否则会更新这里面存储的数据</strong></p>
+</blockquote>
+<ol>
 <li>暴力搜索法</li>
 </ol>
 <blockquote>
@@ -388,7 +391,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "leetcode算法练习(1)&nbsp;",
+        "哈希图 and 移动窗口&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
