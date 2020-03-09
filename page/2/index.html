@@ -146,14 +146,16 @@
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">1.前言本人是来自江西师范大学的一名学生，考研初试科目包括英语二，数学二，政治，专业课，一共四门科目。考的方向是深圳大学电子通信专业，属于跨专业考试。接下来，我将分享下这一年来的考研心得，最后我会和大家说一些小技巧和需要注意的地方。也推荐大家多去知乎，等其他地方多学学别人的经验，适合自己的才是最有效的。在这我很感谢身边和自习室的同学，是他们给了我巨大的动力，让我坚持下来！
+          <div class="index-text mb-1"> 1.前言
+本人是来自江西师范大学的一名学生，考研初试科目包括英语二，数学二，政治，专业课，一共四门科目。考的方向是深圳大学电子通信专业，属于跨专业考试。接下来，我将分享下这一年来的考研心得，最后我会和大家说一些小技巧和需要注意的地方。也推荐大家多去知乎，等其他地方多学学别人的经验，适合自己的才是最有效的。在这我很感谢身边和自习室的同学，是他们给了我巨大的动力，让我坚持下来！
 在这我有几句话想先对大家说下：
 
 能花钱解决的事，一定不要浪费时间。
 早上去自习室不要太早或者太晚，根据自己的实际情况，效率才最重要
 
-2.数学考试经验本人数学二今年126分，接下来我将分享下我个人的数学学习方法。
-数学复习</div>
+ 2.数学考试经验
+本人数学二今年126分，接下来我将分享下我个人的数学学习方法。
+</div>
         </div>
       </a>
 
@@ -191,7 +193,10 @@
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">windows利用hexo搭建自己的博客采用hexo搭建个人博客安装步骤
+          <div class="index-text mb-1"> windows利用hexo搭建自己的博客
+ 采用hexo搭建个人博客
+ 安装步骤
+
 百度搜索nodejs网站，下载nodejs软件到电脑上
 
 
@@ -199,8 +204,7 @@
 打开cmd，输入npm install -g cnpm --registry-https://registry.npm.taobao.org
 接着输入cnpm命令，系统会自动补全命令，输入cnpm -v可以查看安装的版本号。如果有输入，则安装成功
 输入cnpm install -g hexo-cli命令，安装hexo
-输入mkdir blog接下来会在当前目录下创建一个blog文件夹，自己可以去该目录下查看是否生成，输入chdir可以查看目录，会自己显示出来
-</div>
+输入mkdir blog接下来会在当前目录下创建一个blog文件夹，自己可以去该目录下查看是否生成，输入chdir可以查看目录，会自</div>
         </div>
       </a>
 
@@ -408,6 +412,32 @@
   </script>
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+              processEscapes: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+
+    </script>
+
+    <script src="https://cdn.staticfile.org/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+
+  
 
 
 

@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    61 字
+                    62 字
                   </span>&nbsp;
                 
 
@@ -163,7 +163,8 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="使用notepad打开csv文件"><a href="#使用notepad打开csv文件" class="headerlink" title="使用notepad打开csv文件"></a>使用notepad打开csv文件</h2><p>csv文件在电脑中默认是用excel打开的，最好使用记事本打开，因为用excel打开，会改变里面的数据，excel默认会用科学记数法表示一些很大的数。</p>
+            <h2 id="使用notepad打开csv文件"><a class="markdownIt-Anchor" href="#使用notepad打开csv文件"></a> 使用notepad打开csv文件</h2>
+<p>csv文件在电脑中默认是用excel打开的，最好使用记事本打开，因为用excel打开，会改变里面的数据，excel默认会用科学记数法表示一些很大的数。</p>
 
             <hr>
           </div>
@@ -199,6 +200,12 @@
 </div>
 
 <!-- custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
 
 
 <!-- Comments -->
@@ -391,6 +398,32 @@
   </script>
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+              processEscapes: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+
+    </script>
+
+    <script src="https://cdn.staticfile.org/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+
+  
 
 
 

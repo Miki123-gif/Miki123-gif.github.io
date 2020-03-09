@@ -163,13 +163,18 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="决策树-decision-tree"><a href="#决策树-decision-tree" class="headerlink" title="决策树 decision tree"></a>决策树 decision tree</h2><blockquote>
-<h4 id="信息熵-amp-信息增益"><a href="#信息熵-amp-信息增益" class="headerlink" title="信息熵 &amp; 信息增益"></a>信息熵 &amp; 信息增益</h4><ul>
-<li><p>熵（entropy）： 熵指的是体系的混乱的程度，在不同的学科中也有引申出的更为具体的定义，是各领域十分重要的参量。</p>
+            <h2 id="决策树-decision-tree"><a class="markdownIt-Anchor" href="#决策树-decision-tree"></a> 决策树 decision tree</h2>
+<blockquote>
+<h4 id="信息熵-信息增益"><a class="markdownIt-Anchor" href="#信息熵-信息增益"></a> 信息熵 &amp; 信息增益</h4>
+<ul>
+<li>
+<p>熵（entropy）： 熵指的是体系的混乱的程度，在不同的学科中也有引申出的更为具体的定义，是各领域十分重要的参量。</p>
 </li>
-<li><p>信息论（information theory）中的熵（香农熵）： 是一种信息的度量方式，表示信息的混乱程度，也就是说：信息越有序，信息熵越低。例如：火柴有序放在火柴盒里，熵值很低，相反，熵值很高。</p>
+<li>
+<p>信息论（information theory）中的熵（香农熵）： 是一种信息的度量方式，表示信息的混乱程度，也就是说：信息越有序，信息熵越低。例如：火柴有序放在火柴盒里，熵值很低，相反，熵值很高。</p>
 </li>
-<li><p>信息增益（information gain）： 在划分数据集前后信息发生的变化称为信息增益。</p>
+<li>
+<p>信息增益（information gain）： 在划分数据集前后信息发生的变化称为信息增益。</p>
 </li>
 </ul>
 </blockquote>
@@ -177,10 +182,11 @@
 <p>树的定义，就像族谱一样，根结点时唯一的，子树是根结点衍生出来的，当一个圈没叶子时，他就是叶结点，其他的都叫内部结点，如果一个内部结点有三片叶结点，那么这个内部结点的度就是3</p>
 </blockquote>
 <p>我们现在来看一个邮件分类系统，大致工作流程如下：</p>
-<p><img src="https://camo.githubusercontent.com/7dcaa98439362b4e126996b04c039322c55894c9/687474703a2f2f646174612e617061636865636e2e6f72672f696d672f41694c6561726e696e672f6d6c2f332e4465636973696f6e547265652f2545352538362542332545372541442539362545362541302539312d2545362542352538312545372541382538422545352539422542452e6a7067" srcset="/img/loading.gif" alt="决策树-流程图"></p>
+<p><img src="https://camo.githubusercontent.com/7dcaa98439362b4e126996b04c039322c55894c9/687474703a2f2f646174612e617061636865636e2e6f72672f696d672f41694c6561726e696e672f6d6c2f332e4465636973696f6e547265652f2545352538362542332545372541442539362545362541302539312d2545362542352538312545372541382538422545352539422542452e6a7067" srcset="/img/loading.gif" alt="决策树-流程图" /></p>
 <ul>
 <li>根结点是发送的邮件域名地址</li>
-<li>叶结点是：<ul>
+<li>叶结点是：
+<ul>
 <li>无聊时需要阅读的邮件</li>
 <li>需要及时处理的朋友文件</li>
 <li>无需阅读的垃圾邮件</li>
@@ -190,7 +196,7 @@
 </ul>
 <p>在这个系统中，根结点相当于输入的数据，内部结点表示一个特征或属性(我觉得是判断条件)，叶结点相当于分类结果</p>
 <p><strong>决策树一般是处理一些离散的数据，比如现在有一些年龄的数据，1-100岁之间，那么我们就必须将这些数据分为几个区间，比如0-30算年轻，30-60算中年，60-100算老年</strong></p>
-<p><img src="https://camo.githubusercontent.com/161cc47ffb524fb353e53598a692cde423451499/687474703a2f2f646174612e617061636865636e2e6f72672f696d672f41694c6561726e696e672f6d6c2f332e4465636973696f6e547265652f2545372538362542352545372539412538342545382541452541312545372541452539372545352538352541432545352542432538462e6a7067" srcset="/img/loading.gif" alt="熵的计算公式"></p>
+<p><img src="https://camo.githubusercontent.com/161cc47ffb524fb353e53598a692cde423451499/687474703a2f2f646174612e617061636865636e2e6f72672f696d672f41694c6561726e696e672f6d6c2f332e4465636973696f6e547265652f2545372538362542352545372539412538342545382541452541312545372541452539372545352538352541432545352542432538462e6a7067" srcset="/img/loading.gif" alt="熵的计算公式" /></p>
 <blockquote>
 <p>信息熵的计算是，假如扔一个骰子，每个面朝上的概率都是1/6，那么prob就是1/6带进去，求和表示把所有情况都算出来再相加</p>
 </blockquote>
@@ -229,6 +235,12 @@
 </div>
 
 <!-- custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
 
 
 <!-- Comments -->
@@ -421,6 +433,32 @@
   </script>
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+              processEscapes: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+
+    </script>
+
+    <script src="https://cdn.staticfile.org/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+
+  
 
 
 

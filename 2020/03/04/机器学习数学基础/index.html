@@ -166,70 +166,90 @@
             <p>首先这里推荐一个<a href="https://zhuanlan.zhihu.com/p/25197792" target="_blank" rel="noopener">数学基础教程</a>，里面介绍了大部分的机器学习需要用到的数学知识</p>
 <p>推荐下知乎上作者<a href="https://www.zhihu.com/lives/926880054670159872" target="_blank" rel="noopener">跨行业转机器学习的live</a></p>
 <p>下面我将筛选一些比较重要的知识</p>
-<h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><p>一个向量就是一列数，这些数是有序排列的。我们可以把向量看作空间中的点，每个元素是不同的坐标轴上的坐标。</p>
-<h2 id="张量"><a href="#张量" class="headerlink" title="张量"></a>张量</h2><p>张量其实就像在x，y轴上突然引进一个z轴一样，通俗一点理解的话，我们可以将标量视为零阶张量，矢量视为一阶张量，那么矩阵就是二阶张量。当然我们还可以将这一定义继续扩展，即：我们可以用四阶张量表示一个包含多张图片的数据集，这四个维度分别是：图片在数据集中的编号，图片高度、宽度，以及色彩数据。</p>
-<h2 id="范数"><a href="#范数" class="headerlink" title="范数"></a>范数</h2><p><strong>有时我们需要衡量一个向量的大小。</strong>在机器学习中，我们经常使用被称为范数(norm) 的函数衡量矩阵大小。</p>
+<h2 id="向量"><a class="markdownIt-Anchor" href="#向量"></a> 向量</h2>
+<p>一个向量就是一列数，这些数是有序排列的。我们可以把向量看作空间中的点，每个元素是不同的坐标轴上的坐标。</p>
+<h2 id="张量"><a class="markdownIt-Anchor" href="#张量"></a> 张量</h2>
+<p>张量其实就像在x，y轴上突然引进一个z轴一样，通俗一点理解的话，我们可以将标量视为零阶张量，矢量视为一阶张量，那么矩阵就是二阶张量。当然我们还可以将这一定义继续扩展，即：我们可以用四阶张量表示一个包含多张图片的数据集，这四个维度分别是：图片在数据集中的编号，图片高度、宽度，以及色彩数据。</p>
+<h2 id="范数"><a class="markdownIt-Anchor" href="#范数"></a> 范数</h2>
+<p>**有时我们需要衡量一个向量的大小。**在机器学习中，我们经常使用被称为范数(norm) 的函数衡量矩阵大小。</p>
 <ul>
-<li><p>L1范数<img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+%5Cleft%7C+x+%5Cright%7C+%5Cright%7C+" srcset="/img/loading.gif" alt="[公式]">：为x向量各个元素绝对值之和；</p>
+<li>
+<p>L1范数<img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+%5Cleft%7C+x+%5Cright%7C+%5Cright%7C+" srcset="/img/loading.gif" alt="[公式]" />：为x向量各个元素绝对值之和；</p>
 </li>
-<li><p>L2范数<img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+%5Cleft%7C+x+%5Cright%7C+%5Cright%7C+_%7B2%7D+" srcset="/img/loading.gif" alt="[公式]">：为x向量各个元素平方和的开方。</p>
+<li>
+<p>L2范数<img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+%5Cleft%7C+x+%5Cright%7C+%5Cright%7C+_%7B2%7D+" srcset="/img/loading.gif" alt="[公式]" />：为x向量各个元素平方和的开方。</p>
 <p><strong>百度百科了一下，发现看不懂，这个挺重要的，先记住再说</strong></p>
 </li>
 </ul>
-<h2 id="奇异值分解（Singular-Value-Decomposition，SVD）"><a href="#奇异值分解（Singular-Value-Decomposition，SVD）" class="headerlink" title="奇异值分解（Singular Value Decomposition，SVD）"></a><strong>奇异值分解（Singular Value Decomposition，SVD）</strong></h2><p>矩阵的特征分解是有前提条件的，那就是只有对可对角化的矩阵才可以进行特征分解。但实际中很多矩阵往往不满足这一条件，甚至很多矩阵都不是方阵，就是说连矩阵行和列的数目都不相等。这时候怎么办呢？人们将矩阵的特征分解进行推广，得到了一种叫作“矩阵的奇异值分解”的方法，简称SVD。通过奇异分解，我们会得到一些类似于特征分解的信息。</p>
-<h2 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h2><p>贝叶斯公式贯穿了机器学习中随机问题分析的全过程。从文本分类到概率图模型，其基本分类都是贝叶斯公式。</p>
-<h3 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a>全概率公式</h3><p><a href="[https://baike.baidu.com/item/%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F](https://baike.baidu.com/item/全概率公式)">百度百科</a></p>
-<p>全概率公式为<a href="https://baike.baidu.com/item/概率论/829122" target="_blank" rel="noopener">概率论</a>中的重要公式，它将对一复杂事件A的概率求解问题转化为了在不同情况下发生的简单事件的概率的求和问题。</p>
+<h2 id="奇异值分解singular-value-decompositionsvd"><a class="markdownIt-Anchor" href="#奇异值分解singular-value-decompositionsvd"></a> <strong>奇异值分解（Singular Value Decomposition，SVD）</strong></h2>
+<p>矩阵的特征分解是有前提条件的，那就是只有对可对角化的矩阵才可以进行特征分解。但实际中很多矩阵往往不满足这一条件，甚至很多矩阵都不是方阵，就是说连矩阵行和列的数目都不相等。这时候怎么办呢？人们将矩阵的特征分解进行推广，得到了一种叫作“矩阵的奇异值分解”的方法，简称SVD。通过奇异分解，我们会得到一些类似于特征分解的信息。</p>
+<h2 id="贝叶斯公式"><a class="markdownIt-Anchor" href="#贝叶斯公式"></a> 贝叶斯公式</h2>
+<p>贝叶斯公式贯穿了机器学习中随机问题分析的全过程。从文本分类到概率图模型，其基本分类都是贝叶斯公式。</p>
+<h3 id="全概率公式"><a class="markdownIt-Anchor" href="#全概率公式"></a> 全概率公式</h3>
+<p><a href="%5Bhttps://baike.baidu.com/item/%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F%5D(https://baike.baidu.com/item/%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F)">百度百科</a></p>
+<p>全概率公式为<a href="https://baike.baidu.com/item/%E6%A6%82%E7%8E%87%E8%AE%BA/829122" target="_blank" rel="noopener">概率论</a>中的重要公式，它将对一复杂事件A的概率求解问题转化为了在不同情况下发生的简单事件的概率的求和问题。</p>
 <p>内容：如果事件B1、B2、B3…Bn 构成一个完备事件组，即它们两两互不相容，其和为全集；并且P（Bi)大于0，则对任一事件A有</p>
 <p>P(A)=P(A|B1)P(B1) + P(A|B2)P(B2) + … + P(A|Bn)P(Bn)。</p>
 <p>或者：p(A)=P(AB1)+P(AB2)+…+P(ABn))，其中A与Bn的关系为交)。</p>
-<h3 id="先验概率"><a href="#先验概率" class="headerlink" title="先验概率"></a>先验概率</h3><p><a href="[https://baike.baidu.com/item/%E5%85%88%E9%AA%8C%E6%A6%82%E7%8E%87](https://baike.baidu.com/item/先验概率)">百度百科</a></p>
-<p>先验概率（prior probability）是指根据以往经验和分析得到的概率，如全概率公式，它往往作为”由因求果”问题中的”因”出现的概率。</p>
-<h3 id="后验概率"><a href="#后验概率" class="headerlink" title="后验概率"></a>后验概率</h3><p><a href="[https://baike.baidu.com/item/%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87](https://baike.baidu.com/item/后验概率)">百度百科</a></p>
+<h3 id="先验概率"><a class="markdownIt-Anchor" href="#先验概率"></a> 先验概率</h3>
+<p><a href="%5Bhttps://baike.baidu.com/item/%E5%85%88%E9%AA%8C%E6%A6%82%E7%8E%87%5D(https://baike.baidu.com/item/%E5%85%88%E9%AA%8C%E6%A6%82%E7%8E%87)">百度百科</a></p>
+<p>先验概率（prior probability）是指根据以往经验和分析得到的概率，如全概率公式，它往往作为&quot;由因求果&quot;问题中的&quot;因&quot;出现的概率。</p>
+<h3 id="后验概率"><a class="markdownIt-Anchor" href="#后验概率"></a> 后验概率</h3>
+<p><a href="%5Bhttps://baike.baidu.com/item/%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87%5D(https://baike.baidu.com/item/%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87)">百度百科</a></p>
 <p>事情还没有发生，要求这件事情发生的可能性的大小，是<strong>先验概率</strong>。事情已经发生，要求这件事情发生的原因是由某个因素引起的可能性的大小，是<strong>后验概率</strong>。</p>
-<p>假设某种病在人群中的发病率是0.001，即1000人中大概会有1个人得病，则有： <strong>P(患病) = 0.1%</strong>；即：在没有做检验之前，我们预计的患病率为<strong>P(患病)=0.1%</strong>，这个就叫作<strong>“先验概率”</strong>。</p>
-<p>现在我们想知道的是：在做完检测显示为阳性后，某人的患病率<strong>P(患病|显示阳性)</strong>，这个其实就称为<strong>“后验概率”。</strong></p>
+<p>假设某种病在人群中的发病率是0.001，即1000人中大概会有1个人得病，则有： <strong>P(患病) = 0.1%</strong>；即：在没有做检验之前，我们预计的患病率为<strong>P(患病)=0.1%</strong>，这个就叫作**“先验概率”**。</p>
+<p>现在我们想知道的是：在做完检测显示为阳性后，某人的患病率<strong>P(患病|显示阳性)</strong>，这个其实就称为**“后验概率”。**</p>
 <p>这里先了解<strong>条件概率公式</strong>：</p>
-<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+B%7CA+%5Cright%29%3D%5Cfrac%7BP%5Cleft%28+AB+%5Cright%29%7D%7BP%5Cleft%28+A+%5Cright%29%7D+%2C+P%5Cleft%28+A%7CB+%5Cright%29%3D%5Cfrac%7BP%5Cleft%28+AB+%5Cright%29%7D%7BP%5Cleft%28+B+%5Cright%29%7D" srcset="/img/loading.gif" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+B%7CA+%5Cright%29%3D%5Cfrac%7BP%5Cleft%28+AB+%5Cright%29%7D%7BP%5Cleft%28+A+%5Cright%29%7D+%2C+P%5Cleft%28+A%7CB+%5Cright%29%3D%5Cfrac%7BP%5Cleft%28+AB+%5Cright%29%7D%7BP%5Cleft%28+B+%5Cright%29%7D" srcset="/img/loading.gif" alt="[公式]" /></p>
 <p>由条件概率可以得到<strong>乘法公式</strong>：</p>
 <p>乘法公式就是<strong>P(AB)</strong></p>
-<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+AB+%5Cright%29%3DP%5Cleft%28+B%7CA+%5Cright%29P%5Cleft%28+A+%5Cright%29%3DP%5Cleft%28+A%7CB+%5Cright%29P%5Cleft%28+B+%5Cright%29" srcset="/img/loading.gif" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+AB+%5Cright%29%3DP%5Cleft%28+B%7CA+%5Cright%29P%5Cleft%28+A+%5Cright%29%3DP%5Cleft%28+A%7CB+%5Cright%29P%5Cleft%28+B+%5Cright%29" srcset="/img/loading.gif" alt="[公式]" /></p>
 <p>将条件概率公式和乘法公式结合可以得到：</p>
 <p><strong>这里说明由先验公式可以算出后验公式</strong></p>
-<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+B%7CA+%5Cright%29%3D%5Cfrac%7BP%5Cleft%28+A%7CB+%5Cright%29%5Ccdot+P%5Cleft%28+B+%5Cright%29%7D%7BP%5Cleft%28+A+%5Cright%29%7D" srcset="/img/loading.gif" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+B%7CA+%5Cright%29%3D%5Cfrac%7BP%5Cleft%28+A%7CB+%5Cright%29%5Ccdot+P%5Cleft%28+B+%5Cright%29%7D%7BP%5Cleft%28+A+%5Cright%29%7D" srcset="/img/loading.gif" alt="[公式]" /></p>
 <p>再由<strong>全概率公式</strong>：</p>
-<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+A+%5Cright%29%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%7BP%5Cleft%28+A%7CB_%7Bi%7D+%5Cright%29+%5Ccdot+P%5Cleft%28+B_%7Bi%7D%5Cright%29%7D+" srcset="/img/loading.gif" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+A+%5Cright%29%3D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%7BP%5Cleft%28+A%7CB_%7Bi%7D+%5Cright%29+%5Ccdot+P%5Cleft%28+B_%7Bi%7D%5Cright%29%7D+" srcset="/img/loading.gif" alt="[公式]" /></p>
 <p>代入可以得到<strong>贝叶斯公式</strong>：</p>
-<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+B_%7Bi%7D%7CA+%5Cright%29%3D%5Cfrac%7BP%5Cleft%28+A%7CB_%7Bi%7D+%5Cright%29%5Ccdot+P%5Cleft%28+B_%7Bi%7D+%5Cright%29%7D%7B%5Csum_%7Bi%3D1%7D%5E%7BN%7D%7BP%5Cleft%28+A%7CB_%7Bi%7D+%5Cright%29+%5Ccdot+P%5Cleft%28+B_%7Bi%7D%5Cright%29%7D+%7D" srcset="/img/loading.gif" alt="[公式]"></p>
-<h2 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h2><p>概率中，方差用来衡量随机变量与其数学期望之间的偏离程度；统计中的方差为样本方差，<strong>是各个样本数据分别与其平均数之差的平方和的平均数</strong>。数学表达式如下：</p>
-<p><img src="https://www.zhihu.com/equation?tex=Var%5Cleft%28+x+%5Cright%29+%3DE%5Cleft%5C%7B+%5Cleft%5B+x-E%5Cleft%28+x+%5Cright%29+%5Cright%5D+%5E%7B2%7D+%5Cright%5C%7D+%3DE%5Cleft%28+x%5E%7B2%7D+%5Cright%29+-%5Cleft%5B+E%5Cleft%28+x+%5Cright%29+%5Cright%5D+%5E%7B2%7D+" srcset="/img/loading.gif" alt="[公式]"></p>
-<h2 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h2><p>在概率论和统计学中，数学期望是试验中每次可能结果的概率乘以其结果的总和。它是最基本的数学特征之一，反映随机变量平均值的大小。</p>
-<p>假设X是一个离散随机变量，其可能的取值有：<img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7B1%7D+%2Cx_%7B2%7D+%2C......%2Cx_%7Bn%7D+%5Cright%5C%7D+" srcset="/img/loading.gif" alt="[公式]">)，各个取值对应的概率取值为：<img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+x_%7Bk%7D+%5Cright%29+%2C+k%3D1%2C2%2C......%2Cn" srcset="/img/loading.gif" alt="[公式]">，则其数学期望被定义为：</p>
-<p><img src="https://www.zhihu.com/equation?tex=E%5Cleft%28X+%5Cright%29+%3D%5Csum_%7Bk%3D1%7D%5E%7Bn%7D%7Bx_%7Bk%7D+P%5Cleft%28+x_%7Bk%7D+%5Cright%29+%7D+" srcset="/img/loading.gif" alt="[公式]"></p>
-<p>假设X是一个连续型随机变量，其概率密度函数为<img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+x+%5Cright%29+" srcset="/img/loading.gif" alt="[公式]">则其数学期望被定义为：</p>
+<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+B_%7Bi%7D%7CA+%5Cright%29%3D%5Cfrac%7BP%5Cleft%28+A%7CB_%7Bi%7D+%5Cright%29%5Ccdot+P%5Cleft%28+B_%7Bi%7D+%5Cright%29%7D%7B%5Csum_%7Bi%3D1%7D%5E%7BN%7D%7BP%5Cleft%28+A%7CB_%7Bi%7D+%5Cright%29+%5Ccdot+P%5Cleft%28+B_%7Bi%7D%5Cright%29%7D+%7D" srcset="/img/loading.gif" alt="[公式]" /></p>
+<h2 id="方差"><a class="markdownIt-Anchor" href="#方差"></a> 方差</h2>
+<p>概率中，方差用来衡量随机变量与其数学期望之间的偏离程度；统计中的方差为样本方差，<strong>是各个样本数据分别与其平均数之差的平方和的平均数</strong>。数学表达式如下：</p>
+<p><img src="https://www.zhihu.com/equation?tex=Var%5Cleft%28+x+%5Cright%29+%3DE%5Cleft%5C%7B+%5Cleft%5B+x-E%5Cleft%28+x+%5Cright%29+%5Cright%5D+%5E%7B2%7D+%5Cright%5C%7D+%3DE%5Cleft%28+x%5E%7B2%7D+%5Cright%29+-%5Cleft%5B+E%5Cleft%28+x+%5Cright%29+%5Cright%5D+%5E%7B2%7D+" srcset="/img/loading.gif" alt="[公式]" /></p>
+<h2 id="期望"><a class="markdownIt-Anchor" href="#期望"></a> 期望</h2>
+<p>在概率论和统计学中，数学期望是试验中每次可能结果的概率乘以其结果的总和。它是最基本的数学特征之一，反映随机变量平均值的大小。</p>
+<p>假设X是一个离散随机变量，其可能的取值有：<img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7B1%7D+%2Cx_%7B2%7D+%2C......%2Cx_%7Bn%7D+%5Cright%5C%7D+" srcset="/img/loading.gif" alt="[公式]" />，各个取值对应的概率取值为：<img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+x_%7Bk%7D+%5Cright%29+%2C+k%3D1%2C2%2C......%2Cn" srcset="/img/loading.gif" alt="[公式]" />，则其数学期望被定义为：</p>
+<p><img src="https://www.zhihu.com/equation?tex=E%5Cleft%28X+%5Cright%29+%3D%5Csum_%7Bk%3D1%7D%5E%7Bn%7D%7Bx_%7Bk%7D+P%5Cleft%28+x_%7Bk%7D+%5Cright%29+%7D+" srcset="/img/loading.gif" alt="[公式]" /></p>
+<p>假设X是一个连续型随机变量，其概率密度函数为<img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+x+%5Cright%29+" srcset="/img/loading.gif" alt="[公式]" />则其数学期望被定义为：</p>
 <p><strong>也就是求和换成积分了</strong></p>
-<p><img src="https://www.zhihu.com/equation?tex=E%5Cleft%28+x+%5Cright%29+%3D%5Cint_%7B-%5Cvarpi+%7D%5E%7B%2B%5Cvarpi+%7D+xf%5Cleft%28+x+%5Cright%29+dx" srcset="/img/loading.gif" alt="[公式]"></p>
-<h2 id="协方差"><a href="#协方差" class="headerlink" title="协方差"></a>协方差</h2><h5 id="协方差其意义：看这-超详细"><a href="#协方差其意义：看这-超详细" class="headerlink" title="协方差其意义：看这,超详细"></a><strong>协方差</strong>其意义：<a href="https://blog.csdn.net/GoodShot/article/details/79940438" target="_blank" rel="noopener">看这,超详细</a></h5><p><strong>度量各个维度偏离其均值的程度。协方差的值如果为正值，则说明两者是正相关的(从协方差可以引出“相关系数”的定义)，结果为负值就说明负相关的，如果为0，也是就是统计上说的“相互独立”。</strong></p>
+<p><img src="https://www.zhihu.com/equation?tex=E%5Cleft%28+x+%5Cright%29+%3D%5Cint_%7B-%5Cvarpi+%7D%5E%7B%2B%5Cvarpi+%7D+xf%5Cleft%28+x+%5Cright%29+dx" srcset="/img/loading.gif" alt="[公式]" /></p>
+<h2 id="协方差"><a class="markdownIt-Anchor" href="#协方差"></a> 协方差</h2>
+<h5 id="协方差其意义看这超详细"><a class="markdownIt-Anchor" href="#协方差其意义看这超详细"></a> <strong>协方差</strong>其意义：<a href="https://blog.csdn.net/GoodShot/article/details/79940438" target="_blank" rel="noopener">看这,超详细</a></h5>
+<p><strong>度量各个维度偏离其均值的程度。协方差的值如果为正值，则说明两者是正相关的(从协方差可以引出“相关系数”的定义)，结果为负值就说明负相关的，如果为0，也是就是统计上说的“相互独立”。</strong></p>
 <p>在概率论和统计学中，协方差被用于衡量两个随机变量X和Y之间的总体误差。数学定义式为：</p>
-<p><img src="https://www.zhihu.com/equation?tex=Cov%5Cleft%28+X%2CY+%5Cright%29+%3DE%5Cleft%5B+%5Cleft%28+X-E%5Cleft%5B+X+%5Cright%5D+%5Cright%29+%5Cleft%28+Y-E%5Cleft%5B+Y+%5Cright%5D+%5Cright%29+%5Cright%5D+%3DE%5Cleft%5B+XY+%5Cright%5D+-E%5Cleft%5B+X+%5Cright%5D+E%5Cleft%5B+Y+%5Cright%5D+" srcset="/img/loading.gif" alt="[公式]"></p>
-<h2 id="泊松分布-amp-amp-指数分布"><a href="#泊松分布-amp-amp-指数分布" class="headerlink" title="泊松分布&amp;&amp;指数分布"></a>泊松分布&amp;&amp;指数分布</h2><p><a href="http://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html" target="_blank" rel="noopener">阮一峰的博客，讲的很详细</a></p>
+<p><img src="https://www.zhihu.com/equation?tex=Cov%5Cleft%28+X%2CY+%5Cright%29+%3DE%5Cleft%5B+%5Cleft%28+X-E%5Cleft%5B+X+%5Cright%5D+%5Cright%29+%5Cleft%28+Y-E%5Cleft%5B+Y+%5Cright%5D+%5Cright%29+%5Cright%5D+%3DE%5Cleft%5B+XY+%5Cright%5D+-E%5Cleft%5B+X+%5Cright%5D+E%5Cleft%5B+Y+%5Cright%5D+" srcset="/img/loading.gif" alt="[公式]" /></p>
+<h2 id="泊松分布指数分布"><a class="markdownIt-Anchor" href="#泊松分布指数分布"></a> 泊松分布&amp;&amp;指数分布</h2>
+<p><a href="http://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html" target="_blank" rel="noopener">阮一峰的博客，讲的很详细</a></p>
 <ul>
-<li>泊松分布<ul>
+<li>泊松分布
+<ul>
 <li>日常生活中，大量事件是有固定频率的。</li>
 </ul>
 </li>
 </ul>
-<p>某医院平均每小时出生3个婴儿<br>某公司平均每10分钟接到1个电话<br>某超市平均每天销售4包xx牌奶粉<br>某网站平均每分钟有2次访问<br>它们的特点就是，我们可以预估这些事件的总数，但是没法知道具体的发生时间。已知平均每小时出生3个婴儿，请问下一个小时，会出生几个？</p>
+<p>某医院平均每小时出生3个婴儿<br />
+某公司平均每10分钟接到1个电话<br />
+某超市平均每天销售4包xx牌奶粉<br />
+某网站平均每分钟有2次访问<br />
+它们的特点就是，我们可以预估这些事件的总数，但是没法知道具体的发生时间。已知平均每小时出生3个婴儿，请问下一个小时，会出生几个？</p>
 <p><strong>泊松分布就是描述某段时间内，事件具体的发生概率。</strong></p>
-<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+N%5Cleft%28+t+%5Cright%29+%3Dn+%5Cright%29+%3D%5Cfrac%7B%5Cleft%28+%5Clambda+t+%5Cright%29+%5E%7Bn%7De%5E%7B-%5Clambda+t%7D+%7D%7Bn%21%7D+" srcset="/img/loading.gif" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+N%5Cleft%28+t+%5Cright%29+%3Dn+%5Cright%29+%3D%5Cfrac%7B%5Cleft%28+%5Clambda+t+%5Cright%29+%5E%7Bn%7De%5E%7B-%5Clambda+t%7D+%7D%7Bn%21%7D+" srcset="/img/loading.gif" alt="[公式]" /></p>
 <p>其中：</p>
 <p>P表示概率，N表示某种函数关系，t表示时间，n表示数量，1小时内出生3个婴儿的概率，就表示为 P(N(1) = 3) ；λ 表示事件的频率。</p>
-<p>还是以上面医院平均每小时出生3个婴儿为例，则<img src="https://www.zhihu.com/equation?tex=%5Clambda+%3D3" srcset="/img/loading.gif" alt="[公式]">；</p>
+<p>还是以上面医院平均每小时出生3个婴儿为例，则<img src="https://www.zhihu.com/equation?tex=%5Clambda+%3D3" srcset="/img/loading.gif" alt="[公式]" />；</p>
 <p>那么，接下来两个小时，一个婴儿都不出生的概率可以求得为：</p>
-<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+N%5Cleft%282+%5Cright%29+%3D0+%5Cright%29+%3D%5Cfrac%7B%5Cleft%28+3%5Ccdot+2+%5Cright%29+%5E%7Bo%7D+%5Ccdot+e%5E%7B-3%5Ccdot+2%7D+%7D%7B0%21%7D+%5Capprox+0.0025" srcset="/img/loading.gif" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+N%5Cleft%282+%5Cright%29+%3D0+%5Cright%29+%3D%5Cfrac%7B%5Cleft%28+3%5Ccdot+2+%5Cright%29+%5E%7Bo%7D+%5Ccdot+e%5E%7B-3%5Ccdot+2%7D+%7D%7B0%21%7D+%5Capprox+0.0025" srcset="/img/loading.gif" alt="[公式]" /></p>
 <p>同理，我们可以求接下来一个小时，至少出生两个婴儿的概率：</p>
-<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+N%5Cleft%28+1+%5Cright%29+%5Cgeq+2+%5Cright%29+%3D1-P%5Cleft%28+N%5Cleft%28+1+%5Cright%29%3D0+%5Cright%29+-+P%5Cleft%28+N%5Cleft%28+1+%5Cright%29%3D1+%5Cright%29%5Capprox+0.8" srcset="/img/loading.gif" alt="[公式]"></p>
-<p><strong>指数分布是事件的时间间隔的概率。</strong>下面这些都属于指数分布。</p>
+<p><img src="https://www.zhihu.com/equation?tex=P%5Cleft%28+N%5Cleft%28+1+%5Cright%29+%5Cgeq+2+%5Cright%29+%3D1-P%5Cleft%28+N%5Cleft%28+1+%5Cright%29%3D0+%5Cright%29+-+P%5Cleft%28+N%5Cleft%28+1+%5Cright%29%3D1+%5Cright%29%5Capprox+0.8" srcset="/img/loading.gif" alt="[公式]" /></p>
+<p>**指数分布是事件的时间间隔的概率。**下面这些都属于指数分布。</p>
 <blockquote>
 <ul>
 <li>婴儿出生的时间间隔</li>
@@ -279,6 +299,12 @@
 </div>
 
 <!-- custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
 
 
 <!-- Comments -->
@@ -471,6 +497,32 @@
   </script>
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+              processEscapes: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+
+    </script>
+
+    <script src="https://cdn.staticfile.org/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+
+  
 
 
 

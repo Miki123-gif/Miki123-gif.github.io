@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    600 字
+                    601 字
                   </span>&nbsp;
                 
 
@@ -163,28 +163,35 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h2><p>K-近邻算法，学名<strong>k nearest Neighbor(近的邻居)</strong>,简称<strong>KNN，</strong>该算法可以解决分类的问题</p>
+            <h2 id="knn"><a class="markdownIt-Anchor" href="#knn"></a> KNN</h2>
+<p>K-近邻算法，学名<strong>k nearest Neighbor(近的邻居)</strong>,简称**KNN，**该算法可以解决分类的问题</p>
 <p><a href="https://www.bilibili.com/video/av37947862/?p=41" target="_blank" rel="noopener">推荐一个视频，讲的很详细</a></p>
-<h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><ol>
-<li><p>训练算法，需要先用一些已知样本进行训练</p>
+<h2 id="算法步骤"><a class="markdownIt-Anchor" href="#算法步骤"></a> 算法步骤</h2>
+<ol>
+<li>
+<p>训练算法，需要先用一些已知样本进行训练</p>
 </li>
-<li><p>将未知分类的实例(样本)输入到算法中，并且设置k值，一般k设置成奇数</p>
+<li>
+<p>将未知分类的实例(样本)输入到算法中，并且设置k值，一般k设置成奇数</p>
 </li>
-<li><p>完成分类</p>
+<li>
+<p>完成分类</p>
 </li>
 </ol>
-<h2 id="举例分析"><a href="#举例分析" class="headerlink" title="举例分析"></a>举例分析</h2><ol>
+<h2 id="举例分析"><a class="markdownIt-Anchor" href="#举例分析"></a> 举例分析</h2>
+<ol>
 <li>假如现在我们要将一部电影归类为是<strong>爱情电影 or 动作电影</strong>，我们用两个指标来判定<strong>一部电影中的打斗次数，一部电影中的接吻次数</strong></li>
 <li>现在我们有一些已知类别的电影，和一些未知类别的电影，我们先将已知类别的电影放入到算法中进行训练，假如打斗次数是x，接吻次数是y，我们可以明显在坐标轴上看到打斗电影的点比较密集，爱情电影的点也比较密集，图上的点集分成两类</li>
-<li>设置k值，并且将未排序的数据，投入到算法中，开始进行分类，先从第一个未分类点开始，计算所有已知样本点到该点的距离，找k个离该点最近的点，假如k=5，里面有3个点是爱情电影，2个点是动作电影，<strong>按照少数服从多数原则</strong>，该电影就会归类到爱情电影<blockquote>
+<li>设置k值，并且将未排序的数据，投入到算法中，开始进行分类，先从第一个未分类点开始，计算所有已知样本点到该点的距离，找k个离该点最近的点，假如k=5，里面有3个点是爱情电影，2个点是动作电影，<strong>按照少数服从多数原则</strong>，该电影就会归类到爱情电影</li>
+</ol>
+<blockquote>
 <ul>
 <li>k一般取奇数是因为，假如k = 4，爱情电影和动作电影点分别有两个，那么这个电影就不好分类了</li>
 <li>计算距离一般是算欧氏距离，即sqrt((x2-x1)^2 + (y2-y1)^2)，如果是三位的，依旧如此</li>
 </ul>
 </blockquote>
-</li>
-</ol>
-<h2 id="算法缺点"><a href="#算法缺点" class="headerlink" title="算法缺点"></a>算法缺点</h2><ul>
+<h2 id="算法缺点"><a class="markdownIt-Anchor" href="#算法缺点"></a> 算法缺点</h2>
+<ul>
 <li>时间复杂度比较大，因为数据一多，比如未知样本有100，已知样本有100，则需要计算10000次，第一个样本需要计算他与100个样本的距离，要这样计算100次</li>
 <li>分类不稳定，假如动作电影有100部，爱情电影有1000部，假如我们认为看一个未分类样本，应该是动作电影，但将他放入到算法中，设置k值为10时，由于动作电影稀疏，离他近的点有4个，但爱情电影多，很小范围就有6个点，那么这个点就会误认为时爱情电影</li>
 </ul>
@@ -223,6 +230,12 @@
 </div>
 
 <!-- custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
 
 
 <!-- Comments -->
@@ -415,6 +428,32 @@
   </script>
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+              processEscapes: true,
+              skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+      });
+
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+          for(i=0; i < all.length; i += 1) {
+              all[i].SourceElement().parentNode.className += ' has-jax';
+          }
+      });
+
+    </script>
+
+    <script src="https://cdn.staticfile.org/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+
+  
 
 
 
