@@ -204,7 +204,12 @@
 </ul>
 <p>将基本语句执行次数的数量级放入大Ο记号中。</p>
 <p>如果算法中包含嵌套的循环，则基本语句通常是最内层的循环体，如果算法中包含并列的循环，则将并列循环的时间复杂度相加。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">　　       x++;</span><br><span class="line">　　<span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">　     　<span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;=n; j++)</span><br><span class="line">　　          x++;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">　　<span class="hljs-keyword">for</span> (i=<span class="hljs-number">1</span>; i&lt;=n; i++)
+　　       x++;
+　　<span class="hljs-keyword">for</span> (i=<span class="hljs-number">1</span>; i&lt;=n; i++)
+　     　<span class="hljs-keyword">for</span> (j=<span class="hljs-number">1</span>; j&lt;=n; j++)
+　　          x++;
+</code></pre>
 <p>第一个for循环的时间复杂度为Ο(n)，第二个for循环的时间复杂度为Ο(<em>n</em>2)，则整个算法的时间复杂度为<strong>Ο(n+<em>n</em>2)=Ο(<em>n</em>2)</strong>。</p>
 <p>Ο(1)表示基本语句的执行次数是一个常数，一般来说，只要算法中不存在循环语句，其时间复杂度就是Ο(1)。其中<strong>Ο(log2n)、Ο(n)、 Ο(nlog2n)、Ο(n<sup>2)和Ο(n</sup>3)<strong>称为多项式时间，<strong>而Ο(2^n)和Ο(n!)称为指数时间</strong>。计算机科学家普遍认为前者（即多项式时间复杂度的算法）是有效算法，把这类问题称为</strong>P（Polynomial,多项式）类问题</strong>，而把后者（即指数时间复杂度的算法）称为（ 非确定多项式）问题。</p>
 <h2 id="算法时间复杂度分析法则"><a class="markdownIt-Anchor" href="#算法时间复杂度分析法则"></a> 算法时间复杂度分析法则</h2>
@@ -242,9 +247,14 @@
 </ul>
 <blockquote>
 <p>交换i和j的内容</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum=<span class="number">0</span>；                 （一次）</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)     （n+<span class="number">1</span>次）</span><br><span class="line">   <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++) （n2次）</span><br><span class="line">    sum++；            （n2次） </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"></code></pre>
 </blockquote>
-<pre><code> 解：因为Θ(2\*n^2+n+1)=n^2（即：去低阶项，去掉常数项，去掉高阶项的常参得到），所以T(n)= =O(n^2)；
+<pre><code> sum=0；                 （一次）
+ for(i=1;i&lt;=n;i++)     （n+1次）
+    for(j=1;j&lt;=n;j++) （n2次）
+     sum++；            （n2次）
+ ```
+ 解：因为Θ(2\*n^2+n+1)=n^2（即：去低阶项，去掉常数项，去掉高阶项的常参得到），所以T(n)= =O(n^2)；
 </code></pre>
 <ul>
 <li>
@@ -433,7 +443,7 @@ T(n)=O(<strong>log*2n*</strong> )</p>
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
+      $('pre').addClass('prettyprint  ');
       prettyPrint();
     })
   </script>

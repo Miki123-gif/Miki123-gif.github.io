@@ -136,6 +136,68 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/03/09/logical-regression/">
+        <p class="h4 index-header">logical regression</p>
+      </a>
+
+      <a href="/2020/03/09/logical-regression/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"> 偏导数
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/03/09/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+        <p class="h4 index-header">logical regression</p>
+      </a>
+
+      <a href="/2020/03/09/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"></div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/">
         <p class="h4 index-header">学习网站或工具推荐</p>
       </a>
@@ -236,7 +298,7 @@ markdown支持Latex插入数学公式的使用符号&amp;&amp;，推荐一个在
     
     <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/03/08/How-to-use-python-deal-with-Datas/">
-        <p class="h4 index-header">Pandas and numpy的使用</p>
+        <p class="h4 index-header">numpy的使用</p>
       </a>
 
       <a href="/2020/03/08/How-to-use-python-deal-with-Datas/">
@@ -245,12 +307,25 @@ markdown支持Latex插入数学公式的使用符号&amp;&amp;，推荐一个在
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1"> 使用notepad打开csv文件
+          <div class="index-text mb-1"> numpy的用法
+ 使用notepad打开csv文件
 csv文件在电脑中默认是用excel打开的，最好使用记事本打开，因为用excel打开，会改变里面的数据，excel默认会用科学记数法表示一些很大的数。
+
+注意numpy中对矩阵的各种运算都可以通过axis来指定是对行还是列运算，例如算mean等
+
  python中的矩阵
-123456789matrix &#x3D; [    [1,2,3],    [2,5,6]]print(matrix[1][2])&#39;&#39;&#39;answer &#x3D; 6可以看出123为第一行&#39;&#39;&#39;
+matrix = [
+    [1,2,3],
+    [2,5,6]
+]
+print(matrix[1][2])
+'''
+answer = 6
+可以看出123为第一行
+'''
+
 但这样实际上还是列表，用array创建矩阵，没有逗号隔开的
-12345678910array &#x3D; np.array([    [1</div>
+array = np.array</div>
         </div>
       </a>
 
@@ -542,96 +617,6 @@ K-近邻算法，学名k nearest Neighbor(近的邻居),简称**KNN，**该算�
     </div>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">
-        <p class="h4 index-header">哈希图 and 移动窗口</p>
-      </a>
-
-      <a href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"> 题目1 两数之和
- 题目
-给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
-你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
-示例:
-1234给定 nums &#x3D; [2, 7, 11, 15], target &#x3D; 9因为 nums[0] + nums[1] &#x3D; 2 + 7 &#x3D; 9所以返回 [0, 1]
- 解答
-12345678910list1 = [2, 11, 11, 15, 0, 0, 0, 7]target = 9def find():    </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/01/1-0%E5%9F%BA%E7%A1%80%E5%AD%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-        <p class="h4 index-header">1 零基础学机器学习</p>
-      </a>
-
-      <a href="/2020/03/01/1-0%E5%9F%BA%E7%A1%80%E5%AD%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"> 机器学习使用场景
-机器学习已经有了十分广泛的应用，例如：数据挖掘、计算机视觉、自然语言处理、生物特征识别、搜索引擎、医学诊断、检测信用卡欺诈、证券市场分析、DNA序列测序、语音和手写识别、战略游戏和机器人运用。
- 模式识别&amp;机器学习&amp;深度学习
-
-模式识别，模式识别就是让计算机也具备有识别东西的能力，比如让计算机识别手写数字数8，这叫做手写识别技术，也是模式识别的一个应用场景，其他的还有语音识别，声纹识别(可以知道你是哪个人)，人脸识别，指纹识别等
-
-
-我们应该先对计算机进行数据的训练，比如搜集很多手写的8（训练），将他们变成矩阵存储到计算机中，这样计算机就认识8了，当计算机遇</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
@@ -747,7 +732,7 @@ K-近邻算法，学名k nearest Neighbor(近的邻居),简称**KNN，**该算�
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
+      $('pre').addClass('prettyprint  ');
       prettyPrint();
     })
   </script>

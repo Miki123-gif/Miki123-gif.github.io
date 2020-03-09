@@ -213,7 +213,11 @@
 <ol>
 <li>在git-bash中输入<code>hexo s</code>，然后可以发现你的博客端口</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">$ hexo s
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
+
+</code></pre>
 <ol start="2">
 <li>打开浏览器，输入<code>localhost:4000</code>就可以看到你的博客啦<font color='red'>注意不要关闭git-bash</font></li>
 <li>按 Ctrl+C 进行下一步操作</li>
@@ -223,7 +227,10 @@
 <ol>
 <li>在git-bash里面接着输入<code>hexo n &quot;我的第一篇博客&quot;</code>,然后他会自己创建一个markdown文件</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n &quot;我的第一篇博客&quot;</span><br><span class="line">INFO  Created: ~\blog\source\_posts\我的第一篇博客.md</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">$ hexo n &quot;我的第一篇博客&quot;
+INFO  Created: ~\blog\source\_posts\我的第一篇博客.md
+
+</code></pre>
 <p>创建的位置是blog下的source文件夹里的_posts</p>
 <ol start="2">
 <li>
@@ -243,7 +250,10 @@
 创建好了后，返回git-bash中，切换到blog目录下，这时我们要在blog目录下安装一个hexo插件，直接输入命令<code>cnpm install --save hexo-deployer-git</code></p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_config.yml  node_modules  package-lock.json  scaffolds  themes</span><br><span class="line">db.json      package.json  public             source</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">_config.yml  node_modules  package-lock.json  scaffolds  themes
+db.json      package.json  public             source
+
+</code></pre>
 <p>我们可以发现生成了一个_config.yml 文件，接着输入<code>notepad _config.yml</code>,电脑会用记事本打开这个文件，在文件最下面，我们可以看到一个#Deployment<br />
 <img src="http://i2.tiimg.com/710246/3be705fa79e51eb9.png" srcset="/img/loading.gif" alt="Markdown" /></p>
 <p>将下面地址复制进记事本中，修改记事本中的一部分内容，按图片来操作</p>
@@ -464,7 +474,7 @@
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
+      $('pre').addClass('prettyprint  ');
       prettyPrint();
     })
   </script>

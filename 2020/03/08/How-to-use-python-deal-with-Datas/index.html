@@ -16,7 +16,7 @@
   <meta name="description" content=" keywords: author: Miki language: zh-CN timezone: ">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Pandas and numpy的使用 ~ Miki&#39;s blog</title>
+  <title>numpy的使用 ~ Miki&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    950 字
+                    2.4k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      4 分钟
+                      11 分钟
                   </span>&nbsp;
                 
 
@@ -163,31 +163,98 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="使用notepad打开csv文件"><a class="markdownIt-Anchor" href="#使用notepad打开csv文件"></a> 使用notepad打开csv文件</h2>
+            <h1 id="numpy的用法"><a class="markdownIt-Anchor" href="#numpy的用法"></a> numpy的用法</h1>
+<h2 id="使用notepad打开csv文件"><a class="markdownIt-Anchor" href="#使用notepad打开csv文件"></a> 使用notepad打开csv文件</h2>
 <p>csv文件在电脑中默认是用excel打开的，最好使用记事本打开，因为用excel打开，会改变里面的数据，excel默认会用科学记数法表示一些很大的数。</p>
+<ul>
+<li><strong>注意numpy中对矩阵的各种运算都可以通过axis来指定是对行还是列运算，例如算mean等</strong></li>
+</ul>
 <h2 id="python中的矩阵"><a class="markdownIt-Anchor" href="#python中的矩阵"></a> python中的矩阵</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">matrix &#x3D; [</span><br><span class="line">    [1,2,3],</span><br><span class="line">    [2,5,6]</span><br><span class="line">]</span><br><span class="line">print(matrix[1][2])</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">answer &#x3D; 6</span><br><span class="line">可以看出123为第一行</span><br><span class="line">&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">matrix = [
+    [1,2,3],
+    [2,5,6]
+]
+print(matrix[1][2])
+'''
+answer = 6
+可以看出123为第一行
+'''
+</code></pre>
 <p>但这样实际上还是列表，用array创建矩阵，没有逗号隔开的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">array &#x3D; np.array([</span><br><span class="line">    [1,2,3],</span><br><span class="line">    [4,5,6],</span><br><span class="line">])</span><br><span class="line">print(array)</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">输出：</span><br><span class="line">[[1 2 3]</span><br><span class="line"> [4 5 6]]</span><br><span class="line">&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">array = np.array([
+    [1,2,3],
+    [4,5,6],
+])
+print(array)
+'''
+输出：
+[[1 2 3]
+ [4 5 6]]
+'''
+</code></pre>
 <h3 id="获得矩阵的属性"><a class="markdownIt-Anchor" href="#获得矩阵的属性"></a> 获得矩阵的属性</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 把np的array类实例化</span><br><span class="line">array &#x3D; np.array([</span><br><span class="line">    [1,2,3],</span><br><span class="line">    [4,5,6],</span><br><span class="line">    [0,0,0],</span><br><span class="line">])</span><br><span class="line"># 获得array的属性</span><br><span class="line">print(&#39;number of dim:&#39;, array.ndim)</span><br><span class="line">print(&#39;shape:&#39;, array.shape)</span><br><span class="line">print(&#39;size:&#39;, array.size)</span><br><span class="line"></span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">输出：</span><br><span class="line">#因为矩阵肯定是二维的，向量是一维的</span><br><span class="line">number of dim: 2</span><br><span class="line">shape: (3, 3)</span><br><span class="line">size: 9</span><br><span class="line">&#39;&#39;&#39;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class=""># 把np的array类实例化
+array = np.array([
+    [1,2,3],
+    [4,5,6],
+    [0,0,0],
+])
+# 获得array的属性
+print('number of dim:', array.ndim)
+print('shape:', array.shape)
+print('size:', array.size)
+
+'''
+输出：
+#因为矩阵肯定是二维的，向量是一维的
+number of dim: 2
+shape: (3, 3)
+size: 9
+'''
+</code></pre>
 <h2 id="dtype用法"><a class="markdownIt-Anchor" href="#dtype用法"></a> dtype用法</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">array &#x3D; np.array([</span><br><span class="line">    [1.2,2,3],</span><br><span class="line">    [4,5,6],</span><br><span class="line">    [0,0,0],</span><br><span class="line">], dtype&#x3D;np.int)#一定要是np.int</span><br><span class="line"></span><br><span class="line">print(array)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[1 2 3]</span><br><span class="line"> [4 5 6]</span><br><span class="line"> [0 0 0]]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">array = np.array([
+    [1.2,2,3],
+    [4,5,6],
+    [0,0,0],
+], dtype=np.int)#一定要是np.int
+
+print(array)
+</code></pre>
+<pre class="highlight"><code class="">[[1 2 3]
+ [4 5 6]
+ [0 0 0]]
+</code></pre>
 <p>如果定义是int类型，则矩阵的所有元素都是整数类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">array &#x3D; np.array([</span><br><span class="line">    [1.2, 2, 3],</span><br><span class="line">    [4, 5, 6],</span><br><span class="line">    [0, 0, 0],</span><br><span class="line">], dtype&#x3D;np.float32)</span><br><span class="line"></span><br><span class="line">print(array)</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">array = np.array([
+    [1.2, 2, 3],
+    [4, 5, 6],
+    [0, 0, 0],
+], dtype=np.float32)
+
+print(array)
+</code></pre>
 <ul>
 <li>位数越小，则需要的内存越小</li>
 </ul>
 <h2 id="zeros创建0矩阵"><a class="markdownIt-Anchor" href="#zeros创建0矩阵"></a> zeros，创建0矩阵</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(np.zeros((3, 4)))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[0. 0. 0. 0.]</span><br><span class="line"> [0. 0. 0. 0.]</span><br><span class="line"> [0. 0. 0. 0.]]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">print(np.zeros((3, 4)))
+</code></pre>
+<pre class="highlight"><code class="">[[0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]]
+
+</code></pre>
 <ul>
 <li>注意要用zeros，因为很多个0，<strong>同时函数里面还要用元组</strong></li>
 </ul>
 <h2 id="ones创建1矩阵"><a class="markdownIt-Anchor" href="#ones创建1矩阵"></a> ones，创建1矩阵</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(np.ones((3, 4), dtype&#x3D;np.int))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[1 1 1 1]</span><br><span class="line"> [1 1 1 1]</span><br><span class="line"> [1 1 1 1]]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">print(np.ones((3, 4), dtype=np.int))
+</code></pre>
+<pre class="highlight"><code class="">[[1 1 1 1]
+ [1 1 1 1]
+ [1 1 1 1]]
+</code></pre>
 <h2 id="arange创建与range类似的矩阵"><a class="markdownIt-Anchor" href="#arange创建与range类似的矩阵"></a> arange,创建与range类似的矩阵</h2>
 <p><code>print(np.arange(0, 10, 2))</code>和python中的range是类似的</p>
 <p>[0 2 4 6 8]</p>
@@ -197,45 +264,449 @@
 </li>
 <li>
 <p><code>print(np.arange(0, 12, 2).reshape((2, 3)))</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[ 0  2  4]</span><br><span class="line"> [ 6  8 10]]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">[[ 0  2  4]
+ [ 6  8 10]]
+</code></pre>
 </li>
 <li>
 <p>要注意0-12步长为2，里面是有6个元素的，所以2x3也必须是6</p>
 </li>
 </ul>
 <h2 id="linspace生成步长序列"><a class="markdownIt-Anchor" href="#linspace生成步长序列"></a> linspace，生成步长序列</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(np.linspace(0, 5, 10).reshape((2, 5)))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[0.         0.55555556 1.11111111 1.66666667 2.22222222]</span><br><span class="line"> [2.77777778 3.33333333 3.88888889 4.44444444 5.        ]]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">print(np.linspace(0, 5, 10).reshape((2, 5)))
+</code></pre>
+<pre class="highlight"><code class="">[[0.         0.55555556 1.11111111 1.66666667 2.22222222]
+ [2.77777778 3.33333333 3.88888889 4.44444444 5.        ]]
+</code></pre>
 <p>从0到5，生成10个元素，逐渐增大</p>
 <h2 id="矩阵的四则运算"><a class="markdownIt-Anchor" href="#矩阵的四则运算"></a> 矩阵的四则运算</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.arange(4)</span><br><span class="line">b &#x3D; np.zeros(4)</span><br><span class="line">#加减乘除</span><br><span class="line">print(a + b)</span><br><span class="line">print(&#39;------------&#39;)</span><br><span class="line">print(a ** 2)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[0. 1. 2. 3.]</span><br><span class="line">------------</span><br><span class="line">[0 1 4 9]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">a = np.arange(4)
+b = np.zeros(4)
+#加减乘除
+print(a + b)
+print('------------')
+print(a ** 2)
+</code></pre>
+<pre class="highlight"><code class="">[0. 1. 2. 3.]
+------------
+[0 1 4 9]
+</code></pre>
 <h2 id="矩阵的正弦余弦运算"><a class="markdownIt-Anchor" href="#矩阵的正弦余弦运算"></a> 矩阵的正弦余弦运算</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.arange(4)</span><br><span class="line">b &#x3D; np.zeros(4)</span><br><span class="line">#正弦余弦运算</span><br><span class="line">print(np.cos(b))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1. 1. 1. 1.]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">a = np.arange(4)
+b = np.zeros(4)
+#正弦余弦运算
+print(np.cos(b))
+</code></pre>
+<pre class="highlight"><code class="">[1. 1. 1. 1.]
+</code></pre>
 <p>对每个元素求余弦</p>
 <h2 id="逻辑运算"><a class="markdownIt-Anchor" href="#逻辑运算"></a> 逻辑运算</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.arange(4)</span><br><span class="line">b &#x3D; np.zeros(4)</span><br><span class="line">#逻辑运算</span><br><span class="line">print(a !&#x3D; 0)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[False  True  True  True]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">a = np.arange(4)
+b = np.zeros(4)
+#逻辑运算
+print(a != 0)
+</code></pre>
+<pre class="highlight"><code class="">[False  True  True  True]
+</code></pre>
 <p>对每个元素进行逻辑运算，同时还有&gt;, &lt;, ==</p>
 <h2 id="矩阵乘法和普通乘法运算"><a class="markdownIt-Anchor" href="#矩阵乘法和普通乘法运算"></a> 矩阵乘法和普通乘法运算</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.array([</span><br><span class="line">    [1,2],</span><br><span class="line">    [4,5]</span><br><span class="line">])</span><br><span class="line">b &#x3D; np.array([</span><br><span class="line">    [0,1],</span><br><span class="line">    [0,1]</span><br><span class="line">])</span><br><span class="line">print(a*b)</span><br><span class="line">print(np.dot(a, b))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第一个是每个元素对应相乘</span><br><span class="line">第二个是矩阵乘法</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">a = np.array([
+    [1,2],
+    [4,5]
+])
+b = np.array([
+    [0,1],
+    [0,1]
+])
+print(a*b)
+print(np.dot(a, b))
+</code></pre>
+<pre class="highlight"><code class="">第一个是每个元素对应相乘
+第二个是矩阵乘法
+</code></pre>
 <p><strong>两个向量相乘</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.arange(4).reshape((4, 1))</span><br><span class="line">b &#x3D; np.arange(4).reshape((1, 4))</span><br><span class="line">print(np.dot(b, a))</span><br><span class="line">print(np.dot(a, b))</span><br><span class="line">print(b.dot(a))#两种表达形式，这种也行</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[14]]</span><br><span class="line">[[0 0 0 0]</span><br><span class="line"> [0 1 2 3]</span><br><span class="line"> [0 2 4 6]</span><br><span class="line"> [0 3 6 9]]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">a = np.arange(4).reshape((4, 1))
+b = np.arange(4).reshape((1, 4))
+print(np.dot(b, a))
+print(np.dot(a, b))
+print(b.dot(a))#两种表达形式，这种也行
+</code></pre>
+<pre class="highlight"><code class="">[[14]]
+[[0 0 0 0]
+ [0 1 2 3]
+ [0 2 4 6]
+ [0 3 6 9]]
+</code></pre>
 <h2 id="生成随机矩阵"><a class="markdownIt-Anchor" href="#生成随机矩阵"></a> 生成随机矩阵</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.random.random(2)#生成一维矩阵</span><br><span class="line">b &#x3D; np.random.random((2,3))#生成二维矩阵</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[0.66455362 0.09184438]</span><br><span class="line">[[0.8223943  0.53069539 0.20177849]</span><br><span class="line"> [0.45198285 0.64385535 0.48249845]]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">a = np.random.random(2)#生成一维矩阵
+b = np.random.random((2,3))#生成二维矩阵
+</code></pre>
+<pre class="highlight"><code class="">[0.66455362 0.09184438]
+[[0.8223943  0.53069539 0.20177849]
+ [0.45198285 0.64385535 0.48249845]]
+</code></pre>
 <h2 id="求矩阵的最大最小或者求和"><a class="markdownIt-Anchor" href="#求矩阵的最大最小或者求和"></a> 求矩阵的最大最小，或者求和</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; np.random.random(2)#生成一维矩阵</span><br><span class="line">b &#x3D; np.random.random((2,3))#生成二维矩阵</span><br><span class="line">print(np.max(a))</span><br><span class="line">print(a.max())</span><br><span class="line">print(np.min(b))</span><br><span class="line">print(np.sum(a))</span><br><span class="line">print(a.sum())</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0.8347105081382513</span><br><span class="line">0.13517322901399886</span><br><span class="line">1.5080307306652418</span><br><span class="line">1.5080307306652418</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">b &#x3D; np.random.random((2,3))#生成二维矩阵</span><br><span class="line">print(b)</span><br><span class="line">print(b.min(axis&#x3D;1))</span><br><span class="line">print(b.min(axis&#x3D;0))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[[0.7780649  0.97145716 0.27643172]</span><br><span class="line"> [0.06018098 0.29907257 0.83860847]]</span><br><span class="line">[0.27643172 0.06018098]</span><br><span class="line">[0.06018098 0.29907257 0.27643172]</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">a = np.random.random(2)#生成一维矩阵
+b = np.random.random((2,3))#生成二维矩阵
+print(np.max(a))
+print(a.max())
+print(np.min(b))
+print(np.sum(a))
+print(a.sum())
+</code></pre>
+<pre class="highlight"><code class="">0.8347105081382513
+0.13517322901399886
+1.5080307306652418
+1.5080307306652418
+</code></pre>
+<pre class="highlight"><code class="">b = np.random.random((2,3))#生成二维矩阵
+print(b)
+print(b.min(axis=1))
+print(b.min(axis=0))
+</code></pre>
+<pre class="highlight"><code class="">[[0.7780649  0.97145716 0.27643172]
+ [0.06018098 0.29907257 0.83860847]]
+[0.27643172 0.06018098]
+[0.06018098 0.29907257 0.27643172]
+</code></pre>
 <ul>
-<li>当axis=0时，表示在每一列中找到最大值</li>
-<li>当axis=1时，表示在每一行中找到最大值</li>
+<li>
+<p>当axis=0时，表示在每一列中找到最大值</p>
+</li>
+<li>
+<p>当axis=1时，表示在每一行中找到最大值</p>
+</li>
 </ul>
+<h2 id="找到最大值最小值的坐标argmin"><a class="markdownIt-Anchor" href="#找到最大值最小值的坐标argmin"></a> 找到最大值最小值的坐标argmin</h2>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a)
+print(np.argmax(a))
+print(np.argmin(a))
+b = np.random.random((2,3))
+print('---------------')
+print(b)
+print(np.argmin(b))
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2]
+ [3 4 5]]
+5
+0
+---------------
+[[0.26097962 0.65723894 0.01457888]
+ [0.32926792 0.0782571  0.66194859]]
+2
+</code></pre>
+<ul>
+<li>还记得matlab吧，其实和他是差不多的，从左0开始不断往右数</li>
+<li><strong>agrement表示的是自变量的意思</strong></li>
+</ul>
+<h2 id="计算矩阵的平均值mean中位数median"><a class="markdownIt-Anchor" href="#计算矩阵的平均值mean中位数median"></a> 计算矩阵的平均值mean，中位数median</h2>
+<pre class="highlight"><code class="">print(a.mean())
+print(np.mean(a))
+print(np.median(a))
+</code></pre>
+<pre class="highlight"><code class="">2.5
+2.5
+2.5
+</code></pre>
+<h2 id="累加所有元素cumsum"><a class="markdownIt-Anchor" href="#累加所有元素cumsum"></a> 累加所有元素cumsum</h2>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a)
+print(np.cumsum(a))
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2]
+ [3 4 5]]
+[ 0  1  3  6 10 15]
+</code></pre>
+<h2 id="累差diff两数之间的差值"><a class="markdownIt-Anchor" href="#累差diff两数之间的差值"></a> 累差diff,两数之间的差值</h2>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a)
+print(np.diff(a))
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2]
+ [3 4 5]]
+[[1 1]
+ [1 1]]
+</code></pre>
+<h2 id="输出所有非0的坐标nonzero"><a class="markdownIt-Anchor" href="#输出所有非0的坐标nonzero"></a> 输出所有非0的坐标nonzero</h2>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a)
+print(np.nonzero(a))
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2]
+ [3 4 5]]
+(array([0, 0, 1, 1, 1], dtype=int64), array([1, 2, 0, 1, 2], dtype=int64))
+</code></pre>
+<p>左边表示行，右边表示列，如第0行1列是非0的</p>
+<h2 id="矩阵的转置transpose"><a class="markdownIt-Anchor" href="#矩阵的转置transpose"></a> 矩阵的转置transpose</h2>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a)
+print(np.transpose(a))
+print(a.T)#两种表示方式
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2]
+ [3 4 5]]
+[[0 3]
+ [1 4]
+ [2 5]]
+[[0 3]
+ [1 4]
+ [2 5]]
+</code></pre>
+<h2 id="矩阵的逆i"><a class="markdownIt-Anchor" href="#矩阵的逆i"></a> 矩阵的逆.I</h2>
+<h2 id="单位矩阵eye"><a class="markdownIt-Anchor" href="#单位矩阵eye"></a> 单位矩阵eye</h2>
+<pre class="highlight"><code class="">data6 = np.mat(np.eye(2,2,dtype=int))
+print(data6)
+
+[[1 0]
+ [0 1]]
+</code></pre>
+<h2 id="对角矩阵diag"><a class="markdownIt-Anchor" href="#对角矩阵diag"></a> 对角矩阵diag</h2>
+<pre class="highlight"><code class="">a1 = [1,2,3]
+a2 = np.mat(np.diag(a1))
+print(a2)
+'''
+[[1 0 0]
+ [0 2 0]
+ [0 0 3]]
+'''
+</code></pre>
+<h2 id="clip让大于或小于某个值的值统一"><a class="markdownIt-Anchor" href="#clip让大于或小于某个值的值统一"></a> clip让大于或小于某个值的值统一</h2>
+<p><strong>语法np.clip(matrix, min, max)</strong></p>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a)
+print(np.clip(a,1,4))
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2]
+ [3 4 5]]
+[[1 1 2]
+ [3 4 4]]
+</code></pre>
+<p>我们可以看到介于max和min之间的数值保留了</p>
+<h2 id="矩阵的索引"><a class="markdownIt-Anchor" href="#矩阵的索引"></a> 矩阵的索引</h2>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a)
+print(a[0][2])#打印第0行第2个元素
+print(a[0, 2])
+print(a[1])#打印第1行
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2]
+ [3 4 5]]
+2
+[3 4 5]
+</code></pre>
+<ul>
+<li>都是从0行0列开始的</li>
+</ul>
+<h3 id="打印某一行或某一列的所有元素"><a class="markdownIt-Anchor" href="#打印某一行或某一列的所有元素"></a> 打印某一行或某一列的所有元素</h3>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a)
+print(a[:,0])
+print(a[1,:])
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2]
+ [3 4 5]]
+[0 3]
+[3 4 5]
+</code></pre>
+<ul>
+<li><code>理解了可以这样表达就很容易记了print(a[0, 2])</code></li>
+</ul>
+<blockquote>
+<p>a[: , 1]表示第1列的所有元素，就像列表一样可以切片</p>
+</blockquote>
+<pre class="highlight"><code class="">print(a[1,:][1:2])
+</code></pre>
+<p><code>[4]</code></p>
+<ul>
+<li>注意这个不是列表类型，而是矩阵类型，但依旧可以进行切片操作</li>
+</ul>
+<h2 id="for迭代矩阵每一行或每一列"><a class="markdownIt-Anchor" href="#for迭代矩阵每一行或每一列"></a> for迭代矩阵每一行或每一列</h2>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+for each in a:
+    print(each)
+print('---------')
+for each in a.T:
+    print(each)
+</code></pre>
+<pre class="highlight"><code class="">[0 1 2]
+[3 4 5]
+---------
+[0 3]
+[1 4]
+[2 5]
+</code></pre>
+<ul>
+<li>直接for循环是遍历每一行，转置下就是遍历每一列了</li>
+</ul>
+<h2 id="for遍历矩阵每一个元素flatten"><a class="markdownIt-Anchor" href="#for遍历矩阵每一个元素flatten"></a> for遍历矩阵每一个元素flatten()</h2>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+for each in a.flatten():
+    print(each)
+</code></pre>
+<pre class="highlight"><code class="">0
+1
+2
+3
+4
+5
+</code></pre>
+<pre class="highlight"><code class="">a = np.arange(0,6).reshape((2,3))
+print(a.flatten())#flatten就是转化成一维的
+for each in a.flat:#flat这里是一个迭代器，可以和yeilt和next使用
+    print(each)
+</code></pre>
+<pre class="highlight"><code class="">[0 1 2 3 4 5]
+0
+1
+2
+3
+4
+5
+</code></pre>
+<h2 id="多个矩阵的合并vstackhstack"><a class="markdownIt-Anchor" href="#多个矩阵的合并vstackhstack"></a> 多个矩阵的合并vstack，hstack</h2>
+<h3 id="上下合并vstack"><a class="markdownIt-Anchor" href="#上下合并vstack"></a> 上下合并vstack</h3>
+<ul>
+<li>vstack表示vertical stack，上下堆积起来的意思</li>
+<li><strong>注意vstack(())里面是元组</strong>,上下合并</li>
+</ul>
+<pre class="highlight"><code class="">a = np.array([1,2,3])
+b = np.array([4,5,6])
+print(np.vstack((a,b)))
+</code></pre>
+<pre class="highlight"><code class="">[[1 2 3]
+ [4 5 6]]
+</code></pre>
+<h3 id="左右合并"><a class="markdownIt-Anchor" href="#左右合并"></a> 左右合并</h3>
+<ul>
+<li>hstack，horizontal stack</li>
+</ul>
+<pre class="highlight"><code class="">a = np.array([
+    [1],
+    [2],
+    [3],
+])
+b = np.array([
+    [2],
+    [3],
+    [4],
+])
+print(np.hstack((a,b)))
+</code></pre>
+<pre class="highlight"><code class="">[[1 2]
+ [2 3]
+ [3 4]]
+
+</code></pre>
+<h2 id="numpy中mat和array的区别重点"><a class="markdownIt-Anchor" href="#numpy中mat和array的区别重点"></a> numpy中mat和array的区别(重点)</h2>
+<ul>
+<li><strong>mat函数可以将其他类型的数据转换成矩阵类型，和matlab中的矩阵形式是一样的</strong></li>
+</ul>
+<pre class="highlight"><code class="">a = np.mat(np.ones((3,4)))
+print(type(a))
+print(type(np.zeros((3,4))))
+
+&lt;class 'numpy.matrix'&gt;
+&lt;class 'numpy.ndarray'&gt;#ndarray指的是存放同一数据类型的对象
+</code></pre>
+<ul>
+<li>mat矩阵赋值</li>
+</ul>
+<pre class="highlight"><code class="">a = np.mat([1,2,3],dtype=float)
+a[0] = 1.2
+print(a)
+
+[[1.2 1.2 1.2]]		#会发现整个输出都变成了1.2，而转变成array却不会
+</code></pre>
+<ul>
+<li>mat生成矩阵有两种形式,而array只有一种形式</li>
+</ul>
+<pre class="highlight"><code class="">print(np.mat('1 2;3 4'))
+print(np.mat([[1,2],[3,4]]))
+</code></pre>
+<pre class="highlight"><code class="">[[1 2]
+ [3 4]]
+[[1 2]
+ [3 4]]
+</code></pre>
+<ul>
+<li>
+<p>(1) mat()函数中矩阵的乘积可以使用（星号） *  或 .dot()函数，其结果相同。而矩阵对应位置元素相乘需调用numpy.multiply()函数。</p>
+<p>(2) array()函数中矩阵的乘积只能使用 .dot()函数。而星号乘 （*）则表示矩阵对应位置元素相乘，与numpy.multiply()函数结果相同。</p>
+</li>
+<li>
+<p><a href="https://www.jb51.net/article/156109.htm%EF%BC%8C%E8%AF%A6%E7%BB%86%E5%8F%AF%E4%BB%A5%E7%9C%8B%E8%BF%99%E4%B8%AA" target="_blank" rel="noopener">https://www.jb51.net/article/156109.htm，详细可以看这个</a></p>
+</li>
+<li>
+<p>array如果生成一个行向量，转置后是不会得到一个列向量的，只有mat才会生成一个列向量</p>
+</li>
+</ul>
+<h2 id="newaxis添加新的维度"><a class="markdownIt-Anchor" href="#newaxis添加新的维度"></a> newaxis添加新的维度</h2>
+<pre class="highlight"><code class="">a = np.array([1,1,1])[:,np.newaxis]#这里只有一个括号[]
+print(a)
+</code></pre>
+<pre class="highlight"><code class="">[[1]
+ [1]
+ [1]]
+(3, 1)
+</code></pre>
+<ul>
+<li>相当于给每一个列添加新的维度</li>
+<li><strong>注意，在调试的过程中，我想</strong></li>
+</ul>
+<pre class="highlight"><code class="">a = np.array([[1,1,1]])[:,np.newaxis],加了双[]，这样会失败，最后是变成了三个维度的张量
+</code></pre>
+<h2 id="多个矩阵的合并concatenate"><a class="markdownIt-Anchor" href="#多个矩阵的合并concatenate"></a> 多个矩阵的合并concatenate</h2>
+<ul>
+<li>axis = 0， 相当于上下维度合并，相当于vstack</li>
+<li>axis = 0，左右两个维度合并，相当于hstack</li>
+</ul>
+<h2 id="矩阵的分割"><a class="markdownIt-Anchor" href="#矩阵的分割"></a> 矩阵的分割</h2>
+<h3 id="均匀分割splitmatrixnumaxis"><a class="markdownIt-Anchor" href="#均匀分割splitmatrixnumaxis"></a> 均匀分割split(matrix,num,axis=)</h3>
+<pre class="highlight"><code class="">a = np.mat(np.ones((3,4)))
+b = np.split(a,2,axis=1)	#axis=1表示对列进行操作1看起来就是一列
+print(b[0])
+print(b[1])
+
+[[1. 1.]
+[1. 1.]
+[1. 1.]]
+[[1. 1.]
+[1. 1.]
+[1. 1.]]
+</code></pre>
+<h3 id="不均匀分割arry_splitmatrixnumaxis"><a class="markdownIt-Anchor" href="#不均匀分割arry_splitmatrixnumaxis"></a> 不均匀分割arry_split(matrix,num,axis=)</h3>
+<pre class="highlight"><code class="">a = np.mat(np.ones((3,4)))
+b = np.array_split(a,3,axis=1)
+print(b[0])
+print(b[1])
+</code></pre>
+<h3 id="对行vsplitmatrixnum对列hspilitmatrixnum分割"><a class="markdownIt-Anchor" href="#对行vsplitmatrixnum对列hspilitmatrixnum分割"></a> 对行vsplit(matrix,num)，对列hspilit(matrix,num)分割</h3>
+<pre class="highlight"><code class="">a = np.mat(np.ones((3,4)))
+print(np.vsplit(a, 3))#对行进行分割
+print(np.hsplit(a, 2))#对列进行分割
+</code></pre>
+<pre class="highlight"><code class="">[matrix([[1., 1., 1., 1.]]), matrix([[1., 1., 1., 1.]]), matrix([[1., 1., 1., 1.]])]
+[matrix([[1., 1.],
+        [1., 1.],
+        [1., 1.]]), matrix([[1., 1.],
+        [1., 1.],
+        [1., 1.]])]
+</code></pre>
+<h2 id="矩阵的复制深复制浅复制"><a class="markdownIt-Anchor" href="#矩阵的复制深复制浅复制"></a> 矩阵的复制(深复制，浅复制)</h2>
+<h3 id="浅复制"><a class="markdownIt-Anchor" href="#浅复制"></a> 浅复制</h3>
+<pre class="highlight"><code class="">b = np.array([0,1,2],dtype=float)
+c = b
+b[0] = 0.3
+print(b)
+print(c)
+
+[0.3 1.  2. ]
+[0.3 1.  2. ]
+</code></pre>
+<h3 id="深复制copy"><a class="markdownIt-Anchor" href="#深复制copy"></a> 深复制copy</h3>
+<pre class="highlight"><code class="">b = a.copy()
+</code></pre>
 
             <hr>
           </div>
@@ -408,7 +879,7 @@
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
+      $('pre').addClass('prettyprint  ');
       prettyPrint();
     })
   </script>
@@ -420,7 +891,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Pandas and numpy的使用&nbsp;",
+        "numpy的使用&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

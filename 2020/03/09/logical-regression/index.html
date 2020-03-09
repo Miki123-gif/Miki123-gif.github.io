@@ -16,7 +16,7 @@
   <meta name="description" content=" keywords: author: Miki language: zh-CN timezone: ">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>标签 - 网站推荐 ~ Miki&#39;s blog</title>
+  <title>logical regression ~ Miki&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -98,7 +98,7 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="view intro-2" id="background" false
          style="background: url('/img/default.png')no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -108,6 +108,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Monday, March 9th 2020, 8:30 pm
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    3 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -119,36 +154,66 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">共计 1 篇文章</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">学习网站或工具推荐</span>
-      <span style="float: right;">03-08</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="偏导数"><a class="markdownIt-Anchor" href="#偏导数"></a> 偏导数</h2>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -227,6 +292,26 @@
 
 
 
+  <script src="/js/post.js" ></script>
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+    <script>
+      $(document).ready(function () {
+        tocbot.init({
+          tocSelector: '#tocbot',
+          contentSelector: '.post-content',
+          headingSelector: 'h1,h2,h3,h4,h5,h6',
+          linkClass: 'tocbot-link',
+          activeLinkClass: 'tocbot-active-link',
+          listClass: 'tocbot-list',
+          isCollapsedClass: 'tocbot-is-collapsed',
+          collapsibleClass: 'tocbot-is-collapsible',
+          scrollSmooth: true,
+        });
+      });
+    </script>
+  
+
 
 
   <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
@@ -255,7 +340,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - 网站推荐&nbsp;",
+        "logical regression&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

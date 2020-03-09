@@ -16,7 +16,7 @@
   <meta name="description" content=" keywords: author: Miki language: zh-CN timezone: ">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>标签 - 网站推荐 ~ Miki&#39;s blog</title>
+  <title>归档 ~ Miki&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -128,20 +128,37 @@
                 
 
 <div class="list-group">
-<!--  <p class="h4">共计 1 篇文章</p>-->
+  <p class="h4">共计 14 篇文章</p>
   <hr>
   
     
       
       <p class="h5">2020</p>
     
-    <a href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">学习网站或工具推荐</span>
-      <span style="float: right;">03-08</span>
+    <a href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">哈希图 and 移动窗口</span>
+      <span style="float: right;">03-03</span>
+    </a>
+  
+    
+    <a href="/2020/03/01/1-0%E5%9F%BA%E7%A1%80%E5%AD%A6%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">1 零基础学机器学习</span>
+      <span style="float: right;">03-01</span>
     </a>
   
 </div>
 
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/archives/2020/03/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/2020/03/">1</a><span class="page-number current">2</span>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
               </div>
@@ -255,7 +272,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - 网站推荐&nbsp;",
+        "归档&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
