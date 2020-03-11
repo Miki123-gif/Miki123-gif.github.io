@@ -16,7 +16,7 @@
   <meta name="description" content=" keywords: author: Miki language: zh-CN timezone: ">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>学习网站或工具推荐 ~ Miki&#39;s blog</title>
+  <title>KNN数据分析实战 ~ Miki&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -113,7 +113,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  Sunday, March 8th 2020, 8:44 pm
+                  Wednesday, March 11th 2020, 3:07 pm
                 </p>
               
 
@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    147 字
+                    1.1k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      4 分钟
                   </span>&nbsp;
                 
 
@@ -163,16 +163,163 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="markdown插入公式"><a class="markdownIt-Anchor" href="#markdown插入公式"></a> markdown插入公式</h2>
+            <h2 id="knn数据分析实战"><a class="markdownIt-Anchor" href="#knn数据分析实战"></a> KNN数据分析实战</h2>
+<h3 id="背景海伦约会"><a class="markdownIt-Anchor" href="#背景海伦约会"></a> 背景：海伦约会</h3>
+<p>有一名女性，经常在网上与别人约会，对象会分成三类：</p>
+<ol>
+<li>不喜欢的人，<code>didntLike</code></li>
+<li>魅力一般的人，<code>smallDoses</code></li>
+<li>极具魅力的人，<code>largeDoses</code></li>
+</ol>
+<p>由于网上提供的数据有限，总是不能正常分类，所以海伦自己也搜集了一些数据，希望我们能将这些对象进行分类,部分数据如下：</p>
+<pre class="highlight"><code class="">40920	8.326976	0.953952	largeDoses
+14488	7.153469	1.673904	smallDoses
+26052	1.441871	0.805124	didntLike
+75136	13.147394	0.428964	didntLike
+38344	1.669788	0.134296	didntLike
+72993	10.141740	1.032955	didntLike
+</code></pre>
 <ul>
-<li>markdown支持Latex插入数学公式的使用符号&amp;&amp;，推荐一个在线输入公式，然后会转换成Latex的网站<a href="http://www.wiris.com/editor/demo/en/developers#mathml-latex" target="_blank" rel="noopener">click here</a>,网页加载可能有点慢，耐心等待下</li>
-<li>由于博客传公式会出现问题，结合上面那个网站，再利用<a href="https://www.codecogs.com/latex/eqneditor.php" target="_blank" rel="noopener">Latex转图片网站</a></li>
-</ul>
-<h2 id="机器学习书籍和网站"><a class="markdownIt-Anchor" href="#机器学习书籍和网站"></a> 机器学习书籍和网站</h2>
+<li>数据的属性如下：
 <ul>
-<li>书籍《机器学习实战》，一个人拿着锄头那本书，<a href="https://www.manning.com/books/machine-learning-in-action" target="_blank" rel="noopener">源代码和数据地址</a>下载</li>
-<li>由于书上机器学习代码是python2，运行起来会报错，<a href="https://github.com/Jack-Cherish/Machine-Learning" target="_blank" rel="noopener">推荐GitHub上代码</a></li>
+<li>每年的飞行里程</li>
+<li>玩游戏所占时间比</li>
+<li>每周消费的冰淇淋公升数</li>
 </ul>
+</li>
+</ul>
+<h3 id="数据分析"><a class="markdownIt-Anchor" href="#数据分析"></a> 数据分析</h3>
+<ul>
+<li>首先，我们要将数据转换成矩阵的形式</li>
+</ul>
+<blockquote>
+<p>前三列数据都是数值型，而最后一列数据是字符串类型，我们知道类型分为三类，因此可以将他们转换成整数形式1，2，3</p>
+</blockquote>
+<ol>
+<li>我们可以看到数据类型是<code>txt</code>格式的，而且是一行一行的数据，将数据放到程序目录下</li>
+<li><code>readlines</code>函数可以将每一行数据读取并保存到列表中<code>'40920\t8.326976\t0.953952\tlargeDoses\n'</code></li>
+<li>由于保存的是存在制表符和换行符的，所以我们需用字符串的<code>spilit</code>方法去掉末尾的换行符</li>
+<li>去掉换行符后，我们可以用<code>spilit</code>方法，将每个元素切成四个部分保存在列表中</li>
+<li>利用<code>numpy</code>创造一个新的同样类型的矩阵，1000行3列，并用切片方法赋值</li>
+<li>利用if语句，将最后一列赋值为新的1，2，3</li>
+</ol>
+<pre class="highlight"><code class="">import numpy as np
+
+filename = 'datingTestSet.txt'
+def file_matrix(filename):
+    with open(filename) as f:
+        arrayLines = f.readlines()
+    numerOflines = len(arrayLines)
+    return_mat = np.zeros((numerOflines, 3))
+    classLabelvector = []
+    index = 0
+    for each_line in arrayLines:
+        each_line = each_line.strip()
+        list_from_line = each_line.split('\t')
+        return_mat[index,:] = list_from_line[0:3]
+        if list_from_line[-1] == 'didntLike':
+            classLabelvector.append(1)
+        elif list_from_line[-1] == 'smallDoses':
+            classLabelvector.append(2)
+        elif list_from_line[-1] == 'largeDoses':
+            classLabelvector.append(3)
+        index += 1
+    return return_mat, classLabelvector
+
+if __name__ == '__main__':
+    result = file_matrix(filename)
+</code></pre>
+<pre class="highlight"><code class="">[[4.0920000e+04 8.3269760e+00 9.5395200e-01]
+ [1.4488000e+04 7.1534690e+00 1.6739040e+00]
+ [2.6052000e+04 1.4418710e+00 8.0512400e-01]
+ ...
+</code></pre>
+<h2 id="数据图的绘制"><a class="markdownIt-Anchor" href="#数据图的绘制"></a> 数据图的绘制</h2>
+<pre class="highlight"><code class="">result = file_matrix(filename)
+x = result[0][:, 1]
+y = result[0][:, 2]
+plt.scatter(x, y,s=4)
+</code></pre>
+<ul>
+<li>result[0]是一个矩阵</li>
+<li>size可以设置散点图的点的大小</li>
+</ul>
+<p>上面绘制的点颜色都是一样的，不好分辨点的分布，现在修改函数</p>
+<pre class="highlight"><code class="">def color_label(classLabelvector):
+    colorLabel = []
+    for each in classLabelvector:
+        if each == 1:
+            colorLabel.append('red')
+        elif each == 2:
+            colorLabel.append('black')
+        elif each == 3:
+            colorLabel.append('green')
+    return colorLabel
+
+if __name__ == '__main__':
+    result = file_matrix(filename)
+    x = result[0][:, 1]
+    y = result[0][:, 2]
+    color = color_label(result[1])
+    plt.scatter(x, y, s=15, color=color)
+    plt.show()
+</code></pre>
+<ul>
+<li>scatter有个图标签，可以传一个数组进去</li>
+</ul>
+<p><img src="http://q6ip4it64.bkt.clouddn.com/Figure_1.png?e=1583930570&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:3VwQnkM8PqMVP4oFi2cvRp7RRjk=&amp;attname=" srcset="/img/loading.gif" alt="" /></p>
+<h2 id="计算样本点之间的距离"><a class="markdownIt-Anchor" href="#计算样本点之间的距离"></a> 计算样本点之间的距离</h2>
+<pre class="highlight"><code class="">40920	8.326976	0.953952	largeDoses
+14488	7.153469	1.673904	smallDoses
+26052	1.441871	0.805124	didntLike
+75136	13.147394	0.428964	didntLike
+</code></pre>
+<p>这里有四个样本点，如果你要计算样本点3和样本点3的距离，由于维度是3，但是没有关系，我们依旧可以计算他的欧氏距离<br />
+<img src="http://q6ip4it64.bkt.clouddn.com/CodeCogsEqn.png?e=1583934436&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:x_2ZGqMFPcRFSwG6sgKk2pj5Fqw=&amp;attname=" srcset="/img/loading.gif" alt="" /></p>
+<ul>
+<li>我们会发现，飞行的距离，对整个结果的影响实在是太大了，其他几个因素又和没有其实是一样的</li>
+</ul>
+<h2 id="数据的归一化"><a class="markdownIt-Anchor" href="#数据的归一化"></a> 数据的归一化</h2>
+<p>为了避免上面的结果，我们往往会将数据进行归一化，将所有的数据取值处理到0-1或者-1-1</p>
+<pre class="highlight"><code class="">a = np.random.random(10).reshape((2,5))
+print(a)
+print(a.min(0))
+</code></pre>
+<pre class="highlight"><code class="">[[0.763841   0.33633528 0.45371754 0.34882551 0.17668197]
+ [0.17092413 0.46925439 0.91786587 0.65634385 0.76016537]]
+ 
+[0.17092413 0.33633528 0.45371754 0.34882551 0.17668197]
+</code></pre>
+<ul>
+<li>可以发现<code>a.min(0)</code>这样将每一列中的最小数据都挑出来了，并且生成了一个数组</li>
+</ul>
+<pre class="highlight"><code class="">def dataNorm(result):
+	# 获得每一列的最大最小值
+    min_values = result.min(0)
+    max_values = result.max(0)
+    ranges = max_values - min_values
+    # 获得行数
+    row = result.shape[0]
+    # 对应元素进行四则运算
+    new_Norm_data = (result - np.tile(min_values, (row, 1)))/np.tile(ranges, (row, 1))
+    return new_Norm_data
+</code></pre>
+<ul>
+<li>现在<code>ndarray</code>形式的数组好处就体现出来了，加减乘除都可以对应元素加减乘除，而不会依据矩阵的运算来进行</li>
+<li><code>numpy.tile()</code>的用法</li>
+</ul>
+<pre class="highlight"><code class="">a = [1,2,3,4]
+print(np.tile(a, (1, 2)))
+print(np.tile(a, (3, 1)))
+</code></pre>
+<pre class="highlight"><code class="">[[1 2 3 4 1 2 3 4]]
+[[1 2 3 4]
+ [1 2 3 4]
+ [1 2 3 4]]
+</code></pre>
+<blockquote>
+<p>可以发现，必须传入一个列表，当右边传入一个元组时，<code>left</code>表示复制的行数，<code>right</code>表示复制的列数，复制后生成一个<code>ndarray</code>形式的数组</p>
+</blockquote>
 
             <hr>
           </div>
@@ -180,19 +327,11 @@
           <div>
             <p>
             
-              <span>
-                <i class="iconfont icon-inbox"></i>
-                
-                  <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90">学习网站推荐</a>
-                  &nbsp;
-                
-              </span>&nbsp;&nbsp;
-            
             
               <span>
                 <i class="iconfont icon-tag"></i>
                 
-                  <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90">网站推荐</a>
+                  <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
                 
               </span>
             
@@ -357,7 +496,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "学习网站或工具推荐&nbsp;",
+        "KNN数据分析实战&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
