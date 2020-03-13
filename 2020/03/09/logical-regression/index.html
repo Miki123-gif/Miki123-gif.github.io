@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    3 字
+                    772 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      2 分钟
                   </span>&nbsp;
                 
 
@@ -163,7 +163,48 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="偏导数"><a class="markdownIt-Anchor" href="#偏导数"></a> 偏导数</h2>
+            <h2 id="什么是回归"><a class="markdownIt-Anchor" href="#什么是回归"></a> 什么是回归</h2>
+<p>最简单的回归就是用一条的曲线，来拟合所有的数值，这个点要尽可能离所有点都比较接近，用求和来计算</p>
+<h2 id="逻辑回归"><a class="markdownIt-Anchor" href="#逻辑回归"></a> 逻辑回归</h2>
+<p>机器学习中的逻辑回归是用来分类的，而不是进行拟合的，利用回归来画出边界，进行分类</p>
+<h2 id="sigmoid函数"><a class="markdownIt-Anchor" href="#sigmoid函数"></a> Sigmoid函数</h2>
+<p><code>Sigomoid</code>函数看上去就像阶跃函数一样，但是阶跃函数在跳跃点处不好把握，所以找了它来替代（可以将任何输入，不论<code>x</code>范围是多少，都可以映射到0-1区间，<code>y</code>输出为0-1）</p>
+<p><img src="https://img-blog.csdn.net/20170830195915704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<ul>
+<li>z值其实是每个特征量，也就是没给自变量，乘以一个系数，再求和得出，因此，我们需要得到如何计算最佳回归系数</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20170830200052982?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p><img src="https://img-blog.csdn.net/20170830195855344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<ul>
+<li>用矩阵表示就是这样，<code>x</code>表示输入的数据，<code>θ</code>表示最佳参数</li>
+</ul>
+<h2 id="梯度下降法"><a class="markdownIt-Anchor" href="#梯度下降法"></a> 梯度下降法</h2>
+<p>我们先看个简单的求极大值的例子。一个看了就会想到高中生活的函数：</p>
+<p><img src="https://img-blog.csdn.net/20170830200337262?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p>来吧，做高中题。这个函数的极值怎么求？显然这个函数开口向下，存在极大值，它的函数图像为：</p>
+<p><img src="https://img-blog.csdn.net/20170830200401362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p>求极值，先求函数的导数：</p>
+<p><img src="https://img-blog.csdn.net/20170831221629911?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p>令导数为0，可求出x=2即取得函数f(x)的极大值。极大值等于f(2)=4</p>
+<p>但是真实环境中的函数不会像上面这么简单，就算求出了函数的导数，也很难精确计算出函数的极值。此时我们就可以用迭代的方法来做。就像爬坡一样，一点一点逼近极值。这种寻找最佳拟合参数的方法，就是最优化算法。爬坡这个动作用数学公式表达即为：</p>
+<p><img src="https://img-blog.csdn.net/20170830200457026?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<ul>
+<li>导数就是<code>tanα</code>乘一个系数就相当于不断向前前进</li>
+</ul>
+<p>其中，α为步长，也就是学习速率，控制更新的幅度。效果如下图所示：</p>
+<p><img src="https://img-blog.csdn.net/20170830200522945?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p>比如从(0,0)开始，迭代路径就是1-&gt;2-&gt;3-&gt;4-&gt;…-&gt;n，直到求出的x为函数极大值的近似值，停止迭代。</p>
+<blockquote>
+<p>寻找最优解其实还有很多算法，比如蚁群算法，遗传算法等，但是这些算法只能寻找单一目标，所以现在就有了多目标算法（就像我找工作，我想找那种钱多的，轻松的…）</p>
+</blockquote>
+<ul>
+<li>梯度上升法是用来寻找最大值的，而梯度下降法是寻找最小值的</li>
+</ul>
+<h2 id="参考博客"><a class="markdownIt-Anchor" href="#参考博客"></a> 参考博客</h2>
+<p><a href="https://blog.csdn.net/c406495762/article/details/77723333" target="_blank" rel="noopener">https://blog.csdn.net/c406495762/article/details/77723333</a></p>
+<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<p>从上图可以看出数据的分布情况。假设Sigmoid函数的输入记为z，那么z=w0x0 + w1x1 + w2x2，即可将数据分割开。其中，x0为全是1的向量，x1为数据集的第一列数据，x2为数据集的第二列数据。另z=0，则0=w0 + w1x1 + w2x2。横坐标为x1，纵坐标为x2。这个方程未知的参数为w0，w1，w2，也就是我们需要求的回归系数(最优参数)。</p>
+<p>为什么x0可以等于1呢？</p>
 
             <hr>
           </div>

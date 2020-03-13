@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    1.5k 字
+                    2k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      5 分钟
+                      7 分钟
                   </span>&nbsp;
                 
 
@@ -163,7 +163,12 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="大数定律"><a class="markdownIt-Anchor" href="#大数定律"></a> 大数定律</h2>
+            <ul>
+<li>贝叶斯分析的核心就是，假如有一个数据，我要测试他是属于哪一类的，分别概率为<code>p1，p2，p3</code>，将会挑选概率最大的那个类别</li>
+<li>贝叶斯准则，告诉我们，如果已知从盒子b中取出一块石头的概率，那么我们就可以按照概率公式算出，取出的一块石头，是来自盒子b的概率</li>
+<li>朴素贝叶斯要求，各个特征是独立的，常用到是不是垃圾文件</li>
+</ul>
+<h2 id="大数定律"><a class="markdownIt-Anchor" href="#大数定律"></a> 大数定律</h2>
 <p>当一个实验重复多次时（大量次数），事件发生的频率就会接近于概率</p>
 <h2 id="先验信息"><a class="markdownIt-Anchor" href="#先验信息"></a> 先验信息</h2>
 <p>就是我们对一个事件的发生需要有一定的认识，或者积累的经验</p>
@@ -209,6 +214,60 @@
 <p>机器学习的一个重要应用就是文档的自动分类。</p>
 <p>在文档分类中，整个文档（如一封电子邮件）是实例，而电子邮件中的某些元素则构成特征。我们可以观察文档中出现的词，并把每个词作为一个特征，而每个词的出现或者不出现作为该特征的值，这样得到的特征数目就会跟词汇表中的词的数目一样多。</p>
 <p>朴素贝叶斯是上面介绍的贝叶斯分类器的一个扩展，是用于文档分类的常用算法。下面我们会进行一些朴素贝叶斯分类的实践项目。</p>
+<p>某个医院早上来了六个门诊的病人，他们的情况如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>症状</th>
+<th>职业</th>
+<th>疾病</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>打喷嚏</td>
+<td>护士</td>
+<td>感冒</td>
+</tr>
+<tr>
+<td>打喷嚏</td>
+<td>农夫</td>
+<td>过敏</td>
+</tr>
+<tr>
+<td>头痛</td>
+<td>建筑工人</td>
+<td>脑震荡</td>
+</tr>
+<tr>
+<td>头痛</td>
+<td>建筑工人</td>
+<td>感冒</td>
+</tr>
+<tr>
+<td>打喷嚏</td>
+<td>教师</td>
+<td>感冒</td>
+</tr>
+<tr>
+<td>头痛</td>
+<td>教师</td>
+<td>脑震荡</td>
+</tr>
+</tbody>
+</table>
+<p>现在又来了第七个病人，是一个打喷嚏的建筑工人。请问他患上感冒的概率有多大？</p>
+<p>根据贝叶斯定理：</p>
+<p><img src="https://img-blog.csdn.net/20170817204750272?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p>可得：</p>
+<p><img src="https://img-blog.csdn.net/20170817204812471?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p>根据朴素贝叶斯条件独立性的假设可知，&quot;打喷嚏&quot;和&quot;建筑工人&quot;这两个特征是独立的，因此，上面的等式就变成了</p>
+<p><img src="https://img-blog.csdn.net/20170817204834377?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p>这里可以计算：</p>
+<p><img src="https://img-blog.csdn.net/20170817204857275?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<p>因此，这个打喷嚏的建筑工人，有66%的概率是得了感冒。同理，可以计算这个病人患上过敏或脑震荡的概率。比较这几个概率，就可以知道他最可能得什么病。</p>
+<p>这就是贝叶斯分类器的基本方法：在统计资料的基础上，依据某些特征，计算各个类别的概率，从而实现分类。</p>
+<p>同样，在编程的时候，如果不需要求出所属类别的具体概率，P(打喷嚏) = 0.5和P(建筑工人) = 0.33的概率是可以不用求的。</p>
 <h2 id="贝叶斯算法的优缺点"><a class="markdownIt-Anchor" href="#贝叶斯算法的优缺点"></a> 贝叶斯算法的优缺点</h2>
 <h3 id="优点"><a class="markdownIt-Anchor" href="#优点"></a> 优点</h3>
 <ul>
@@ -221,6 +280,8 @@
 <li>贝叶斯是假设数据的特征之间是独立的，然而在实际中很多特征的出现都是有联系的，这也会造成一定的误差</li>
 <li>对输入的数据的类型要求比较高，我们先要将一篇文章的词语拆分，再去重，提取出来</li>
 </ul>
+<h2 id="参考博客"><a class="markdownIt-Anchor" href="#参考博客"></a> 参考博客</h2>
+<p><a href="https://blog.csdn.net/c406495762/article/details/77341116" target="_blank" rel="noopener">https://blog.csdn.net/c406495762/article/details/77341116</a></p>
 
             <hr>
           </div>

@@ -136,100 +136,25 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/12/KNN%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F/">
-        <p class="h4 index-header">KNN手写识别系统</p>
+      <a href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/">
+        <p class="h4 index-header">支持向量机算法</p>
       </a>
 
-      <a href="/2020/03/12/KNN%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F/">
+      <a href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1"> 识别0~9数字系统
-
-首先，readlines和readline都会读取到末尾的换行符，因此需要用strip来去掉
-
-print(f.readlines())
-
-['123\n', '1\n', '4']
-
-print(f.readline().strip())
-
- 准备数据
-
-
-现在我们有大量二进制数据txt文件，这些数据是通过搜集大量的手写0-9数字，然后通过光学识别，将图片转换成二进制32*32的矩阵保存在txt中，现在0数字有几百个数据，一共2000组txt文件
-
-
-现在将32*32的数组转变成1*1024的行向量，32是2的5次方，刚好是1*2的10次方
-
-
-故先设计矩阵转向量的函</div>
+          <div class="index-text mb-1"></div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-13&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98/">
-        <p class="h4 index-header">KNN数据分析实战</p>
-      </a>
-
-      <a href="/2020/03/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"> KNN数据分析实战
- 背景：海伦约会
-有一名女性，经常在网上与别人约会，对象会分成三类：
-
-不喜欢的人，didntLike
-魅力一般的人，smallDoses
-极具魅力的人，largeDoses
-
-由于网上提供的数据有限，总是不能正常分类，所以海伦自己也搜集了一些数据，希望我们能将这些对象进行分类,部分数据如下：
-40920	8.326976	0.953952	largeDoses
-14488	7.153469	1.673904	smallDoses
-26052	1.441871	0.805124	didntLike
-75136	13.147394	0.428964	didntLike
-38</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-11&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          
         
       </div>
     </div>
@@ -352,8 +277,23 @@ Series开头一定要大写</div>
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1"> 偏导数
-</div>
+          <div class="index-text mb-1"> 什么是回归
+最简单的回归就是用一条的曲线，来拟合所有的数值，这个点要尽可能离所有点都比较接近，用求和来计算
+ 逻辑回归
+机器学习中的逻辑回归是用来分类的，而不是进行拟合的，利用回归来画出边界，进行分类
+ Sigmoid函数
+Sigomoid函数看上去就像阶跃函数一样，但是阶跃函数在跳跃点处不好把握，所以找了它来替代（可以将任何输入，不论x范围是多少，都可以映射到0-1区间，y输出为0-1）
+
+
+z值其实是每个特征量，也就是没给自变量，乘以一个系数，再求和得出，因此，我们需要得到如何计算最佳回归系数
+
+
+
+
+用矩阵表示就是这样，x表示输入的数据，θ表示最佳参数
+
+ 梯度下降法
+我们先看个简单的</div>
         </div>
       </a>
 
@@ -434,7 +374,12 @@ markdown支持Latex插入数学公式的使用符号&amp;&amp;，推荐一个在
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1"> 大数定律
+          <div class="index-text mb-1">
+贝叶斯分析的核心就是，假如有一个数据，我要测试他是属于哪一类的，分别概率为p1，p2，p3，将会挑选概率最大的那个类别
+贝叶斯准则，告诉我们，如果已知从盒子b中取出一块石头的概率，那么我们就可以按照概率公式算出，取出的一块石头，是来自盒子b的概率
+朴素贝叶斯要求，各个特征是独立的，常用到是不是垃圾文件
+
+ 大数定律
 当一个实验重复多次时（大量次数），事件发生的频率就会接近于概率
  先验信息
 就是我们对一个事件的发生需要有一定的认识，或者积累的经验
@@ -444,74 +389,7 @@ markdown支持Latex插入数学公式的使用符号&amp;&amp;，推荐一个在
 比如扔骰子，我们知道每个点朝上的概率是1/6，如果叫一个原始人来猜，他可能连数字都不知道是什么
 
 
-比如蒙上一个人的眼睛，让他品尝分辨当前喝的是牛奶还是茶，它可以猜对，但是叫原始人来喝，他即使喝的是牛奶，他也不知道是牛奶，可能会猜茶
-
-
-让一位音乐大师分辨曲子是哪个人写的，假如十个曲子5首是莫扎特的，音乐大师全都能才对，但是对一个没经验的人，概率就是百分之五十
-
-
-
-
-
-
-古典统计学派认为概率来源于统计，需要通过统计来得到概率论（抛硬币）
-贝叶</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/08/How-to-use-python-deal-with-Datas/">
-        <p class="h4 index-header">numpy的使用</p>
-      </a>
-
-      <a href="/2020/03/08/How-to-use-python-deal-with-Datas/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"> numpy的用法
- 使用notepad打开csv文件
-csv文件在电脑中默认是用excel打开的，最好使用记事本打开，因为用excel打开，会改变里面的数据，excel默认会用科学记数法表示一些很大的数。
-
-注意numpy中对矩阵的各种运算都可以通过axis来指定是对行还是列运算，例如算mean等
-
- python中的矩阵
-matrix = [
-    [1,2,3],
-    [2,5,6]
-]
-print(matrix[1][2])
-'''
-answer = 6
-'''
-
-但这样实际上还是列表，用array创建矩阵，没有逗号隔开的
-array = np.array([
-    [1,2,</div>
+比如蒙上一个人的眼睛，让他品尝分辨当前喝</div>
         </div>
       </a>
 
@@ -613,15 +491,10 @@ array = np.array</div>
 熵（entropy）： 熵指的是体系的混乱的程度，在不同的学科中也有引申出的更为具体的定义，是各领域十分重要的参量。
 
 
-信息论（information theory）中的熵（香农熵）： 是一种信息的度量方式，表示信息的混乱程度，也就是说：信息越有序，信息熵越低。例如：火柴有序放在火柴盒里，熵值很低，相反，熵值很高。
+信息论（information theory）中的熵（香农熵）： 是一种信息的度量方式，表示信息的混乱程度，也就是说：信息越有序，信息熵越低。例如：火柴有序放在火柴盒里，熵值很低，相反，熵值很高。就像明天是晴天，和15天后是晴天，明天是晴天的熵是比较小的
 
 
-信息增益（information gain）： 在划分数据集前后信息发生的变化称为信息增益。
-
-
-
-
-树的定义，就像族谱一样，根结点时唯一的，子树是根结点衍生出来的，当一个圈没叶子时，他就是叶结点，其</div>
+信息增益（information gain）： 在划分数据集前后信息发生的变化称为信息增益。(目的就是将无需的信息变得有序)（一个随机变量，让</div>
         </div>
       </a>
 
@@ -639,6 +512,116 @@ array = np.array</div>
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/">
+        <p class="h4 index-header">K-近邻算法</p>
+      </a>
+
+      <a href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"> KNN
+K-近邻算法，学名k nearest Neighbor(近的邻居),简称**KNN，**该算法可以解决分类的问题
+推荐一个视频，讲的很详细
+ 算法步骤
+
+
+训练算法，需要先用一些已知样本进行训练
+
+
+将未知分类的实例(样本)输入到算法中，并且设置k值，一般k设置成奇数
+
+
+完成分类
+
+
+ 举例分析
+
+假如现在我们要将一部电影归类为是爱情电影 or 动作电影，我们用两个指标来判定一部电影中的打斗次数，一部电影中的接吻次数
+现在我们有一些已知类别的电影，和一些未知类别的电影，我们先将已知类别的电影放入到算法中进行训练，假如打斗次数是x，接吻次数是y，我们可以明显在坐标轴上看到打斗电影的点</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/03/05/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+        <p class="h4 index-header">排序算法</p>
+      </a>
+
+      <a href="/2020/03/05/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">排序算法的动画在这里，概念讲的很透彻
+由于上面的排序代码是java写的，所以这里我会用python来实现一遍
+ 什么是内部排序，什么是外部排序
+
+内部排序指的是在内存 里面进行的排序
+外部排序是当数据很大，内存存放不了的时候，需要用到外存进行数据排序
+
+ 什么是排序算法的稳定性
+通俗地说就是假如数据中有很多同样大小的数据，在排序中，如果这些数据的相对次序不会发生变化，则称这个排序算法是稳定的
+
+相对次序是指排序前，你在我左边，排序后，你依旧在我左边
+
+ 1. 冒泡排序
+ 算法步骤（假设从小到大排序）
+
+比较第一个和第二个数，如果第一个大于第二个，则交换两个数据位置
+再比较第二个和第三个，重复交</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
           
         
       </div>
