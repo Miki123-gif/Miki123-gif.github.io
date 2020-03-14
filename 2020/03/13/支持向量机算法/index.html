@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    2.1k 字
+                    2.3k 字
                   </span>&nbsp;
                 
 
@@ -164,6 +164,13 @@
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <h2 id="支持向量机"><a class="markdownIt-Anchor" href="#支持向量机"></a> 支持向量机</h2>
+<ul>
+<li>向量内积(点乘)，对应相乘相加</li>
+<li>或者表示为<code>|x|*|y|*cosθ</code></li>
+<li>范数，平方和开根号</li>
+<li>推荐b站覃秉丰的机器学习</li>
+<li>核函数就是为了简便内积的运算而引入的，因为有些时候非线性的数据集不好处理，要进行低维转化为高维来寻找超平面，由此引入了核函数</li>
+</ul>
 <p>支持向量机<code>（SVM）support vector machine</code>，主要是用来解决二分类问题的，他被认为是最好的分类方法。因为他能解决线性回归不能解决的分类问题</p>
 <p><strong><code>SVM</code>就是试图把棍放在最佳位置，好让在棍的两边有尽可能大的间隙。这个间隙就是球到棍的距离。</strong></p>
 <p><img src="https://img-blog.csdn.net/20170923170200381?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
@@ -173,6 +180,12 @@
 <p><img src="https://img-blog.csdn.net/20170923170253159?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
 <p>我们需要对二维平面进行升维处理，找到一个最好的平面，将数据分类，我们将这个平面称为<strong>超平面</strong></p>
 <p><img src="https://img-blog.csdn.net/20170923170319898?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>
+<h2 id="松弛变量和惩罚函数"><a class="markdownIt-Anchor" href="#松弛变量和惩罚函数"></a> 松弛变量和惩罚函数</h2>
+<p>因为实际的数据不可能没有错误的**(非线性情况)**，总会有分类错误的点(或者苹果跑到梨子那边了)</p>
+<ul>
+<li>松弛变量就是让支持向量(曲线)不断移动</li>
+<li>惩罚函数就是让分错的点越少越好(最好的时候就是刚好与分错的点相切)</li>
+</ul>
 <h2 id="线性svm"><a class="markdownIt-Anchor" href="#线性svm"></a> 线性<code>SVM</code></h2>
 <p>现在先看一下平面二分类的问题</p>
 <p><img src="https://img-blog.csdn.net/20170923170544874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="img" /></p>

@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    0 字
+                    182 字
                   </span>&nbsp;
                 
 
@@ -163,7 +163,15 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            
+            <h2 id="集成学习"><a class="markdownIt-Anchor" href="#集成学习"></a> 集成学习</h2>
+<p>三个臭皮匠，抵个诸葛亮，集成多个分类器，得到一个更好的分类器。就像多听几个专家的意见。随机森林是我接触到的第一个集成学习算法。(利用多个机器学习方法集合而成的)</p>
+<h2 id="实现方法"><a class="markdownIt-Anchor" href="#实现方法"></a> 实现方法</h2>
+<ol>
+<li>使用<code>bagging</code>方法（从数据中随机选择<code>n</code>个样本），有放回地选，意味着可能选到相同的</li>
+<li>在样本中所有特征中随机选择<code>k</code>个特征，利用决策树算法(计算信息增益)，来决定结点</li>
+<li>重复上面步骤<code>m</code>次，得到<code>m</code>个结果，然后投票将数据进行分类，这<code>m</code>颗树就是随机森林</li>
+</ol>
+
             <hr>
           </div>
           <br>
