@@ -250,7 +250,7 @@ body a:hover {
 .wechat-qrcode {
   width: 200px;
   height: 300px;
-  background: url("") no-repeat;
+  background: url("http://q6ip4it64.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200314165826.jpg?e=1584179970&token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:aIWXiFvNTg8ZNk3IK21YiFn_uCs=&attname=# 微信图标，这个是特殊图标，点击不会跳转而是悬浮二维码，所以链接需要对应二维码图片地址") no-repeat;
   background-size: 100%;
   position: absolute;
   right: -100px;
