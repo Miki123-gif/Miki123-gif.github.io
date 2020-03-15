@@ -16,7 +16,7 @@
   <meta name="description" content=" keywords: author: Miki language: zh-CN timezone: ">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>random forest ~ Miki&#39;s blog</title>
+  <title>random forest and k means ~ Miki&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    182 字
+                    545 字
                   </span>&nbsp;
                 
 
@@ -163,7 +163,8 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="集成学习"><a class="markdownIt-Anchor" href="#集成学习"></a> 集成学习</h2>
+            <h1 id="随机森林"><a class="markdownIt-Anchor" href="#随机森林"></a> 随机森林</h1>
+<h2 id="集成学习"><a class="markdownIt-Anchor" href="#集成学习"></a> 集成学习</h2>
 <p>三个臭皮匠，抵个诸葛亮，集成多个分类器，得到一个更好的分类器。就像多听几个专家的意见。随机森林是我接触到的第一个集成学习算法。(利用多个机器学习方法集合而成的)</p>
 <h2 id="实现方法"><a class="markdownIt-Anchor" href="#实现方法"></a> 实现方法</h2>
 <ol>
@@ -171,6 +172,23 @@
 <li>在样本中所有特征中随机选择<code>k</code>个特征，利用决策树算法(计算信息增益)，来决定结点</li>
 <li>重复上面步骤<code>m</code>次，得到<code>m</code>个结果，然后投票将数据进行分类，这<code>m</code>颗树就是随机森林</li>
 </ol>
+<h1 id="k-均值"><a class="markdownIt-Anchor" href="#k-均值"></a> k 均值</h1>
+<h2 id="k均值算法"><a class="markdownIt-Anchor" href="#k均值算法"></a> k均值算法</h2>
+<ul>
+<li>聚类，属于无监督学习的一种，就是我们实现不知道数据的标签，将所有具有相似属性的点归为一类</li>
+</ul>
+<p><a href="https://www.bilibili.com/video/av37947862?p=61" target="_blank" rel="noopener">推荐b站视频，快速了解</a></p>
+<h2 id="算法实现"><a class="markdownIt-Anchor" href="#算法实现"></a> 算法实现</h2>
+<ol>
+<li>我们需要手动设置k值，将数据样本归为k类</li>
+<li>这里假设有一堆二维数据点<code>(这里假设为4个y1,y2,y3,y4)</code>，对应x轴和y轴平面上的点，先随机选取k个点<code>(假设这里k=2，选取两个点为k1,k2)</code>,作为类的重心</li>
+<li>我们先计算<code>y1~y4</code>到<code>k1</code>的距离(欧式距离)，再计算到<code>k2</code>的距离，假设<code>y1</code>到<code>k1</code>的距离为1，到<code>k2</code>的距离为2，那么<code>y1</code>点就会被归为<code>k1</code>类,执行完这步，每个点都会归为一类，但依旧不准确</li>
+<li><strong>重新计算<code>k1，k2</code>点的坐标</strong>(因为之前是随机选的)，假设前面<code>y1，y2</code>属于同一类，<code>y3，y4</code>属于同一类，为了重新计算<code>k1，k2</code>的坐标，我们要取<code>y1和y2</code>点的横坐标加起来除以二，纵坐标加起来除以2，这就是新的<code>k1</code>点坐标，重复步骤3，重新归类</li>
+<li>直到类别不再发生变化，就停止聚类</li>
+</ol>
+<ul>
+<li>思路：不断计算样本点到<code>ki</code>距离，距离<code>k1</code>近的归为一类，距离<code>k2</code>近的归为一类，更新<code>ki</code>的坐标，再重复操作</li>
+</ul>
 
             <hr>
           </div>
@@ -347,7 +365,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "random forest&nbsp;",
+        "random forest and k means&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
