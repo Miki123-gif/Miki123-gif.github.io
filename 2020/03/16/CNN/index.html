@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    3.6k 字
+                    1.7k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      12 分钟
+                      5 分钟
                   </span>&nbsp;
                 
 
@@ -224,7 +224,6 @@
 <p>tanh同样会有这样的问题</p>
 <p>而relu是最好用的，但是relu会让有些神经元永远不会被激活</p>
 <h2 id="卷积神经网络"><a class="markdownIt-Anchor" href="#卷积神经网络"></a> 卷积神经网络</h2>
-<p>**深度学习中的卷积与信号处理中的卷积概念是有区别的，**其实卷积的操作就是加法和乘法的组合</p>
 <p><a href="https://blog.csdn.net/weixin_39915444/article/details/81260003" target="_blank" rel="noopener">参考笔记1</a></p>
 <p><a href="https://blog.csdn.net/xzy_thu/article/details/69808817" target="_blank" rel="noopener">参考笔记2</a></p>
 <p><a href="http://m.elecfans.com/article/703346.html" target="_blank" rel="noopener">直接看这个</a></p>
@@ -234,12 +233,7 @@
 <p>卷积层的主要作用就是对特诊进行提取，其中我们输入的图片会被转换成tensor，是一种三维张量，包括二维的长宽和颜色通道RGB，卷积核又叫Filter，是一个固定窗口的扫描器，<a href="http://cs231n.github.io/assets/conv-demo/index.html" target="_blank" rel="noopener">扫描动图</a>，也就是一个矩阵，假如卷积核全是由-1和1组成，那么说明，卷积核，其实是一个特征向量提取器，包含该特征的部分就会被提取出来，Filter1会扫描整个矩阵，看是否有类似的特征，与图像矩阵作内积(对应相乘相加)，内积后越大则特征越明显（所以不管该特征在图片的哪个位置，都能很好提取出来，具有很好的泛化能力），如果有很多个特征，则需要更多的卷积核，当这些特征都满足，神经元激活，计算机则认为这就是鸟，如果有很多层，RGB是三层，则卷积核也要被设置成三层的，对应内积，再把三层内积结果加起来，最后得到一个值<img src="https://img-blog.csdn.net/20180728135540435?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTkxNTQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="img" /></p>
 </li>
 <li>
-<p>经过第一次卷积后，我们就可以得到一个更小的矩阵，我们根据这个特征提取的矩阵，<strong>挑其中最大的</strong>，忽略里面比较小的，特征就会被保留下来，这就是<strong>特征图</strong>，将主要特征找出来有时图像太大，我们需要减少训练参数的数量，它被要求在随后的卷积层之间周期性地引进池化层。池化的唯一目的是减少图像的空间大小。池化在每一个纵深维度上独自完成，因此图像的纵深保持不变。池化层的最常见形式是最大池化。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gW9zxnWHp2icg4gictHp8hicpkV6MaPPZ2ibYrzhB5CHRD5rnRtyY1mHZhdicADZvU9Qbv4nGktAqlDG9fg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" srcset="/img/loading.gif" alt="img" /></p>
-<p>在这里，我们把步幅定为 2，池化尺寸也为 2。最大化执行也应用在每个卷机输出的深度尺寸中。正如你所看到的，最大池化操作后，4<em>4 卷积的输出变成了 2</em>2。<img src="https://img-blog.csdn.net/20180728135811552?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTkxNTQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="img" /></p>
-<p>让我们看看最大池化在真实图片中的效果如何。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gW9zxnWHp2icg4gictHp8hicpkVia3nrrLoEp6l4C3AqsmTKJWVOPH0CAUKMmJEeMuFIJpOsAC2BFvich4A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" srcset="/img/loading.gif" alt="img" /></p>
-<p>正如你看到的，我们卷积了图像，并最大池化了它。最大池化图像仍然保留了汽车在街上的信息。如果你仔细观察的话，你会发现图像的尺寸已经减半。这可以很大程度上减少参数。</p>
+<p>经过第一次卷积后，我们就可以得到一个更小的矩阵，我们根据这个特征提取的矩阵，挑其中最大的，忽略里面比较小的，特征就会被保留下来，这就是<strong>特征图</strong>，将主要特征找出来<img src="https://img-blog.csdn.net/20180728135811552?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTkxNTQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="img" /></p>
 </li>
 <li>
 <p>转化成特征图后，就要将特征图拉成矢量，输入到神经网络中，经过黑盒子，完成分类</p>
@@ -251,56 +245,6 @@
 <li>Filter中的矩阵参数，是计算机自己学习获得的，不需要人为设置</li>
 </ul>
 </blockquote>
-<h2 id="gpucpu"><a class="markdownIt-Anchor" href="#gpucpu"></a> GPU&amp;&amp;CPU</h2>
-<p>CPU（Central Processing Unit）是电脑最主要的部件，他的主要功能是解释计算机指令以及处理计算机软件中的数据，说白了就是做指挥工作，统筹各方面。CPU相当于整个电脑的心脏，而GPU相当于显卡的心脏。</p>
-<p><img src="https://pic4.zhimg.com/80/918367f36e34c18dc1f92bd16760dae1_720w.jpg" srcset="/img/loading.gif" alt="img" /></p>
-<p>Cache意思时缓存</p>
-<p>CPU和GPU都包含运算单元，但是CPU的运算功能比GPU的要强大的多，能处理很多复杂的逻辑运算，但是GPU的运算只能处理一些简单的逻辑运算(就像CPU运算是专家，能解决很多复杂问题，GPU运算是小学生，只能解决一些很简单的加减乘除)，但是CPU的运算部分很少,GPU的运算部分很多（几个专家和一群小学生），每个小学生都能处理一些单独的问题，对于一些需要很简单的重复运算，专家肯定干不过小学生的<a href="https://www.zhihu.com/question/19903344" target="_blank" rel="noopener">来自知乎</a></p>
-<p>GPU的工作大部分就是这样，计算量大，但没什么技术含量，而且要重复很多很多次。就像你有个工作需要算几亿次一百以内加减乘除一样，最好的办法就是雇上几十个小学生一起算，一人算一部分，反正这些计算也没什么技术含量，纯粹体力活而已。而CPU就像老教授，积分微分都会算，就是工资高，一个老教授资顶二十个小学生，你要是富士康你雇哪个？GPU就是这样，用很多简单的计算单元去完成大量的计算任务，纯粹的人海战术。这种策略基于一个前提，就是小学生A和小学生B的工作没有什么依赖性，是互相独立的。很多涉及到大量计算的问题基本都有这种特性，比如你说的破解密码，挖矿和很多图形学的计算。这些计算可以分解为多个相同的简单小任务，每个任务就可以分给一个小学生去做。但还有一些任务涉及到“流”的问题。比如你去相亲，双方看着顺眼才能继续发展。总不能你这边还没见面呢，那边找人把证都给领了。这种比较复杂的问题都是CPU来做的。</p>
-<p>总而言之，CPU和GPU因为最初用来处理的任务就不同，所以设计上有不小的区别。而某些任务和GPU最初用来解决的问题比较相似，所以用GPU来算了。GPU的运算速度取决于雇了多少小学生，CPU的运算速度取决于请了多么厉害的教授。教授处理复杂任务的能力是碾压小学生的，但是对于没那么复杂的任务，还是顶不住人多。当然现在的GPU也能做一些稍微复杂的工作了，相当于升级成初中生高中生的水平。但还需要CPU来把数据喂到嘴边才能开始干活，究竟还是靠CPU来管的。</p>
-<h2 id="牛顿法"><a class="markdownIt-Anchor" href="#牛顿法"></a> 牛顿法</h2>
-<h2 id="最小二乘法"><a class="markdownIt-Anchor" href="#最小二乘法"></a> 最小二乘法</h2>
-<h2 id="人工神经网络"><a class="markdownIt-Anchor" href="#人工神经网络"></a> 人工神经网络</h2>
-<ul>
-<li>人工神经网络是通过模拟人脑的神经元设计的算法，通常可归纳为三层，输入层，隐藏层，输出层，人脑的神经元就是，轴突受到刺激，然后就会产生电信号，当电信号超过阈值时，就会向下一个神经元传递，人工神经网络也是这样，每一个输入都对应一个权值，输入乘权值再求和，当求和后的值大于阈值，就会输出信号，否则不输出信号（我们可以将输出输入到单位阶跃函数上，大于0则输出1）</li>
-<li>感知机的出现相当于最简单的神经网络，他的出现主要是解决线性分类问题，并不能解决非线性问题，因此就有人在中间假如了隐藏层，同时能够将信号反向传递，来调整权值，来进行更好地拟合。这种就能够自我学习了，因为能自己调整参数</li>
-<li>多加了一层神经层是不是就更好了呢？明显不是地，当神经层越多，就越容易产生梯度消失的问题，这样计算机就不能自我优化了</li>
-</ul>
-<h2 id="梯度下降法-2"><a class="markdownIt-Anchor" href="#梯度下降法-2"></a> 梯度下降法</h2>
-<p>神经网络运用的就是属于梯度下降法，假设现在有个函数y=x**2，我们知道最小值在x=0处取到，梯度下降法就是计算某点的斜率，向斜率的方向移动，再计算新的斜率，再移动，直到斜率为0时或者小于一定误差时，就停下来。但是现实生活中的函数图像并不是都像x**2那样，通常都是许多个局部最优和一个全局最优，其中全局最优很难找到，神经网络虽然可以找到局部最优，但是它找到的局部最优解依旧可以很多地解决当前地问题</p>
-<h2 id="神经网络的黑盒"><a class="markdownIt-Anchor" href="#神经网络的黑盒"></a> 神经网络的黑盒</h2>
-<p>神经网络简单分成输入，黑盒，输出</p>
-<ul>
-<li>输入层，我们假设输入层是一张图片</li>
-<li>黑盒，神经元分成很多层，第一层是对图片的特征进行初步提取，这时我们人还是可以根据这些特诊认出这张图片，当经过第二层神经元特诊提取后，我们就很难认出这个图片了，几乎只有计算机自己认识</li>
-<li>输出层，当我们再次输入数据时，计算机就能根据相同特征进行判断</li>
-</ul>
-<h2 id="pytorch"><a class="markdownIt-Anchor" href="#pytorch"></a> PyTorch</h2>
-<pre class="highlight"><code class="">import torch
-import numpy as np
-
-np_data  = np.arange(6).reshape((2, 3))
-将数据转换成pytorch
-torch_data = torch.from_numpy(np_data)
-#将数据转换成numpy格式
-trans_to_np = torch_data.numpy()
-
-print(&quot;numpy data:\n&quot;, np_data)
-print(&quot;torch data:\n&quot;, torch_data)
-print(&quot;transport to numpy data:\n&quot;, trans_to_np)
-</code></pre>
-<pre class="highlight"><code class="">numpy data:
- [[0 1 2]
- [3 4 5]]
-torch data:
- tensor([[0, 1, 2],
-        [3, 4, 5]], dtype=torch.int32)
-transport to numpy data:
- [[0 1 2]
- [3 4 5]]
-tensor([[0, 1, 2],
-        [3, 4, 5]], dtype=torch.int32)
-</code></pre>
 
             <hr>
           </div>
