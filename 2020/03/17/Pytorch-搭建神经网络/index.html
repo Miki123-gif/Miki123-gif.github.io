@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    707 字
+                    1.3k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      3 分钟
+                      5 分钟
                   </span>&nbsp;
                 
 
@@ -222,8 +222,6 @@ print(x.grad)
 </ul>
 <p><img src="http://q6ip4it64.bkt.clouddn.com/A94138CB-7BFC-4154-AF1A-BF9E9D907B70.jpeg?e=1584435173&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:-rl5WQMVH8pq_3SQ3C5fqYMTo4E=&amp;attname=" srcset="/img/loading.gif" alt="" /></p>
 <pre class="highlight"><code class="">import torch
-from torch.autograd import Variable
-
 
 data_x = [
     [1,2,1],
@@ -232,10 +230,10 @@ data_x = [
 target = [[2.1,3]]
 data_w = [[3,4,5]]
 stride = 0.01
-
-x = Variable(torch.Tensor(data_x))
-y = Variable(torch.Tensor(target))
-w = Variable(torch.Tensor(data_w), requires_grad=True)
+x = torch.tensor(data_x).float()
+y = torch.tensor(target).float()
+w = torch.tensor(data_w).float()
+w.requires_grad = True
 count = 0
 while True:
     count += 1
@@ -246,19 +244,19 @@ while True:
         break
     loss_func.backward()
     w.data -= w.grad*stride
-    w.grad *= 0  ##w.grad = torch.Tensor([[0,0,0]])
+    w.grad *= 0
 print(out)
-print('count:', count)
+print(out.data)
 </code></pre>
 <pre class="highlight"><code class="">tensor([[2.1026],
         [2.9983]], grad_fn=&lt;MmBackward&gt;)
-count: 1811
+tensor([[2.1026],
+        [2.9983]])
 </code></pre>
 <ul>
 <li>注意一定要用矩阵表示<code>target = [[2,3]]</code>,不能用列表表示<code>target = [2,3]</code></li>
 <li><code>Tensor(data_x)</code>，这样才能将矩阵转化成张量，在GPU中运算，转化后默认时浮点型</li>
 <li><code>requires_grad=True</code>，开启自动求导模式后，就会对变量w进行追踪，不论w进行了什么运算都能标记</li>
-<li><code>Variable</code>，将所有张量都变成变量</li>
 <li><code>torch.mm，进行张量的乘法</code></li>
 <li><code>w.t()，张量的转置</code></li>
 <li><code>torch.sub，torch</code>中没有定义<code>__sub__</code>这个魔法方法，所以不能用<code>-</code>号操作</li>
@@ -275,6 +273,116 @@ print(b.shape)
 <pre class="highlight"><code class="">(1, 3)
 (3,)
 </code></pre>
+<p><a href="https://www.cnblogs.com/kiwiwk/p/11711671.html" target="_blank" rel="noopener">如何用pytorch搭建简单的神经网络参考博客</a></p>
+<h2 id="使用pytorch搭建网络"><a class="markdownIt-Anchor" href="#使用pytorch搭建网络"></a> 使用pytorch搭建网络</h2>
+<ul>
+<li>nn是neural network包，与神经网络有关</li>
+</ul>
+<pre class="highlight"><code class="">import torch as t
+import torch.nn as nn
+
+x = t.tensor([[1, 2], [3, 4]]).float()
+y = t.tensor([[3], [7]]).float()
+
+my_net = nn.Sequential(
+    nn.Linear(2, 3),
+    nn.Sigmoid(),
+    nn.Linear(3, 7),
+    nn.Sigmoid(),
+    nn.Linear(7, 1)
+)
+optimizer = t.optim.Adam(my_net.parameters(), lr=0.05)
+loss_func = nn.MSELoss()
+
+while True:
+    out = my_net(x)
+    loss = loss_func(out, y)
+    if loss.data &lt; 0.0001:
+        break
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+print(my_net(x).data)
+</code></pre>
+<ul>
+<li><strong>问题1,当我想输入<code>x = t.tensor([[1, 2], [3, 4]]).float()</code>,<code>y = t.tensor([[3], [7]]).float()</code>，输入是2*2的，输出是2*1的，那么神经网络的输出，应该对应多少？</strong></li>
+</ul>
+<pre class="highlight"><code class="">    nn.Linear(2, 3),
+    nn.Sigmoid(),
+    nn.Linear(3, 7),
+    nn.Sigmoid(),
+    nn.Linear(7, 1)
+</code></pre>
+<p>我们可以看到这个网络有2个输入，1个输出，运行结果，输出为2行1列</p>
+<pre class="highlight"><code class="">tensor([[3.0136],
+        [7.0019]])
+</code></pre>
+<p>当我对输出进行修改时，此时会发出警告：</p>
+<pre class="highlight"><code class="">    nn.Linear(2, 3),
+    nn.Sigmoid(),
+    nn.Linear(3, 7),
+    nn.Sigmoid(),
+    nn.Linear(7, 2)
+</code></pre>
+<pre class="highlight"><code class="">tensor([[3.0126, 2.9870],
+        [6.9957, 7.0069]])
+</code></pre>
+<p>由上面可以自己得出结论</p>
+<blockquote>
+<p>对pytorch搭建网络的详细分析:</p>
+<ul>
+<li>
+<p><code>x = t.tensor([[1, 2], [3, 4]]).float()</code>首先输入的数据一定要是浮点型</p>
+</li>
+<li>
+<pre class="highlight"><code class=""></code></pre>
+</li>
+</ul>
+<p>my_net = nn.Sequential(<br />
+nn.Linear(2, 3),<br />
+nn.Sigmoid(),<br />
+nn.Linear(3, 7),<br />
+nn.Sigmoid(),<br />
+nn.Linear(7, 1)<br />
+)<br />
+创建神经网络，要记得输入和输出相连接，一般最后一层不需要激励函数<br />
+<code>my_net</code>实例化后，就有个parameters方法，生成权重</p>
+<pre class="highlight"><code class=""></code></pre>
+<pre class="highlight"><code class="">
+</code></pre>
+<pre class="highlight"><code class=""></code></pre>
+</blockquote>
+<hr />
+<blockquote>
+<ul>
+<li><code>optimizer = t.optim.Adam(my_net.parameters(), lr=0.05)</code>创建优化器实例，传入网络参数和学习率</li>
+<li><code>loss_func = nn.MSELoss()</code>调用损失函数方法，这里使用的是平均损失函数</li>
+<li><code>out = my_net(x)</code>，传入输入，<code>loss = loss_func(out, y)</code>，计算误差</li>
+<li><code>optimizer.zero_grad()</code>将优化器中的梯度清0</li>
+<li><code>loss.backward()</code>反向传播</li>
+<li><code>optimizer.step()</code>参数更新</li>
+</ul>
+</blockquote>
+<p>假如现在有新的数据，我们对其进行计算</p>
+<ul>
+<li>这是训练集，我们可以看到是在做加法运算，输入1，2，3，对应输出6，可以看出输入应该是3，输出应该是1</li>
+</ul>
+<pre class="highlight"><code class="">x = t.tensor([[1, 2, 3], [3, 4, 5], [5, 6, 7], [7, 8, 9]]).float()
+y = t.tensor([[6], [12], [18], [24]]).float()
+</code></pre>
+<p>这样即可</p>
+<pre class="highlight"><code class="">x1 = t.tensor([[1, 3, 2]]).float()
+print(my_net(x1).data)
+</code></pre>
+<h2 id="知识拓展"><a class="markdownIt-Anchor" href="#知识拓展"></a> 知识拓展</h2>
+<p>如果想将神经网络放到GPU上跑</p>
+<pre class="highlight"><code class="">比如现在定义了一个类
+c = MyNet()
+c.cuda()这样就行了
+</code></pre>
+<p>如果想将数据<code>x</code>放到<code>GPU</code>，可以<code>x.cuda()</code></p>
+<p>要将数据从<code>GPU</code>中取回来，只用<code>x.cpu()</code>即可</p>
 
             <hr>
           </div>
