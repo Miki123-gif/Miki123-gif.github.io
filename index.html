@@ -136,58 +136,6 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/18/CNN%E5%8E%9F%E7%90%86/">
-        <p class="h4 index-header">CNN原理</p>
-      </a>
-
-      <a href="/2020/03/18/CNN%E5%8E%9F%E7%90%86/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1"> 监督学习&amp;&amp;无监督学习
-监督学习-分类问题
-无监督学习-聚类问题
- 泛化能力
-就是算法对不同问题的处理能力，如果一个算法只能针对一个问题，那么这个算法泛化能力就很差
- 过拟合和欠拟合
-
-
-
-过拟合就是学到了很多没必要的特征，比如一个男人穿着蓝色的衣服，神经网络可能把是否穿蓝色衣服作为区分男人女人的特征，这就是过拟合(我们知道男人和女人都可以穿蓝衣服)
-
-
-欠拟合就是提取到的特征比较少
-
-
-防止欠拟合，我们可以：
-
-增加特征项
-构造复杂的多项式，比如抛物线的数据，我们不可能用一次函数来拟合
-减少正则化参数(说白了就是减少限制项，如黑体辐射，我们通常要在后面加个误差项来限制整个方</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-18&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/03/17/Pytorch-%E6%90%AD%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
         <p class="h4 index-header">Pytorch 搭建神经网络</p>
       </a>
@@ -234,11 +182,11 @@ print(y)
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%AF%86/">
+      <a href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/">
         <p class="h4 index-header">CNN</p>
       </a>
 
-      <a href="/2020/03/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%AF%86/">
+      <a href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/">
         
         
           
@@ -608,6 +556,62 @@ markdown支持Latex插入数学公式的使用符号&amp;&amp;，推荐一个在
 
 
 比如蒙上一个人的眼睛，让他品尝分辨当前喝</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/03/08/numpy/">
+        <p class="h4 index-header">numpy的使用</p>
+      </a>
+
+      <a href="/2020/03/08/numpy/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"> numpy的用法
+ 使用notepad打开csv文件
+csv文件在电脑中默认是用excel打开的，最好使用记事本打开，因为用excel打开，会改变里面的数据，excel默认会用科学记数法表示一些很大的数。
+
+注意numpy中对矩阵的各种运算都可以通过axis来指定是对行还是列运算，例如算mean等
+
+ python中的矩阵
+matrix = [
+    [1,2,3],
+    [2,5,6]
+]
+print(matrix[1][2])
+'''
+answer = 6
+可以看出123为第一行
+'''
+
+但这样实际上还是列表，用array创建矩阵，没有逗号隔开的
+array = np.array</div>
         </div>
       </a>
 
