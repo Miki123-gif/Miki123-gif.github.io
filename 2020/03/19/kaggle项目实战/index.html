@@ -122,7 +122,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    3.7k 字
+                    4.1k 字
                   </span>&nbsp;
                 
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      16 分钟
+                      19 分钟
                   </span>&nbsp;
                 
 
@@ -648,6 +648,96 @@ print(f'rate={1 - (count/len(train))}')
 <ul>
 <li>最好的结果还是只有百分之八十多，还需要拜读其他人的作品</li>
 </ul>
+<pre class="highlight"><code class="">import pandas as pd
+import re
+import numpy as np
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import f_classif
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import KFold
+
+
+predictors = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'length of name', 'name tag', 'Embarked']
+algorithm = RandomForestClassifier(random_state=1, n_estimators=120, min_samples_split=3, min_samples_leaf=2)
+train = pd.read_csv(r'C:\Users\asus\Desktop\train.csv')
+test_data = pd.read_csv(r'C:\Users\asus\Desktop\test.csv')
+
+def data_processing(train):
+    r = re.compile(r', (.*?). ', re.S)
+    length_of_name = []
+    name_tag = {}
+    name = []
+    train['Age'] = train['Age'].fillna(train['Age'].median())
+    train['Fare'] = train['Fare'].fillna(train['Fare'].median())
+    # print(train.describe().loc[:, ['Survived', 'Age']])
+    # 这里使用loc方法，Sex列的所有满足条件的
+    train.loc[train.Sex == &quot;male&quot;, ['Sex']], train.loc[train.Sex == &quot;female&quot;, ['Sex']] = 0, 1
+# print(Counter(train.Embarked))
+    train['Embarked'] = train['Embarked'].fillna(&quot;S&quot;)
+    train.loc[train.Embarked == 'S', ['Embarked']], train.loc[train.Embarked == 'C', ['Embarked']], \
+    train.loc[train.Embarked == 'Q', ['Embarked']] = 0, 1, 2
+    for each_name in train.Name:
+        length_of_name.append(len(each_name))
+        tag = re.search(r, each_name).group(1)
+        name.append(tag)
+        if tag not in name_tag:
+            name_tag[tag] = 0
+        name_tag[tag] += 1
+    tag_map = dict(zip(name_tag.keys(), [i for i in range(1, len(name_tag) + 1)]))
+    name_tag_digit = []
+    for each in name:
+        name_tag_digit.append(tag_map[each])
+    train['length of name'] = length_of_name
+    train['name tag'] = name_tag_digit
+    return train
+    # print(train['length of name'])
+    # columns可以打印标签
+    # predictors = list(train.columns[2:])
+
+def train_algorithm(train):
+    #归一化
+    new_algorithm = RandomForestClassifier()
+    algorithm = RandomForestClassifier(random_state=1, n_estimators=120, min_samples_split=3, min_samples_leaf=2)
+    norm_data =(train[predictors] - train[predictors].min()) / (train[predictors].max() - train[predictors].min())
+
+    selector = SelectKBest(f_classif, k=5)
+    selector.fit(norm_data, train['Survived'])
+    scores = -np.log10(selector.pvalues_)
+    # plt.figure()
+    # plt.bar(range(len(predictors)), scores)
+    # plt.xticks([i for i in range(9)], predictors, rotation=30)
+    # plt.show()
+    kf = KFold(n_splits=2, shuffle=True, random_state=1)
+    for each_train, test in kf.split(train):
+        train_data = (train[predictors].iloc[each_train, :])
+        train_target = (train['Survived'].iloc[each_train])
+        new_algorithm = algorithm.fit(train_data, train_target)
+    return new_algorithm
+
+def test(algorithm, test_data):
+    data = test_data[predictors]
+    # 检查数据是否有缺失
+    # print(data[data.isnull().values == True])
+    result = algorithm.predict(test_data[predictors])
+    return result
+
+def submit(result):
+    file = pd.DataFrame({'PassengerId':test_data['PassengerId'], 'Survived':result})
+    file.to_csv(r'C:\Users\asus\Desktop\test_result.csv')
+
+
+def main():
+
+    new_train_data = data_processing(train)
+    new_algorithm = train_algorithm(new_train_data)
+    new_test_data = data_processing(test_data)
+    result = test(new_algorithm, new_test_data)
+    submit(result)
+
+if __name__ == '__main__':
+    main()
+</code></pre>
 
             <hr>
           </div>
