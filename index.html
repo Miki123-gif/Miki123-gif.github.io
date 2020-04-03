@@ -136,6 +136,61 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/04/03/python%E9%9D%A2%E8%AF%95%E9%A2%98/">
+        <p class="h4 index-header">python面试题(不定期更新)</p>
+      </a>
+
+      <a href="/2020/04/03/python%E9%9D%A2%E8%AF%95%E9%A2%98/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"> 前言
+阅读需要python基础，本篇文章意在消除一些python误区，弄清python编程的机制
+ 参考文档地址
+详细请看GitHub
+ 函数的参数传递机制
+看两个例子:
+a = 1
+def fun(a):
+    a = 2
+fun(a)
+print a  # 1
+
+a = []
+def fun(a):
+    a.append(1)
+fun(a)
+print a  # [1]
+
+通过id来看引用a的内存地址可以比较理解：
+a = 1
+def fun(a):
+    print &quot;func_in&quot;,id(a)   # func_in 41322472
+    a = 2</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-03&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/python">python</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/">
         <p class="h4 index-header">明天会下雨吗？</p>
       </a>
@@ -562,65 +617,6 @@ plt.rcParams['font.sans-serif'] = ['SimH</div>
       <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-11&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/10/pandas/">
-        <p class="h4 index-header">pandas</p>
-      </a>
-
-      <a href="/2020/03/10/pandas/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-axis=0表示操作行，axis=1表示操作列
-pandas可以读取txt文件，使用pandas.read_table
-
-
- pandas和numpy的区别
-
-numpy一般是处理数值型数据
-pandas则可以处理c语言中结构体的数据，里面可以混合字符串和数值
-
- Series创建一维带标签的数组
-
-语法：Series([list])
-
-print(pd.Series([1,2,3,np.nan,8]))
-
-0    1.0
-1    2.0
-2    3.0
-3    NaN
-4    8.0
-dtype: float64
-
-
-np.nan means NaN
-Series开头一定要大写</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-10&nbsp;&nbsp;
         
         
         
