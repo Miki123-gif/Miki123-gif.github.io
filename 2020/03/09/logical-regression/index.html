@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>logical regression | Miki&#39;s blog</title>
+  <meta name="keywords" content=" 机器学习 ">
+  <meta name="description" content="logical regression | Miki&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:site_name" content="Miki&#39;s blog">
+<meta property="og:description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-09T07:02:46.000Z">
+<meta property="article:modified_time" content="2020-04-09T07:06:36.648Z">
+<meta property="article:author" content="Miki Zhu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/1.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/头像.jpg" />
+</a>
+<div class="author">
+    <span>Miki Zhu</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="email" href="mailto:747876457@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=747876457&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(25)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习">机器学习<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目实战">项目实战<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="博客搭建">博客搭建<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="学习网站推荐">学习网站推荐<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="考研经验">考研经验<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  " target="_blank" href="/about">关于</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_word_count" value="53.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">机器学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">博客搭建</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">网站推荐</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">考研经验</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="考研经验 "
+           href="/2020/02/20/%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95%E7%BB%8F%E9%AA%8C/"
+           data-tag="考研经验"
+           data-author="" >
+            <span class="post-title" title="考研初试经验">考研初试经验</span>
+            <span class="post-date" title="2020-02-20 19:33:48">2020/02/20</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/08/hexo-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="hexo 主题添加评论">hexo 主题添加评论</span>
+            <span class="post-date" title="2020-04-08 21:43:26">2020/04/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/03/python%E9%9D%A2%E8%AF%95%E9%A2%98/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python面试题(不定期更新)">python面试题(不定期更新)</span>
+            <span class="post-date" title="2020-04-03 21:14:43">2020/04/03</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="明天会下雨吗？">明天会下雨吗？</span>
+            <span class="post-date" title="2020-03-30 11:25:31">2020/03/30</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/23/%E5%86%B3%E7%AD%96%E6%A0%91%E5%AE%9E%E7%8E%B0Titanic-%E9%87%8D%E8%A6%81/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树实现Titanic(重要)">决策树实现Titanic(重要)</span>
+            <span class="post-date" title="2020-03-23 17:09:05">2020/03/23</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/21/Titanic-%E9%A1%B9%E7%9B%AE%E8%AF%A6%E8%A7%A3/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Titanic 项目详解">Titanic 项目详解</span>
+            <span class="post-date" title="2020-03-21 14:07:20">2020/03/21</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/19/kaggle%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="kaggle项目实战，Titanic analysis">kaggle项目实战，Titanic analysis</span>
+            <span class="post-date" title="2020-03-19 10:08:13">2020/03/19</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/17/Pytorch-%E6%90%AD%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 搭建神经网络">Pytorch 搭建神经网络</span>
+            <span class="post-date" title="2020-03-17 14:56:16">2020/03/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="CNN">CNN</span>
+            <span class="post-date" title="2020-03-16 09:11:00">2020/03/16</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/14/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8Ck%E5%9D%87%E5%80%BC/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="random forest and k means">random forest and k means</span>
+            <span class="post-date" title="2020-03-14 16:29:22">2020/03/14</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="支持向量机">支持向量机</span>
+            <span class="post-date" title="2020-03-13 20:53:20">2020/03/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/11/Matplotlab/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Matplotlab">Matplotlab</span>
+            <span class="post-date" title="2020-03-11 10:13:20">2020/03/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/10/pandas/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="pandas">pandas</span>
+            <span class="post-date" title="2020-03-10 09:20:27">2020/03/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/09/logical-regression/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="logical regression">logical regression</span>
+            <span class="post-date" title="2020-03-09 20:30:33">2020/03/09</span>
+        </a>
+        
+        <a  class="学习网站推荐 "
+           href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/"
+           data-tag="网站推荐"
+           data-author="" >
+            <span class="post-title" title="学习网站或工具推荐">学习网站或工具推荐</span>
+            <span class="post-date" title="2020-03-08 20:44:55">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E6%9E%90/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分析">贝叶斯分析</span>
+            <span class="post-date" title="2020-03-08 20:11:15">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/numpy/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="numpy的使用">numpy的使用</span>
+            <span class="post-date" title="2020-03-08 19:15:54">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/07/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2020-03-07 19:27:38">2020/03/07</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2020-03-06 20:18:19">2020/03/06</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/05/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="排序算法">排序算法</span>
+            <span class="post-date" title="2020-03-05 19:41:32">2020/03/05</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="数据结构与时间复杂度">数据结构与时间复杂度</span>
+            <span class="post-date" title="2020-03-04 21:00:32">2020/03/04</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习数学基础">机器学习数学基础</span>
+            <span class="post-date" title="2020-03-04 16:48:34">2020/03/04</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="哈希图 and 移动窗口">哈希图 and 移动窗口</span>
+            <span class="post-date" title="2020-03-03 18:49:52">2020/03/03</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="1 零基础学机器学习">1 零基础学机器学习</span>
+            <span class="post-date" title="2020-03-01 20:23:40">2020/03/01</span>
+        </a>
+        
+        <a  class="博客搭建 "
+           href="/2020/02/20/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="Windows系统下用hexo搭建个人博客">Windows系统下用hexo搭建个人博客</span>
+            <span class="post-date" title="2020-02-20 13:15:25">2020/02/20</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-logical-regression" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">logical regression</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a class="color5">机器学习</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-13 20:47:40'>2020-03-09 20:30</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:772</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是回归"><span class="toc-text"> 什么是回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑回归"><span class="toc-text"> 逻辑回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sigmoid函数"><span class="toc-text"> Sigmoid函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降法"><span class="toc-text"> 梯度下降法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考博客"><span class="toc-text"> 参考博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-text"> 问题</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是回归"><a class="markdownIt-Anchor" href="#什么是回归"></a> 什么是回归</h2>
+<p>最简单的回归就是用一条的曲线，来拟合所有的数值，这个点要尽可能离所有点都比较接近，用求和来计算</p>
+<h2 id="逻辑回归"><a class="markdownIt-Anchor" href="#逻辑回归"></a> 逻辑回归</h2>
+<p>机器学习中的逻辑回归是用来分类的，而不是进行拟合的，利用回归来画出边界，进行分类</p>
+<h2 id="sigmoid函数"><a class="markdownIt-Anchor" href="#sigmoid函数"></a> Sigmoid函数</h2>
+<p><code>Sigomoid</code>函数看上去就像阶跃函数一样，但是阶跃函数在跳跃点处不好把握，所以找了它来替代（可以将任何输入，不论<code>x</code>范围是多少，都可以映射到0-1区间，<code>y</code>输出为0-1）</p>
+<p><img src="https://img-blog.csdn.net/20170830195915704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>z值其实是每个特征量，也就是没给自变量，乘以一个系数，再求和得出，因此，我们需要得到如何计算最佳回归系数</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20170830200052982?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p><img src="https://img-blog.csdn.net/20170830195855344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>用矩阵表示就是这样，<code>x</code>表示输入的数据，<code>θ</code>表示最佳参数</li>
+</ul>
+<h2 id="梯度下降法"><a class="markdownIt-Anchor" href="#梯度下降法"></a> 梯度下降法</h2>
+<p>我们先看个简单的求极大值的例子。一个看了就会想到高中生活的函数：</p>
+<p><img src="https://img-blog.csdn.net/20170830200337262?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>来吧，做高中题。这个函数的极值怎么求？显然这个函数开口向下，存在极大值，它的函数图像为：</p>
+<p><img src="https://img-blog.csdn.net/20170830200401362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>求极值，先求函数的导数：</p>
+<p><img src="https://img-blog.csdn.net/20170831221629911?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>令导数为0，可求出x=2即取得函数f(x)的极大值。极大值等于f(2)=4</p>
+<p>但是真实环境中的函数不会像上面这么简单，就算求出了函数的导数，也很难精确计算出函数的极值。此时我们就可以用迭代的方法来做。就像爬坡一样，一点一点逼近极值。这种寻找最佳拟合参数的方法，就是最优化算法。爬坡这个动作用数学公式表达即为：</p>
+<p><img src="https://img-blog.csdn.net/20170830200457026?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>导数就是<code>tanα</code>乘一个系数就相当于不断向前前进</li>
+</ul>
+<p>其中，α为步长，也就是学习速率，控制更新的幅度。效果如下图所示：</p>
+<p><img src="https://img-blog.csdn.net/20170830200522945?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>比如从(0,0)开始，迭代路径就是1-&gt;2-&gt;3-&gt;4-&gt;…-&gt;n，直到求出的x为函数极大值的近似值，停止迭代。</p>
+<blockquote>
+<p>寻找最优解其实还有很多算法，比如蚁群算法，遗传算法等，但是这些算法只能寻找单一目标，所以现在就有了多目标算法（就像我找工作，我想找那种钱多的，轻松的…）</p>
+</blockquote>
+<ul>
+<li>梯度上升法是用来寻找最大值的，而梯度下降法是寻找最小值的</li>
+</ul>
+<h2 id="参考博客"><a class="markdownIt-Anchor" href="#参考博客"></a> 参考博客</h2>
+<p><a href="https://blog.csdn.net/c406495762/article/details/77723333" target="_blank" rel="noopener">https://blog.csdn.net/c406495762/article/details/77723333</a></p>
+<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<p>从上图可以看出数据的分布情况。假设Sigmoid函数的输入记为z，那么z=w0x0 + w1x1 + w2x2，即可将数据分割开。其中，x0为全是1的向量，x1为数据集的第一列数据，x2为数据集的第二列数据。另z=0，则0=w0 + w1x1 + w2x2。横坐标为x1，纵坐标为x2。这个方程未知的参数为w0，w1，w2，也就是我们需要求的回归系数(最优参数)。</p>
+<p>为什么x0可以等于1呢？</p>
+
+      
+       
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>logical regression</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">772</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Miki Zhu">Miki Zhu</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-03-09, 20:30:33</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-13, 20:47:40</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/09/logical-regression/" title="logical regression">http://yoursite.com/2020/03/09/logical-regression/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 MikiZhu</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#机器学习','#算法','#博客搭建','#python','#网站推荐','#考研经验',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        background: url("http://q8idlsxje.bkt.clouddn.com/%E6%B5%B7%E6%BB%A9.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

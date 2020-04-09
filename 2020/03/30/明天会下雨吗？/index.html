@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>明天会下雨吗？ | Miki&#39;s blog</title>
+  <meta name="keywords" content=" 机器学习 ">
+  <meta name="description" content="明天会下雨吗？ | Miki&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:site_name" content="Miki&#39;s blog">
+<meta property="og:description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-09T07:02:46.000Z">
+<meta property="article:modified_time" content="2020-04-09T07:06:36.648Z">
+<meta property="article:author" content="Miki Zhu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/1.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/头像.jpg" />
+</a>
+<div class="author">
+    <span>Miki Zhu</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="email" href="mailto:747876457@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=747876457&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(25)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习">机器学习<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目实战">项目实战<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="博客搭建">博客搭建<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="学习网站推荐">学习网站推荐<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="考研经验">考研经验<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  " target="_blank" href="/about">关于</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_word_count" value="53.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">机器学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">博客搭建</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">网站推荐</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">考研经验</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="考研经验 "
+           href="/2020/02/20/%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95%E7%BB%8F%E9%AA%8C/"
+           data-tag="考研经验"
+           data-author="" >
+            <span class="post-title" title="考研初试经验">考研初试经验</span>
+            <span class="post-date" title="2020-02-20 19:33:48">2020/02/20</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/08/hexo-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="hexo 主题添加评论">hexo 主题添加评论</span>
+            <span class="post-date" title="2020-04-08 21:43:26">2020/04/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/03/python%E9%9D%A2%E8%AF%95%E9%A2%98/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python面试题(不定期更新)">python面试题(不定期更新)</span>
+            <span class="post-date" title="2020-04-03 21:14:43">2020/04/03</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="明天会下雨吗？">明天会下雨吗？</span>
+            <span class="post-date" title="2020-03-30 11:25:31">2020/03/30</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/23/%E5%86%B3%E7%AD%96%E6%A0%91%E5%AE%9E%E7%8E%B0Titanic-%E9%87%8D%E8%A6%81/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树实现Titanic(重要)">决策树实现Titanic(重要)</span>
+            <span class="post-date" title="2020-03-23 17:09:05">2020/03/23</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/21/Titanic-%E9%A1%B9%E7%9B%AE%E8%AF%A6%E8%A7%A3/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Titanic 项目详解">Titanic 项目详解</span>
+            <span class="post-date" title="2020-03-21 14:07:20">2020/03/21</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/19/kaggle%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="kaggle项目实战，Titanic analysis">kaggle项目实战，Titanic analysis</span>
+            <span class="post-date" title="2020-03-19 10:08:13">2020/03/19</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/17/Pytorch-%E6%90%AD%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 搭建神经网络">Pytorch 搭建神经网络</span>
+            <span class="post-date" title="2020-03-17 14:56:16">2020/03/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="CNN">CNN</span>
+            <span class="post-date" title="2020-03-16 09:11:00">2020/03/16</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/14/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8Ck%E5%9D%87%E5%80%BC/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="random forest and k means">random forest and k means</span>
+            <span class="post-date" title="2020-03-14 16:29:22">2020/03/14</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="支持向量机">支持向量机</span>
+            <span class="post-date" title="2020-03-13 20:53:20">2020/03/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/11/Matplotlab/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Matplotlab">Matplotlab</span>
+            <span class="post-date" title="2020-03-11 10:13:20">2020/03/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/10/pandas/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="pandas">pandas</span>
+            <span class="post-date" title="2020-03-10 09:20:27">2020/03/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/09/logical-regression/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="logical regression">logical regression</span>
+            <span class="post-date" title="2020-03-09 20:30:33">2020/03/09</span>
+        </a>
+        
+        <a  class="学习网站推荐 "
+           href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/"
+           data-tag="网站推荐"
+           data-author="" >
+            <span class="post-title" title="学习网站或工具推荐">学习网站或工具推荐</span>
+            <span class="post-date" title="2020-03-08 20:44:55">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E6%9E%90/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分析">贝叶斯分析</span>
+            <span class="post-date" title="2020-03-08 20:11:15">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/numpy/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="numpy的使用">numpy的使用</span>
+            <span class="post-date" title="2020-03-08 19:15:54">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/07/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2020-03-07 19:27:38">2020/03/07</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2020-03-06 20:18:19">2020/03/06</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/05/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="排序算法">排序算法</span>
+            <span class="post-date" title="2020-03-05 19:41:32">2020/03/05</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="数据结构与时间复杂度">数据结构与时间复杂度</span>
+            <span class="post-date" title="2020-03-04 21:00:32">2020/03/04</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习数学基础">机器学习数学基础</span>
+            <span class="post-date" title="2020-03-04 16:48:34">2020/03/04</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="哈希图 and 移动窗口">哈希图 and 移动窗口</span>
+            <span class="post-date" title="2020-03-03 18:49:52">2020/03/03</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="1 零基础学机器学习">1 零基础学机器学习</span>
+            <span class="post-date" title="2020-03-01 20:23:40">2020/03/01</span>
+        </a>
+        
+        <a  class="博客搭建 "
+           href="/2020/02/20/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="Windows系统下用hexo搭建个人博客">Windows系统下用hexo搭建个人博客</span>
+            <span class="post-date" title="2020-02-20 13:15:25">2020/02/20</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-明天会下雨吗？" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">明天会下雨吗？</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="项目实战">项目实战</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">机器学习</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-30 12:46:35'>2020-03-30 11:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:6.3k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据预处理"><span class="toc-text"> 数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#svmsvcsvr的区别"><span class="toc-text"> SVM,SVC,SVR的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导入模块"><span class="toc-text"> 导入模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读取数据"><span class="toc-text"> 读取数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除数据"><span class="toc-text"> 删除数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将标签和特征分离"><span class="toc-text"> 将标签和特征分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拆分训练集和测试集"><span class="toc-text"> 拆分训练集和测试集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重新设置index"><span class="toc-text"> 重新设置index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看数据缺失率"><span class="toc-text"> 查看数据缺失率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看标签种类的出现次数"><span class="toc-text"> 查看标签种类的出现次数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日期数据处理难"><span class="toc-text"> 日期数据处理(难)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#统计元素出现的次数"><span class="toc-text"> 统计元素出现的次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计元素个数无重复"><span class="toc-text"> 统计元素个数(无重复)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对元素进行排序"><span class="toc-text"> 对元素进行排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提取时间中的月份"><span class="toc-text"> 提取时间中的月份</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给date标签重新命名"><span class="toc-text"> 给Date标签重新命名</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#地点数据处理"><span class="toc-text"> 地点数据处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看城市数量"><span class="toc-text"> 查看城市数量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地理位置数据的爬取和保存"><span class="toc-text"> 地理位置数据的爬取和保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理爬取的数据"><span class="toc-text"> 处理爬取的数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据转换重要"><span class="toc-text"> 数据转换(重要)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#缺失值的填充"><span class="toc-text"> 缺失值的填充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#离散型数据的填补"><span class="toc-text"> 离散型数据的填补</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连续型数据的填补"><span class="toc-text"> 连续型数据的填补</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将标签转换成数值型lableencoder"><span class="toc-text"> 将标签转换成数值型LableEncoder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将离散分类型数据转换成数值型"><span class="toc-text"> 将离散分类型数据转换成数值型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据无量纲化"><span class="toc-text"> 数据无量纲化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#精确度和召回率"><span class="toc-text"> 精确度和召回率</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#精确度"><span class="toc-text"> 精确度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#召回率"><span class="toc-text"> 召回率</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模型预测"><span class="toc-text"> 模型预测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导入模块-2"><span class="toc-text"> 导入模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调节参数优化模型"><span class="toc-text"> 调节参数，优化模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不均衡问题"><span class="toc-text"> 不均衡问题</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="数据预处理"><a class="markdownIt-Anchor" href="#数据预处理"></a> 数据预处理</h1>
+<h2 id="svmsvcsvr的区别"><a class="markdownIt-Anchor" href="#svmsvcsvr的区别"></a> SVM,SVC,SVR的区别</h2>
+<p>SVM是一个大类，其中的SVC是用来分类的，SVR是用来做回归分析的</p>
+<ul>
+<li>SVM=Support Vector Machine 是支持向量</li>
+<li>SVC=Support Vector Classification就是支持向量机用于分类</li>
+<li>SVR=Support Vector Regression.就是支持向量机用于回归分析</li>
+</ul>
+<p><strong>SVM一般用在</strong>处理二分类问题中，这样效果比较好</p>
+<h2 id="导入模块"><a class="markdownIt-Anchor" href="#导入模块"></a> 导入模块</h2>
+<ol>
+<li>pandas处理csv文件数据</li>
+<li>random是因为原数据有上万条，为了保证样本随机，所以使用此模块随机抽取5000个数据</li>
+<li>train_test_split将训练集中70%分为训练集，30%分为测试集</li>
+<li>radians是将度数转换为弧度，比如90°转换成pai/2</li>
+<li>re将数据中的字符串进行特征提取</li>
+<li>SimpleImputer将数据中的空值进行填充，可以是object类型的数据，可按照平均值和众数进行填充，对于连续型数据，一般按照平均值填充，对于离散型，用众数填充</li>
+<li>OrdinalEncoder，将object类型的数据进行编码，这样机器学习算法就能处理</li>
+<li>StandardScaler，数据标准化，对数据进行无量纲化，避免有些特征对结果影响较大</li>
+</ol>
+<pre class="highlight"><code class="">import pandas as pd
+import random
+from sklearn.model_selection import train_test_split
+from math import radians
+import re
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import OrdinalEncoder
+from sklearn.preprocessing import StandardScaler
+</code></pre>
+<h2 id="读取数据"><a class="markdownIt-Anchor" href="#读取数据"></a> 读取数据</h2>
+<ol>
+<li>读取数据并查看是否有缺失值</li>
+<li>info()函数可以观察数据的缺失值，和数据类型，object类型的数据一般是字符串类型的，通常是离散型</li>
+</ol>
+<p>输入：</p>
+<pre class="highlight"><code class="">train = pd.read_csv(r'C:\Users\asus\Desktop\weatherAUS.csv')
+# train.info()
+</code></pre>
+<p>输出：可以看到原始数据有上万条</p>
+<pre class="highlight"><code class="">
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 142193 entries, 0 to 142192
+Data columns (total 24 columns):
+Date             142193 non-null object
+Location         142193 non-null object
+MinTemp          141556 non-null float64
+MaxTemp          141871 non-null float64
+memory usage: 26.0+ MB
+
+</code></pre>
+<h2 id="删除数据"><a class="markdownIt-Anchor" href="#删除数据"></a> 删除数据</h2>
+<ul>
+<li>
+<p>原数据集过大，处理起来相当麻烦，这里只保留前5000行数据</p>
+</li>
+<li>
+<p>sample可以生成范围内，无重复的整数，k表示指定生成多少个数据</p>
+</li>
+<li>
+<p>seed可以保证随机的取值都是一样的</p>
+</li>
+<li>
+<p>使用drop()可以删除某一列特征，inplace参数为True，则改变原来的值，否则不会影响</p>
+</li>
+</ul>
+<pre class="highlight"><code class=""># 原文件说必须把这个特征删除，否者会影响预测的准确率
+train.drop(['RISK_MM'], axis=1, inplace=True)
+random.seed(1)
+stay = random.sample(range(train.shape[0]), k=5000)
+</code></pre>
+<h2 id="将标签和特征分离"><a class="markdownIt-Anchor" href="#将标签和特征分离"></a> 将标签和特征分离</h2>
+<pre class="highlight"><code class="">x = train.iloc[stay,:-1]
+y = train.iloc[stay,-1]
+</code></pre>
+<h2 id="拆分训练集和测试集"><a class="markdownIt-Anchor" href="#拆分训练集和测试集"></a> 拆分训练集和测试集</h2>
+<ul>
+<li>测试集占总数据的30%</li>
+</ul>
+<pre class="highlight"><code class="">x_train,x_test,y_train,y_test = train_test_split(x, y,random_state=0 ,test_size=0.3)
+</code></pre>
+<h2 id="重新设置index"><a class="markdownIt-Anchor" href="#重新设置index"></a> 重新设置index</h2>
+<ul>
+<li>由于测试集和训练集是随机的，所以index会混乱</li>
+<li>重新设置index</li>
+<li>这里不建议这样for循环，可以看看<strong>笔记python误区</strong></li>
+</ul>
+<pre class="highlight"><code class="">for each in [x_train,x_test,y_train,y_test]:
+    each.index = range(each.shape[0])
+</code></pre>
+<h2 id="查看数据缺失率"><a class="markdownIt-Anchor" href="#查看数据缺失率"></a> 查看数据缺失率</h2>
+<pre class="highlight"><code class=""># 查看缺失率，准备开始填充数据
+# isnull返回一些列的true和false，mean用false/sum就是缺失率
+x.isnull().mean()
+</code></pre>
+<h2 id="查看标签种类的出现次数"><a class="markdownIt-Anchor" href="#查看标签种类的出现次数"></a> 查看标签种类的出现次数</h2>
+<p><strong>明天是否会下雨，可能会有标签为[是，不是，未知]，我们不可能光凭肉眼去看，粗略一看好像只有两个，这里使用unique(),这里只能使用Series.unique()</strong></p>
+<ul>
+<li>观察标签是object类型，将标签数值化</li>
+<li>使用map()函数,进行映射</li>
+</ul>
+<pre class="highlight"><code class="">y.unique() #unique统计分类结果如['yes','no']
+dict1 = {'No':0, 'Yes':1}
+y = y.map(dict1)
+</code></pre>
+<h1 id="日期数据处理难"><a class="markdownIt-Anchor" href="#日期数据处理难"></a> 日期数据处理(难)</h1>
+<ul>
+<li><strong>对时间数据的处理思路</strong></li>
+</ul>
+<p>观察时间数据的特征<code>2009-10-30</code>，可以发现是字符串类型的，我们如何让时间对结果有影响呢？<strong>时间中有个很重要的数据</strong>，<strong>就是月份</strong>，我们知道，在不同的时间，下雨的可能性不一样，春天下雨可能性更大，而数据是字符串，所以我们可以用split或者正则表达式，对数据进行提取，获取月份，并转化成整型</p>
+<h2 id="统计元素出现的次数"><a class="markdownIt-Anchor" href="#统计元素出现的次数"></a> 统计元素出现的次数</h2>
+<ul>
+<li>观察日期这个标签，如何转换日期呢？日期会不会有重复，因为不同地点，可能日期是一样的,使用Series的value_counts()函数，统计出现的次数，相当于Counter模块的Counter函数</li>
+</ul>
+<p>输入：</p>
+<pre class="highlight"><code class="">x_train.Date.value_counts()
+</code></pre>
+<p>输出：</p>
+<pre class="highlight"><code class="">2009-10-30    6
+2015-03-13    6
+2016-03-04    6
+2015-06-01    5
+2016-02-13    5
+             ..
+2014-04-30    1
+2012-03-27    1
+2011-02-23    1
+2012-05-25    1
+2016-12-20    1
+
+</code></pre>
+<h2 id="统计元素个数无重复"><a class="markdownIt-Anchor" href="#统计元素个数无重复"></a> 统计元素个数(无重复)</h2>
+<ul>
+<li>unique是统计多少个元素，并显示出具体元素名出来</li>
+<li>nunique是显示元素的个数，只显示数字<br />
+输入：</li>
+</ul>
+<pre class="highlight"><code class=""># 我们要去除重复的日期，观察有多少不同的日期
+# 发现5000个数据中有2160个不同的时间
+x_train.Date.nunique()
+</code></pre>
+<p>输出：</p>
+<pre class="highlight"><code class="">2160
+</code></pre>
+<h2 id="对元素进行排序"><a class="markdownIt-Anchor" href="#对元素进行排序"></a> 对元素进行排序</h2>
+<ul>
+<li>这里对标签Location进行排序，会按地理位置A开始的显示</li>
+<li>sort_values表示进行排序，这里<strong>按字母顺序排序</strong>，就可以看到同一地点的不同日期了</li>
+</ul>
+<pre class="highlight"><code class=""># 要知道时间数据是非常重要的，今天的天气可能会对明天的天气有影响
+
+x_train.sort_values(by='Location')
+</code></pre>
+<pre class="highlight"><code class=""># 处理时间
+# 观察相同时间的数据情况
+# 可以发现，同一时间，都是不同地方的
+result = x_train.loc[:,'Date'] == '2013-01-17'	
+x_train.loc[result,:]
+</code></pre>
+<h2 id="提取时间中的月份"><a class="markdownIt-Anchor" href="#提取时间中的月份"></a> 提取时间中的月份</h2>
+<ul>
+<li>这里不建议用for循环，同时处理训练集和测试集</li>
+<li>使用Series的apply方法，会自动将每一行进行循环，执行后面的函数，apply会取出Series的每一行元素，放入到后面的函数的x当中</li>
+<li>由于apply后不会改变原始的数据，所以这里要进行赋值</li>
+</ul>
+<pre class="highlight"><code class="">for i in [x_train, x_test]:
+    i.loc[:,&quot;Date&quot;] = i.loc[ :,&quot;Date&quot;].apply(lambda x:int(x.split('-')[1]))
+</code></pre>
+<h2 id="给date标签重新命名"><a class="markdownIt-Anchor" href="#给date标签重新命名"></a> 给Date标签重新命名</h2>
+<ul>
+<li>前面我们已经将月份提取出来了，所以可以将Date转换成Month</li>
+<li>使用rename方法，传入将columns(列标签)重新命名</li>
+</ul>
+<pre class="highlight"><code class="">for i in [x_train, x_test]:
+    i.rename(columns={'Date':'Month'}, inplace=True)
+</code></pre>
+<h1 id="地点数据处理"><a class="markdownIt-Anchor" href="#地点数据处理"></a> 地点数据处理</h1>
+<p><strong>我们知道，一个国家，不同地区的地理气候是不一样的，原始数据向我们提供了气象站的名称，所以可以查到气象站的经纬度，同时，我们可以查到澳大利亚的城市名称，和澳大利亚气象局公布的，地理气候，上面归纳了每个城市的不同气候类型，发现一共只有8种气候类型，刚好可以设置成离散型数据，我们如果获取了气象站的坐标和澳大利亚城市的坐标，那么就可以根据公式来计算距离，气象站离哪个城市近，则气候就属于那个城市的气候</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/42948839" target="_blank" rel="noopener">这是地理公式</a></p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cwidehat%7BAB%7D+%3D+R+%5Ccdot+%5Carccos+%5Cbig%28+%5Ccos%28A_w%29+%5Ccos%28B_w%29+%5Ccos%28B_j-A_j%29+%2B%5Csin%28A_w%29+%5Csin%28B_w%29+%5Cbig%29" alt="" /><br />
+<em>w</em>表示纬度，<em>j</em>表示经度，两者都要用弧度来表示</p>
+<p><a href="https://www.cnblogs.com/juanjiang/archive/2019/05/30/10948849.html" target="_blank" rel="noopener">数据预处理的模块讲解</a></p>
+<h2 id="查看城市数量"><a class="markdownIt-Anchor" href="#查看城市数量"></a> 查看城市数量</h2>
+<ul>
+<li>使用value_counts只会计算城市出现的次数</li>
+</ul>
+<pre class="highlight"><code class="">x_train.Location.value_counts()
+</code></pre>
+<pre class="highlight"><code class="">MelbourneAirport    81
+PerthAirport        79
+Cairns              78
+Sydney              77
+Richmond            77
+Sale                77
+Watsonia            76
+</code></pre>
+<ul>
+<li>在后面加上count()就会计算出现多少个城市了</li>
+</ul>
+<pre class="highlight"><code class="">x_train.Location.value_counts().count()
+</code></pre>
+<pre class="highlight"><code class="">49
+</code></pre>
+<h2 id="地理位置数据的爬取和保存"><a class="markdownIt-Anchor" href="#地理位置数据的爬取和保存"></a> 地理位置数据的爬取和保存</h2>
+<ul>
+<li>先从网上找到澳大利亚的城市名称，然后保存到txt文件中</li>
+</ul>
+<pre class="highlight"><code class="">from selenium import webdriver
+import re
+import pandas as pd
+import time
+</code></pre>
+<ul>
+<li>time模块是防止网速不好，网页数据没有加载出来</li>
+<li>这里城市名保存在txt文件中，用read_table读取txt文件</li>
+<li>将Series数据转换成列表</li>
+<li>txt文件的读取要用read_table</li>
+</ul>
+<p><strong>txt中的数据如下：</strong></p>
+<pre class="highlight"><code class="">5	Adelaide	South Australia	1,345,777	1,262,940	+6.56%	5.38%
+43	Albany	Western Australia	34,205	30,656	+11.58%	0.14%
+19	Albury–Wodonga	New South Wales/Victoria	93,603	82,083
+</code></pre>
+<p><strong>读取完毕后，不加参数header=None,则hi吧第一行，作为标签，我的原始数据是没有标签的，如年龄，性别等</strong></p>
+<pre class="highlight"><code class=""># 读取txt文件要用read_table
+# header=None，不会将第一行作为标签
+data = pd.read_table(r'C:\Users\asus\Desktop\city.txt', header=None)
+city = data.iloc[:,1].tolist()
+
+# city = pd.read_csv(r'C:\Users\asus\Desktop\weatherAUS.csv')
+# city.Location.unique().tolist()
+# city.Location.nunique() 查看数据中提供了多少气象站
+# 气象站是没用的，还需要获取城市的经度纬度
+
+</code></pre>
+<ul>
+<li>这里创建一个新的DataFrame，将爬取的数据，一个个填入DF中</li>
+<li>设置好标签和属性名，默认值是NaN</li>
+</ul>
+<pre class="highlight"><code class="">city_data = pd.DataFrame(index=range(len(city)), columns=['City','Latitude','Longitude'])
+</code></pre>
+<p><strong>爬取数据并保存</strong></p>
+<pre class="highlight"><code class=""># 实例化对象
+driver = webdriver.Chrome()
+# 为了方便保存，我们获取城市序号和城市名
+for num, each_city in enumerate(city):
+    driver.get(r'https://www.latlong.net/place/sydney-nsw-australia-700.html')
+    time.sleep(1)
+    driver.find_element_by_id('keyword').send_keys(each_city)
+    time.sleep(1)
+    driver.find_element_by_xpath('//*[@id=&quot;frmsearch&quot;]/button').click()
+    # 获取网页源代码
+    page = driver.page_source
+    r1 = re.compile('&lt;td&gt;(.*?)&lt;/td&gt;')
+    result = re.findall(r1, page)
+    # 开始保存数据，防止出错，加入异常处理
+    try:
+        city_data.loc[num,'City'] = each_city
+        city_data.loc[num,'Latitude'] = result[1]
+        city_data.loc[num,'Longitude'] = result[2]
+    except:
+        continue
+    time.sleep(1)
+city_data
+
+# 查看爬取数据的缺失值
+city_data.info()
+</code></pre>
+<h2 id="处理爬取的数据"><a class="markdownIt-Anchor" href="#处理爬取的数据"></a> 处理爬取的数据</h2>
+<ol>
+<li>city_climate保存的是，澳大利亚城市的气候</li>
+<li>city_location，澳大利亚城市的坐标</li>
+<li>sample_city，气象站的坐标</li>
+</ol>
+<pre class="highlight"><code class="">city_climate = pd.read_csv(r'C:\Users\asus\Desktop\Cityclimate.csv')
+city_location = pd.read_csv(r'C:\Users\asus\Desktop\cityll.csv')
+sample_city = pd.read_csv(r'C:\Users\asus\Desktop\samplecity.csv')
+</code></pre>
+<ul>
+<li>这里不建议用这种for循环处理</li>
+<li>由于爬取的数据是字符串类型的，要将地理位置坐标转换成浮点型，字符串后面有个°，所以可以采用切片的方式去掉</li>
+</ul>
+<pre class="highlight"><code class="">for each in [city_location, sample_city]:
+    each.loc[:,'Longitude'] = each.loc[:,'Longitude'].apply(lambda x:float(x[:-1]))
+    each.loc[:,'Latitude'] = each.loc[:,'Latitude'].apply(lambda x:float(x[:-1]))
+    
+</code></pre>
+<ul>
+<li>去除其他没用的属性，只保留城市名，经度，纬度，三个标签</li>
+</ul>
+<pre class="highlight"><code class="">city_location, sample_city = city_location.iloc[:,[1,2,3]],\
+    sample_city.iloc[:,[1,2,3]]
+</code></pre>
+<p><strong>数据的合并</strong>(难点)</p>
+<p>上面我们分别搜集了城市的坐标，和城市的气候，发现两列数据中列标签中city是一样的，所以可以将两个数据合并，使用merge方法，主要是左右合并</p>
+<pre class="highlight"><code class=""># 发现两个文件的City标签是一样的，所以使用merge进行合并
+# on属性可以指定依据什么标签合并，这样只会有一个city属性
+city_location = pd.merge(city_location,city_climate,on='City'
+</code></pre>
+<p><strong>接下来，我们将计算气象站与城市的距离</strong></p>
+<ul>
+<li>loc方法，会自动创建新的属性</li>
+<li>这里我们创建城市的经度，纬度标签，和气象站的经度纬度标签，只需要使用apply方法，radians是将度数转换成弧度的函数，使用apply后返回的是一个Sereis序列</li>
+</ul>
+<pre class="highlight"><code class=""># aw表示a点的纬度，aj表示a点的经度
+# a点表示城市，b表示气象站
+# 处理前要将角度转换成弧度，地理位置是角度，带公式要带弧度就是除以180°
+
+city_location.loc[:,'aw'] = city_location.loc[:,'Latitude'].apply(lambda x:radians(x))
+city_location.loc[:,'aj'] = city_location.loc[:,'Longitude'].apply(lambda x:radians(x))
+sample_city.loc[:,'aw'] = sample_city.loc[:,'Latitude'].apply(lambda x:radians(x))
+sample_city.loc[:,'aj'] = sample_city.loc[:,'Longitude'].apply(lambda x:radians(x))
+</code></pre>
+<p><strong>计算距离</strong></p>
+<ul>
+<li>我们要计算每个气象站，距离每个城市的距离，然后挑出距离最近的那个城市的标签，获得对应的气候</li>
+<li>联系到KNN，array数据的特征，来进行计算</li>
+<li>我们使用一个数据，减一列数据，计算出来地距离，同样是array类型，然后可以用np.argmin获得距离最小地坐标，再回带到DataFrame中，就找到了对应的气候</li>
+</ul>
+<pre class="highlight"><code class=""># np.array数据,能一个行向量减一个矩阵
+# 而我们要用到计算每个气象站到每个城市的距离,直接for循环不方便
+# 所以这里利用numpy数据的特点计算
+R = 6378.13
+for i in range(sample_city.shape[0]):# sample是气象站的个数
+    # 气象站一个一个取
+    bw = np.array(sample_city.loc[i,'Latitude'])
+    bj = np.array(sample_city.loc[i,'Longitude'])
+    # 城市则一列一列地取
+    aw = np.array(city_location.loc[:,'Latitude'])
+    aj = np.array(city_location.loc[:,'Longitude'])
+    # 利用np,array数据的特征进行数据处理
+    distance = R*np.arccos(np.cos(aw)*np.cos(bw)*np.cos(bj-aj)+np.sin(aw)*np.sin(bw))
+    # 获得距离的最小值标签
+    index = np.argmin(distance)
+    # 根据标签得到最近的城市,和城市对应的天气
+    sample_city.loc[i,'Closest_city'] = city_location.loc[index,'City']
+    sample_city.loc[i,'Climate'] = city_location.loc[index,'Climate']
+</code></pre>
+<p><strong>我们已经找到每个气象站对应的气候了，但是抽取的5000个数据，还没有处理，如何将50个气象站的气候，对应到5000个训练集的气候呢？使用map函数，进行映射(难点)</strong></p>
+<ul>
+<li>只取出两个属性</li>
+<li>并将气象站的名字，作为index，这样DateFrame中的数据只剩下气候了</li>
+</ul>
+<pre class="highlight"><code class="">final_climate = sample_city.loc[:,['City','Climate']]
+final_climate = final_climate.set_index(keys='City')
+</code></pre>
+<ul>
+<li>之前我们使用map函数就是将标签传入字典，Yes：1，No：0</li>
+<li>其实map还可以传入Series类型的，故需要从DF中取出一列</li>
+<li>对训练集和测试集一起操作，将气象站，改成气候，并没有保留气象站的名字</li>
+</ul>
+<pre class="highlight"><code class=""># map函数可以形成映射的关系,可以传入字典或者Series,Sereis的index必须是字典的键
+x_train['Location'] = x_train['Location'].map(final_climate['Climate'])
+x_test['Location'] = x_test['Location'].map(final_climate['Climate'])
+</code></pre>
+<p><strong>给city重新命名</strong></p>
+<p>我们已将气象站变成了气候，进行重新命名</p>
+<pre class="highlight"><code class=""># 给特征重新命名
+# 直接这样rename不会改变原来的值
+x_train = x_train.rename(columns={'Location':'Climate'})
+x_test = x_test.rename(columns={'Location':'Climate'})
+</code></pre>
+<h1 id="数据转换重要"><a class="markdownIt-Anchor" href="#数据转换重要"></a> 数据转换(重要)</h1>
+<p><a href="https://blog.csdn.net/weixin_41798592/article/details/101344948" target="_blank" rel="noopener">详细请看</a></p>
+<ul>
+<li>由于上面爬取的城市气候数据中，气候名夹杂着空格和逗号，机器学习不擅长处理这些数据，所以要用正则替换为空</li>
+</ul>
+<pre class="highlight"><code class=""># 将climate中的空格和逗号都去除,使用正则表达式
+# apply不会改变原来的Seriers的值
+x_train.loc[:,'Climate'] = x_train.loc[:,'Climate'].apply(lambda x:re.sub(' ','',x))
+x_train.loc[:,'Climate'] = x_train.loc[:,'Climate'].apply(lambda x:re.sub(',','',x))
+x_test.Climate = x_test.Climate.apply(lambda x:re.sub(&quot; &quot;,'',x))
+x_test.Climate = x_test.Climate.apply(lambda x:re.sub(',','',x))
+</code></pre>
+<h2 id="缺失值的填充"><a class="markdownIt-Anchor" href="#缺失值的填充"></a> 缺失值的填充</h2>
+<ol>
+<li>连续型用均值填充，离散型，用众数进行填充</li>
+<li>连续型变量，要做标准化处理，分类型变量不用标准化</li>
+</ol>
+<h3 id="离散型数据的填补"><a class="markdownIt-Anchor" href="#离散型数据的填补"></a> 离散型数据的填补</h3>
+<p><strong>将离散型数据和连续型数据分开处理</strong></p>
+<ul>
+<li>查看数据类型，object类，一般是离散型数据</li>
+</ul>
+<pre class="highlight"><code class="">x_train.dtypes
+</code></pre>
+<pre class="highlight"><code class="">Month              int64
+Location          object
+MinTemp          float64
+MaxTemp          float64
+
+</code></pre>
+<ul>
+<li>取出为object类型的数据</li>
+</ul>
+<p>输入：</p>
+<pre class="highlight"><code class="">x_train.dtypes == object
+</code></pre>
+<p>返回的是布尔类型</p>
+<pre class="highlight"><code class="">Month            False
+Location          True
+MinTemp          False
+MaxTemp          False
+</code></pre>
+<p>输入：</p>
+<pre class="highlight"><code class=""># 取出类型为object的标签，等待转换成数值型
+object_columns = x_train.loc[:,x_train.dtypes == object].columns.tolist()
+
+# 除了字符串类型的属于离散型，我们还可以看到有些数字型也算离散变量
+object_columns.extend(['Cloud9am','Cloud3pm'])
+discrete_columns = object_columns
+</code></pre>
+<p>输出：</p>
+<pre class="highlight"><code class="">['Location', 'WindGustDir', 'WindDir9am', 'WindDir3pm
+</code></pre>
+<p>查看离散型数据的缺失情况</p>
+<pre class="highlight"><code class=""># 开始进行数据转换
+# 先查看数据的缺失情况
+x_train.loc[:,object_columns].isnull().mean()
+</code></pre>
+<p><strong>导入模块，开始填补</strong></p>
+<ul>
+<li>使用的是SimpleImputer模块</li>
+<li>先实例化，对缺失值为nan的数据，以频率最高的进行填补</li>
+</ul>
+<pre class="highlight"><code class=""># 先导入模块，然后实例化
+si = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
+</code></pre>
+<ul>
+<li>数据分为训练集和测试集，我们对测试集中的缺失值进行处理，用的是训练集中的众数进行填充，因为训练集的数据，特征肯定是更具有一般性的</li>
+<li>这里不用fit_transform一步到位，就是因为，对训练集和测试集的填充</li>
+<li>fit相当于得到众数，transform相当于开始对对象进行填充</li>
+</ul>
+<pre class="highlight"><code class="">si.fit(x_train.loc[:,discrete_columns]) # 相当于求出最高频率的
+# 开始对空值进行填充
+x_train.loc[:,discrete_columns] = si.transform(x_train.loc[:,discrete_columns])
+x_test.loc[:,discrete_columns] = si.transform(x_test.loc[:,discrete_columns])
+</code></pre>
+<p><strong>查看填充情况</strong></p>
+<pre class="highlight"><code class=""># 发现离散型数据空值都已经填充好了
+x_train.loc[:,discrete_columns].isnull().mean()
+</code></pre>
+<ul>
+<li>都为0表示填充完毕</li>
+</ul>
+<pre class="highlight"><code class="">Climate        0.0
+WindGustDir    0.0
+WindDir9am     0.0
+WindDir3pm     0.0
+RainToday      0.0
+Cloud9am       0.0
+Cloud3pm       0.0
+
+</code></pre>
+<h3 id="连续型数据的填补"><a class="markdownIt-Anchor" href="#连续型数据的填补"></a> 连续型数据的填补</h3>
+<ul>
+<li>上面我们得到了离散型变量的名字，所以除掉这些，剩下的就是连续的了</li>
+</ul>
+<pre class="highlight"><code class=""># 开始对连续型数据进行缺失值的填补
+# 只需要对不是离散的处理就行了
+continues = []
+for each in x_train.columns:
+    if each not in discrete_columns:
+        continues.append(each)
+</code></pre>
+<ul>
+<li>同样是使用SimpleImputer进行填充，填充方法是平均值</li>
+</ul>
+<pre class="highlight"><code class="">si = SimpleImputer(missing_values=np.nan, strategy='mean')
+x_train.loc[:,continues] = si.fit_transform(x_train.loc[:,continues])
+x_test.loc[:,continues] = si.fit_transform(x_test.loc[:,continues])
+</code></pre>
+<ul>
+<li>都要导入skleran.preprocessing</li>
+</ul>
+<h2 id="将标签转换成数值型lableencoder"><a class="markdownIt-Anchor" href="#将标签转换成数值型lableencoder"></a> 将标签转换成数值型LableEncoder</h2>
+<ul>
+<li>preprocessing.LabelEncoder：标签专用，能够将分类转换为分类数值</li>
+</ul>
+<h2 id="将离散分类型数据转换成数值型"><a class="markdownIt-Anchor" href="#将离散分类型数据转换成数值型"></a> 将离散分类型数据转换成数值型</h2>
+<p><strong>前面我们已经对离散型数据和连续型数据填充完毕，由于离散型数据大多数是字符串类型的，所以要将字符串类型，转变成数值型</strong></p>
+<ul>
+<li>
+<p>其实就相当于将male编号成0，将female编号成1，只不过现在用模块来处理</p>
+</li>
+<li>
+<p>训练集和测试集，都有离散值，所以都要进行处理</p>
+</li>
+<li>
+<p>preprocessing.OrdinalEncoder：特征专用，能够将分类特征转换为分类数值</p>
+</li>
+</ul>
+<pre class="highlight"><code class=""># 离散型数据缺失值填充好了，开始对离散型数据进行编码，转换成数字类型
+# 依旧是使用fit_transform进行转换
+encode = OrdinalEncoder()
+x_train.loc[:,discrete_columns] = encode.fit_transform(x_train.loc[:,discrete_columns])
+x_test.loc[:,discrete_columns] = encode.fit_transform(x_test.loc[:,discrete_columns])
+</code></pre>
+<h2 id="数据无量纲化"><a class="markdownIt-Anchor" href="#数据无量纲化"></a> 数据无量纲化</h2>
+<ul>
+<li>无量纲化，这里只针对连续型变量，离散型如0-1，无量纲化是没意义的</li>
+</ul>
+<pre class="highlight"><code class=""># 数据的无量纲化
+# 这里无量纲化只对连续型数据进行，不考虑分类型数据的
+continues.remove('Month')
+</code></pre>
+<ul>
+<li>使用sklearn.preprocessing中的StandardScaler模块</li>
+<li>开始对连续型变量进行无量纲化，这里采用的是标准化处理</li>
+</ul>
+<pre class="highlight"><code class=""># 使用StandardScaler进行无量纲化
+s = StandardScaler()
+x_train.loc[:,continues] = s.fit_transform(x_train.loc[:,continues])
+x_test.loc[:,continues] = s.fit_transform(x_test.loc[:,continues])
+</code></pre>
+<h1 id="精确度和召回率"><a class="markdownIt-Anchor" href="#精确度和召回率"></a> 精确度和召回率</h1>
+<h2 id="精确度"><a class="markdownIt-Anchor" href="#精确度"></a> 精确度</h2>
+<ul>
+<li>指所有判断正确，并真实值为1的点/所有判断为1的点</li>
+</ul>
+<blockquote>
+<p>精确度越高，说明判断错误的点越少，对正确点a的捕捉能力强</p>
+</blockquote>
+<h2 id="召回率"><a class="markdownIt-Anchor" href="#召回率"></a> 召回率</h2>
+<ul>
+<li>所有预测为1的点/真实值为1的点</li>
+</ul>
+<blockquote>
+<p>召回率表示预测正确的样本所占的比例,召回率越高，说明判断正确的点越多，但是判断错误的点，也可能很多</p>
+</blockquote>
+<ul>
+<li>例如当在分析是否为潜在犯罪问题的时候，我们就需要召回率高，另可错杀一千，也不愿放过一个</li>
+</ul>
+<blockquote>
+<p>精确度上来了，召回率就会下去</p>
+</blockquote>
+<p>在本项目中，如果我们提高准确度，那么召回率就会下降，假如现在判断某一天会不会下雨</p>
+<p>召回率越高，说明，虽然我判断明天可能会下雨，<strong>实际上明天是晴天</strong>，但能保证，判断明天会下雨的天，一定包含在我预测的天数里(夸张点说，我预测今年一定会下雨)</p>
+<p>精确度越高，就是我预测这些天会下雨，确实，这些天很多都下雨了，<strong>但在我预测之外，仍然有些天会下雨我没预测到</strong></p>
+<h1 id="模型预测"><a class="markdownIt-Anchor" href="#模型预测"></a> 模型预测</h1>
+<p>数据处理完毕后，使用sklearn中的机器学习方法，开始对天气进行预测</p>
+<h2 id="导入模块-2"><a class="markdownIt-Anchor" href="#导入模块-2"></a> 导入模块</h2>
+<pre class="highlight"><code class="">from sklearn.svm import SVC
+from sklearn.metrics import recall_score
+</code></pre>
+<ul>
+<li>ravel是将二维数组，降维</li>
+<li>另外，reshape(-1)也可以“拉平”多维数组</li>
+</ul>
+<pre class="highlight"><code class="">d = {'Yes':1,'No':0}
+# 这里y_test，y_train是Series类型的数据，所以要将他们转换成DF数据，才能使用map
+y_test, y_train = pd.DataFrame(y_test), pd.DataFrame(y_train)
+y_test, y_train = y_test.iloc[:,0].map(d).ravel(),\
+    y_train.iloc[:,0].map(d).ravel()
+</code></pre>
+<p><img src="https://upload-images.jianshu.io/upload_images/13780430-65c7e9c3d8798198.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="" /></p>
+<p><strong>选取核函数，先挑选出最好的核函数，再进一步调节参数</strong></p>
+<pre class="highlight"><code class="">for kernel in ['linear','poly','rbf','sigmoid']:
+    clf = SVC(kernel = kernel, gamma = 'auto', degree = 1, cache_size = 2500)
+    clf = clf.fit(x_train, y_train)
+    result = clf.predict(x_test)
+    score = clf.score(x_test, y_test)
+    recall = recall_score(y_test, result)
+    print(f'核函数：{kernel},精确度：{score},召回率{recall}')
+</code></pre>
+<ul>
+<li>我们可以看到，四种核函数中，ploy 和 linear 核函数是最佳的</li>
+</ul>
+<pre class="highlight"><code class="">核函数：linear,精确度：0.8453333333333334,召回率0.4852941176470588
+核函数：poly,精确度：0.8466666666666667,召回率0.4764705882352941
+核函数：rbf,精确度：0.8206666666666667,召回率0.3323529411764706
+核函数：sigmoid,精确度：0.636,召回率0.1323529411764706
+</code></pre>
+<h1 id="调节参数优化模型"><a class="markdownIt-Anchor" href="#调节参数优化模型"></a> 调节参数，优化模型</h1>
+<p><a href="https://blog.csdn.net/gracejpw/article/details/103054668" target="_blank" rel="noopener">参考自CSDN</a></p>
+<h2 id="不均衡问题"><a class="markdownIt-Anchor" href="#不均衡问题"></a> 不均衡问题</h2>
+<p>对于分类问题，永远都逃不过的一个痛点就是样本不均衡问题。样本不均衡是指在一组数据集中，标签的一类天生占有很大的比例，但我们有着捕捉出某种特定的分类的需求的状况。比如，我们现在要对潜在犯罪者和普通人进行分类，潜在犯罪者占总人口的比例是相当低的，也许只有2%左右，98%的人都是普通人，而我们的目标是要捕获出潜在犯罪者。这样的标签分布会带来许多问题。</p>
+<p>首先，分类模型天生会倾向于多数的类，让多数类更容易被判断正确，少数类被牺牲掉。因为对于模型而言，样本量越大的标签可以学习的信息越多，算法就会更加依赖于从多数类中学到的信息来进行判断。如果我们希望捕获少数类，模型就会失败。其次，模型评估指标会失去意义。这种分类状况下，即便模型什么也不做，全把所有人都当成不会犯罪的人，准确率也能非常高，这使得模型评估指标accuracy变得毫无意义，根本无法达到我们的“要识别出会犯罪的人”的建模目的</p>
+<p>所以现在，我们首先要让算法意识到数据的标签是不均衡的，通过施加一些惩罚或者改变样本本身，来让模型向着捕获少数类的方向建模。然后，我们要改进我们的模型评估指标，使用更加针对于少数类的指标来优化模型。<br />
+要解决第一个问题，可以采用上采样下采样的方法。但这些采样方法会增加样本的总数，对于支持向量机这个样本总是对计算速度影响巨大的算法来说，我们完全不想轻易地增加样本数量。况且，支持向量机中的决策仅仅受决策边界的影响，而决策边界又仅仅受到参数C和支持向量的影响，单纯地增加样本数量不仅会增加计算时间，可能还会增加无数对决策边界无影响的样本点。因此在支持向量机中，我们要大力依赖我们调节样本均衡的参数：SVC类中的class_weight和接口fit中可以设定的sample_weight。</p>
+<p>在逻辑回归中，参数class_weight默认None，此模式表示假设数据集中的所有标签是均衡的，即自动认为标签的比例是1：1。所以当样本不均衡的时候，我们可以使用形如{“标签的值1”：权重1，“标签的值2”：权重2}的字典来输入真实的样本标签比例，来让算法意识到样本是不平衡的。</p>
+<p>但在SVM中，我们的分类判断是基于决策边界的，而最终决定究竟使用怎样的支持向量和决策边界的参数是参数C，所以所有的样本均衡都是通过参数C来调整的。</p>
+<pre class="highlight"><code class="">class_1 = 500 #类别1有500个样本
+class_2 = 50 #类别2只有50个
+
+#不设定class_weight
+clf = SVC(kernel='linear', C=1.0)
+clf.fit(X, y)
+#设定class_weight
+wclf = SVC(kernel='linear', class_weight={1: 10})
+wclf.fit(X, y)
+#给两个模型分别打分看看，这个分数是accuracy准确度
+clf.score(X,y)
+</code></pre>
+<p>可以看出，从准确率的角度来看，不做样本平衡的时候准确率反而更高，做了样本平衡准确率反而变低了，这是因为做了样本平衡后，为了要更有效地捕捉出少数类，模型误伤了许多多数类样本，而多数类被分错的样本数量 &gt; 少数类被分类正确的样本数量，使得模型整体的精确性下降。现在，如果我们的目的是模型整体的准确率，那我们就要拒绝样本平衡，使class_weight被设置之前的模型。</p>
+<p>然而在现实中，我们往往都在追求捕捉少数类，因为在很多情况下，将少数类判断错的代价是巨大的。比如我们之前提到的，判断潜在犯罪者和普通人的例子，如果我们没有能够识别出潜在犯罪者，那么这些人就可能去危害社会，造成恶劣影响，但如果我们把普通人错认为是潜在犯罪者，我们也许只是需要增加一些监控和人为甄别的成本。所以对我们来说，我们宁愿把普通人判错，也不想放过任何一个潜在犯罪者。我们希望不惜一切代价来捕获少数类，或者希望捕捉出尽量多的少数类，那我们就必须使用class_weight设置后的模型。</p>
+
+      
+       
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>明天会下雨吗？</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">6.3k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Miki Zhu">Miki Zhu</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-03-30, 11:25:31</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-30, 12:46:35</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/" title="明天会下雨吗？">http://yoursite.com/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 MikiZhu</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#机器学习','#算法','#博客搭建','#python','#网站推荐','#考研经验',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        background: url("http://q8idlsxje.bkt.clouddn.com/%E6%B5%B7%E6%BB%A9.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

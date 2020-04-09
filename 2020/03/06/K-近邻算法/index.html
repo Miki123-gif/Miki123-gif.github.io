@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>K-近邻算法 | Miki&#39;s blog</title>
+  <meta name="keywords" content=" 算法 ">
+  <meta name="description" content="K-近邻算法 | Miki&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:site_name" content="Miki&#39;s blog">
+<meta property="og:description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-09T07:02:46.000Z">
+<meta property="article:modified_time" content="2020-04-09T07:06:36.648Z">
+<meta property="article:author" content="Miki Zhu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/1.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/头像.jpg" />
+</a>
+<div class="author">
+    <span>Miki Zhu</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="email" href="mailto:747876457@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=747876457&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(25)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习">机器学习<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目实战">项目实战<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="博客搭建">博客搭建<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="学习网站推荐">学习网站推荐<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="考研经验">考研经验<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  " target="_blank" href="/about">关于</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_word_count" value="53.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">机器学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">博客搭建</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">网站推荐</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">考研经验</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="考研经验 "
+           href="/2020/02/20/%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95%E7%BB%8F%E9%AA%8C/"
+           data-tag="考研经验"
+           data-author="" >
+            <span class="post-title" title="考研初试经验">考研初试经验</span>
+            <span class="post-date" title="2020-02-20 19:33:48">2020/02/20</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/08/hexo-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="hexo 主题添加评论">hexo 主题添加评论</span>
+            <span class="post-date" title="2020-04-08 21:43:26">2020/04/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/03/python%E9%9D%A2%E8%AF%95%E9%A2%98/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python面试题(不定期更新)">python面试题(不定期更新)</span>
+            <span class="post-date" title="2020-04-03 21:14:43">2020/04/03</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="明天会下雨吗？">明天会下雨吗？</span>
+            <span class="post-date" title="2020-03-30 11:25:31">2020/03/30</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/23/%E5%86%B3%E7%AD%96%E6%A0%91%E5%AE%9E%E7%8E%B0Titanic-%E9%87%8D%E8%A6%81/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树实现Titanic(重要)">决策树实现Titanic(重要)</span>
+            <span class="post-date" title="2020-03-23 17:09:05">2020/03/23</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/21/Titanic-%E9%A1%B9%E7%9B%AE%E8%AF%A6%E8%A7%A3/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Titanic 项目详解">Titanic 项目详解</span>
+            <span class="post-date" title="2020-03-21 14:07:20">2020/03/21</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/19/kaggle%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="kaggle项目实战，Titanic analysis">kaggle项目实战，Titanic analysis</span>
+            <span class="post-date" title="2020-03-19 10:08:13">2020/03/19</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/17/Pytorch-%E6%90%AD%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 搭建神经网络">Pytorch 搭建神经网络</span>
+            <span class="post-date" title="2020-03-17 14:56:16">2020/03/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="CNN">CNN</span>
+            <span class="post-date" title="2020-03-16 09:11:00">2020/03/16</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/14/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8Ck%E5%9D%87%E5%80%BC/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="random forest and k means">random forest and k means</span>
+            <span class="post-date" title="2020-03-14 16:29:22">2020/03/14</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="支持向量机">支持向量机</span>
+            <span class="post-date" title="2020-03-13 20:53:20">2020/03/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/11/Matplotlab/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Matplotlab">Matplotlab</span>
+            <span class="post-date" title="2020-03-11 10:13:20">2020/03/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/10/pandas/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="pandas">pandas</span>
+            <span class="post-date" title="2020-03-10 09:20:27">2020/03/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/09/logical-regression/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="logical regression">logical regression</span>
+            <span class="post-date" title="2020-03-09 20:30:33">2020/03/09</span>
+        </a>
+        
+        <a  class="学习网站推荐 "
+           href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/"
+           data-tag="网站推荐"
+           data-author="" >
+            <span class="post-title" title="学习网站或工具推荐">学习网站或工具推荐</span>
+            <span class="post-date" title="2020-03-08 20:44:55">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E6%9E%90/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分析">贝叶斯分析</span>
+            <span class="post-date" title="2020-03-08 20:11:15">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/numpy/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="numpy的使用">numpy的使用</span>
+            <span class="post-date" title="2020-03-08 19:15:54">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/07/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2020-03-07 19:27:38">2020/03/07</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2020-03-06 20:18:19">2020/03/06</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/05/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="排序算法">排序算法</span>
+            <span class="post-date" title="2020-03-05 19:41:32">2020/03/05</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="数据结构与时间复杂度">数据结构与时间复杂度</span>
+            <span class="post-date" title="2020-03-04 21:00:32">2020/03/04</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习数学基础">机器学习数学基础</span>
+            <span class="post-date" title="2020-03-04 16:48:34">2020/03/04</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="哈希图 and 移动窗口">哈希图 and 移动窗口</span>
+            <span class="post-date" title="2020-03-03 18:49:52">2020/03/03</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="1 零基础学机器学习">1 零基础学机器学习</span>
+            <span class="post-date" title="2020-03-01 20:23:40">2020/03/01</span>
+        </a>
+        
+        <a  class="博客搭建 "
+           href="/2020/02/20/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="Windows系统下用hexo搭建个人博客">Windows系统下用hexo搭建个人博客</span>
+            <span class="post-date" title="2020-02-20 13:15:25">2020/02/20</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-K-近邻算法" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">K-近邻算法</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="机器学习">机器学习</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color3">算法</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-13 11:04:58'>2020-03-06 20:18</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2.6k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#knn"><span class="toc-text"> KNN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法步骤"><span class="toc-text"> 算法步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举例分析"><span class="toc-text"> 举例分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法缺点"><span class="toc-text"> 算法缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#识别0~9数字系统实战"><span class="toc-text"> 识别0~9数字系统(实战)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备数据"><span class="toc-text"> 准备数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预备知识"><span class="toc-text"> 预备知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维矩阵减一维向量"><span class="toc-text"> 二维矩阵减一维向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整代码和思路"><span class="toc-text"> 完整代码和思路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#knn数据分析实战"><span class="toc-text"> KNN数据分析实战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景海伦约会"><span class="toc-text"> 背景：海伦约会</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据分析"><span class="toc-text"> 数据分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据图的绘制"><span class="toc-text"> 数据图的绘制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算样本点之间的距离"><span class="toc-text"> 计算样本点之间的距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据的归一化"><span class="toc-text"> 数据的归一化</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="knn"><a class="markdownIt-Anchor" href="#knn"></a> KNN</h1>
+<p>K-近邻算法，学名<strong>k nearest Neighbor(近的邻居)</strong>,简称**KNN，**该算法可以解决分类的问题</p>
+<p><a href="https://www.bilibili.com/video/av37947862/?p=41" target="_blank" rel="noopener">推荐一个视频，讲的很详细</a></p>
+<h2 id="算法步骤"><a class="markdownIt-Anchor" href="#算法步骤"></a> 算法步骤</h2>
+<ol>
+<li>
+<p>训练算法，需要先用一些已知样本进行训练</p>
+</li>
+<li>
+<p>将未知分类的实例(样本)输入到算法中，并且设置k值，一般k设置成奇数</p>
+</li>
+<li>
+<p>完成分类</p>
+</li>
+</ol>
+<h2 id="举例分析"><a class="markdownIt-Anchor" href="#举例分析"></a> 举例分析</h2>
+<ol>
+<li>假如现在我们要将一部电影归类为是<strong>爱情电影 or 动作电影</strong>，我们用两个指标来判定<strong>一部电影中的打斗次数，一部电影中的接吻次数</strong></li>
+<li>现在我们有一些已知类别的电影，和一些未知类别的电影，我们先将已知类别的电影放入到算法中进行训练，假如打斗次数是x，接吻次数是y，我们可以明显在坐标轴上看到打斗电影的点比较密集，爱情电影的点也比较密集，图上的点集分成两类</li>
+<li>设置k值，并且将未排序的数据，投入到算法中，开始进行分类，先从第一个未分类点开始，计算所有已知样本点到该点的距离，找k个离该点最近的点，假如k=5，里面有3个点是爱情电影，2个点是动作电影，<strong>按照少数服从多数原则</strong>，该电影就会归类到爱情电影</li>
+</ol>
+<blockquote>
+<ul>
+<li>k一般取奇数是因为，假如k = 4，爱情电影和动作电影点分别有两个，那么这个电影就不好分类了</li>
+<li>计算距离一般是算欧氏距离，即sqrt((x2-x1)^2 + (y2-y1)^2)，如果是三位的，依旧如此</li>
+</ul>
+</blockquote>
+<h2 id="算法缺点"><a class="markdownIt-Anchor" href="#算法缺点"></a> 算法缺点</h2>
+<ul>
+<li>时间复杂度比较大，因为数据一多，比如未知样本有100，已知样本有100，则需要计算10000次，第一个样本需要计算他与100个样本的距离，要这样计算100次</li>
+<li>分类不稳定，假如动作电影有100部，爱情电影有1000部，假如我们认为看一个未分类样本，应该是动作电影，但将他放入到算法中，设置k值为10时，由于动作电影稀疏，离他近的点有4个，但爱情电影多，很小范围就有6个点，那么这个点就会误认为时爱情电影</li>
+</ul>
+<h1 id="识别0~9数字系统实战"><a class="markdownIt-Anchor" href="#识别0~9数字系统实战"></a> 识别0~9数字系统(实战)</h1>
+<blockquote>
+<p>首先，<code>readlines</code>和<code>readline</code>都会读取到末尾的换行符，因此需要用<code>strip</code>来去掉</p>
+</blockquote>
+<pre class="highlight"><code class="">print(f.readlines())
+</code></pre>
+<pre class="highlight"><code class="">['123\n', '1\n', '4']
+</code></pre>
+<pre class="highlight"><code class="">print(f.readline().strip())
+</code></pre>
+<h2 id="准备数据"><a class="markdownIt-Anchor" href="#准备数据"></a> 准备数据</h2>
+<ul>
+<li>
+<p>现在我们有大量二进制数据<code>txt</code>文件，这些数据是通过搜集大量的手写0-9数字，然后通过光学识别，将图片转换成二进制32*32的矩阵保存在<code>txt</code>中，现在0数字有几百个数据，一共2000组<code>txt</code>文件</p>
+</li>
+<li>
+<p>现在将32*32的数组转变成1*1024的<strong>行向量</strong>，32是2的5次方，刚好是1*2的10次方</p>
+</li>
+<li>
+<p>故先设计矩阵转向量的函数，然后循环所有文件即可</p>
+</li>
+</ul>
+<pre class="highlight"><code class="">def vector_transform(filename):
+    array = np.zeros((1, 1024))
+    with open(filename) as f:
+        for i in range(32):
+            each_line = f.readline().strip()
+            for j in range(32):
+                array[0, 32*i + j] = int(each_line[j])
+    return array
+</code></pre>
+<blockquote>
+<p><strong>注意<code>readline</code>读取文本都是<code>str</code>格式的数字，因此需要转成<code>int</code>类型</strong></p>
+</blockquote>
+<h2 id="预备知识"><a class="markdownIt-Anchor" href="#预备知识"></a> 预备知识</h2>
+<pre class="highlight"><code class="">a = np.arange(10).reshape(2, 5)
+print(a)
+print(np.sum(a, axis=1))
+</code></pre>
+<pre class="highlight"><code class="">[[0 1 2 3 4]
+ [5 6 7 8 9]]
+[10 35]
+</code></pre>
+<ul>
+<li><code>np.sum()</code>函数当<code>axis=1</code>时，会计算每一行的数据</li>
+</ul>
+<pre class="highlight"><code class="">a = np.array([[3, 1, 2],[4,5,6]])
+print(a)
+print(a.argsort(axis=0))
+print(a.argsort(axis=1))
+</code></pre>
+<pre class="highlight"><code class="">[[3 1 2]
+ [4 5 6]]
+[[0 0 0]
+ [1 1 1]]
+[[1 2 0]
+ [0 1 2]]
+</code></pre>
+<ul>
+<li><code>argsort()</code>,从小到大进行排序，返回坐标</li>
+</ul>
+<pre class="highlight"><code class="">import collections
+
+a = [1,1,2,3,4,1,2,3,2,2,2,2]
+print(collections.Counter(a))
+print(collections.Counter(a).most_common(1))
+print(collections.Counter(a).most_common(2))
+</code></pre>
+<pre class="highlight"><code class="">Counter({2: 6, 1: 3, 3: 2, 4: 1})
+[(2, 6)]
+[(2, 6), (1, 3)]
+</code></pre>
+<ul>
+<li><code>collections</code>模块，会统计所有出现元素出现的次数，用<code>most_common</code>打印出来</li>
+</ul>
+<h2 id="二维矩阵减一维向量"><a class="markdownIt-Anchor" href="#二维矩阵减一维向量"></a> 二维矩阵减一维向量</h2>
+<pre class="highlight"><code class="">a = np.array([[1,1,1],[1,0,1],[1,0,0]])
+b = np.array([1,1,0])
+print(a - b)
+</code></pre>
+<pre class="highlight"><code class="">[[ 0  0  1]
+ [ 0 -1  1]
+ [ 0 -1  0]]
+</code></pre>
+<ul>
+<li><code>ndarray</code>类型减法，每一行都会减这个行向量</li>
+</ul>
+<h2 id="完整代码和思路"><a class="markdownIt-Anchor" href="#完整代码和思路"></a> 完整代码和思路</h2>
+<pre class="highlight"><code class="">import numpy as np
+from os import listdir
+from os.path import join
+from collections import Counter
+
+path = r'C:\Users\asus\Desktop\machinelearninginaction\Ch02\trainingDigits'
+test_path = r'C:\Users\asus\Desktop\machinelearninginaction\Ch02\testDigits'
+
+def vector_transform(filename):
+    array = np.zeros((1, 1024))
+    with open(filename) as f:
+        for i in range(32):
+            each_line = f.readline().strip()
+            for j in range(32):
+                array[0, 32*i + j] = int(each_line[j])
+    return array
+
+
+def training_data_set():
+    training_data = listdir(path)
+    file_number = len(training_data)
+    training_matrix = np.zeros((file_number, 1024))
+    training_label = []
+    i = 0
+    for each_file_name in training_data:
+        array = vector_transform(join(path, each_file_name))
+        training_label.append(int(each_file_name.split('_')[0]))
+        training_matrix[i, :] = array
+        i += 1
+    return training_matrix, training_label, file_number
+
+
+def classify(inx, dataset, label, k=5):
+    distance = (np.sum((dataset - inx)**2, axis=1))**0.5
+    label_index = [label[index] for index in distance.argsort()[0:k]]
+    result = Counter(label_index).most_common(1)[0][0]
+    return result
+
+def hw_test():
+    t = training_data_set()
+    test_file = listdir(test_path)
+    text_file_num = len(test_file)
+    error_count = 0
+    for each_file in test_file:
+        real_result = int(each_file.split('_')[0])
+        test_array = vector_transform(join(test_path, each_file))
+        test_array = np.tile(test_array, (t[2], 1))
+        result = classify(test_array, t[0], t[1], k=7)
+        if result != real_result:
+            error_count += 1
+    print(f'该算法的错误率是{error_count/text_file_num}')
+
+if __name__ == '__main__':
+    hw_test()
+</code></pre>
+<p><strong>思路：</strong></p>
+<ol>
+<li>要先获得大量已知数据，和他对应的分类，由于数据格式是<code>32\*32</code>的<code>0-1</code>矩阵，所以可以转换成<code>1\*1024</code>的行向量，将所有文件矩阵都转换成行向量，然后合并成<code>（m,1024）</code>的矩阵</li>
+<li>获得这些文件的分类标签，记得一一对应</li>
+<li>使用<code>for</code>循环，遍历每个待测试文件，将待测试文件转换成行向量，计算该行向量与整个矩阵的距离</li>
+<li>利用<code>argsort</code>获得距离最小的<code>k</code>个坐标，再利用<code>counter</code>算出<code>k</code>个中标签多的，得出分类结果</li>
+</ol>
+<ul>
+<li>由于都是0-1矩阵，所以就不用将数据进行归一化了</li>
+</ul>
+<h1 id="knn数据分析实战"><a class="markdownIt-Anchor" href="#knn数据分析实战"></a> KNN数据分析实战</h1>
+<h2 id="背景海伦约会"><a class="markdownIt-Anchor" href="#背景海伦约会"></a> 背景：海伦约会</h2>
+<p>有一名女性，经常在网上与别人约会，对象会分成三类：</p>
+<ol>
+<li>不喜欢的人，<code>didntLike</code></li>
+<li>魅力一般的人，<code>smallDoses</code></li>
+<li>极具魅力的人，<code>largeDoses</code></li>
+</ol>
+<p>由于网上提供的数据有限，总是不能正常分类，所以海伦自己也搜集了一些数据，希望我们能将这些对象进行分类,部分数据如下：</p>
+<pre class="highlight"><code class="">40920	8.326976	0.953952	largeDoses
+14488	7.153469	1.673904	smallDoses
+26052	1.441871	0.805124	didntLike
+75136	13.147394	0.428964	didntLike
+38344	1.669788	0.134296	didntLike
+72993	10.141740	1.032955	didntLike
+</code></pre>
+<ul>
+<li>数据的属性如下：
+<ul>
+<li>每年的飞行里程</li>
+<li>玩游戏所占时间比</li>
+<li>每周消费的冰淇淋公升数</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据分析"><a class="markdownIt-Anchor" href="#数据分析"></a> 数据分析</h3>
+<ul>
+<li>首先，我们要将数据转换成矩阵的形式</li>
+</ul>
+<blockquote>
+<p>前三列数据都是数值型，而最后一列数据是字符串类型，我们知道类型分为三类，因此可以将他们转换成整数形式1，2，3</p>
+</blockquote>
+<ol>
+<li>我们可以看到数据类型是<code>txt</code>格式的，而且是一行一行的数据，将数据放到程序目录下</li>
+<li><code>readlines</code>函数可以将每一行数据读取并保存到列表中<code>'40920\t8.326976\t0.953952\tlargeDoses\n'</code></li>
+<li>由于保存的是存在制表符和换行符的，所以我们需用字符串的<code>spilit</code>方法去掉末尾的换行符</li>
+<li>去掉换行符后，我们可以用<code>spilit</code>方法，将每个元素切成四个部分保存在列表中</li>
+<li>利用<code>numpy</code>创造一个新的同样类型的矩阵，1000行3列，并用切片方法赋值</li>
+<li>利用if语句，将最后一列赋值为新的1，2，3</li>
+</ol>
+<pre class="highlight"><code class="">import numpy as np
+
+filename = 'datingTestSet.txt'
+def file_matrix(filename):
+    with open(filename) as f:
+        arrayLines = f.readlines()
+    numerOflines = len(arrayLines)
+    return_mat = np.zeros((numerOflines, 3))
+    classLabelvector = []
+    index = 0
+    for each_line in arrayLines:
+        each_line = each_line.strip()
+        list_from_line = each_line.split('\t')
+        return_mat[index,:] = list_from_line[0:3]
+        if list_from_line[-1] == 'didntLike':
+            classLabelvector.append(1)
+        elif list_from_line[-1] == 'smallDoses':
+            classLabelvector.append(2)
+        elif list_from_line[-1] == 'largeDoses':
+            classLabelvector.append(3)
+        index += 1
+    return return_mat, classLabelvector
+
+if __name__ == '__main__':
+    result = file_matrix(filename)
+</code></pre>
+<pre class="highlight"><code class="">[[4.0920000e+04 8.3269760e+00 9.5395200e-01]
+ [1.4488000e+04 7.1534690e+00 1.6739040e+00]
+ [2.6052000e+04 1.4418710e+00 8.0512400e-01]
+ ...
+</code></pre>
+<h2 id="数据图的绘制"><a class="markdownIt-Anchor" href="#数据图的绘制"></a> 数据图的绘制</h2>
+<pre class="highlight"><code class="">result = file_matrix(filename)
+x = result[0][:, 1]
+y = result[0][:, 2]
+plt.scatter(x, y,s=4)
+</code></pre>
+<ul>
+<li>result[0]是一个矩阵</li>
+<li>size可以设置散点图的点的大小</li>
+</ul>
+<p>上面绘制的点颜色都是一样的，不好分辨点的分布，现在修改函数</p>
+<pre class="highlight"><code class="">def color_label(classLabelvector):
+    colorLabel = []
+    for each in classLabelvector:
+        if each == 1:
+            colorLabel.append('red')
+        elif each == 2:
+            colorLabel.append('black')
+        elif each == 3:
+            colorLabel.append('green')
+    return colorLabel
+
+if __name__ == '__main__':
+    result = file_matrix(filename)
+    x = result[0][:, 1]
+    y = result[0][:, 2]
+    color = color_label(result[1])
+    plt.scatter(x, y, s=15, color=color)
+    plt.show()
+</code></pre>
+<ul>
+<li>scatter有个图标签，可以传一个数组进去</li>
+</ul>
+<p><img src="http://q6ip4it64.bkt.clouddn.com/Figure_1.png?e=1583930570&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:3VwQnkM8PqMVP4oFi2cvRp7RRjk=&amp;attname=" alt="" /></p>
+<h2 id="计算样本点之间的距离"><a class="markdownIt-Anchor" href="#计算样本点之间的距离"></a> 计算样本点之间的距离</h2>
+<pre class="highlight"><code class="">40920	8.326976	0.953952	largeDoses
+14488	7.153469	1.673904	smallDoses
+26052	1.441871	0.805124	didntLike
+75136	13.147394	0.428964	didntLike
+</code></pre>
+<p>这里有四个样本点，如果你要计算样本点3和样本点3的距离，由于维度是3，但是没有关系，我们依旧可以计算他的欧氏距离<br />
+<img src="http://q6ip4it64.bkt.clouddn.com/CodeCogsEqn.png?e=1583934436&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:x_2ZGqMFPcRFSwG6sgKk2pj5Fqw=&amp;attname=" alt="" /></p>
+<ul>
+<li>我们会发现，飞行的距离，对整个结果的影响实在是太大了，其他几个因素又和没有其实是一样的</li>
+</ul>
+<h2 id="数据的归一化"><a class="markdownIt-Anchor" href="#数据的归一化"></a> 数据的归一化</h2>
+<p>为了避免上面的结果，我们往往会将数据进行归一化，将所有的数据取值处理到0-1或者-1-1</p>
+<pre class="highlight"><code class="">a = np.random.random(10).reshape((2,5))
+print(a)
+print(a.min(0))
+</code></pre>
+<pre class="highlight"><code class="">[[0.763841   0.33633528 0.45371754 0.34882551 0.17668197]
+ [0.17092413 0.46925439 0.91786587 0.65634385 0.76016537]]
+ 
+[0.17092413 0.33633528 0.45371754 0.34882551 0.17668197]
+</code></pre>
+<ul>
+<li>可以发现<code>a.min(0)</code>这样将每一列中的最小数据都挑出来了，并且生成了一个数组</li>
+</ul>
+<pre class="highlight"><code class="">def dataNorm(result):
+	# 获得每一列的最大最小值
+    min_values = result.min(0)
+    max_values = result.max(0)
+    ranges = max_values - min_values
+    # 获得行数
+    row = result.shape[0]
+    # 对应元素进行四则运算
+    new_Norm_data = (result - np.tile(min_values, (row, 1)))/np.tile(ranges, (row, 1))
+    return new_Norm_data
+</code></pre>
+<ul>
+<li>现在<code>ndarray</code>形式的数组好处就体现出来了，加减乘除都可以对应元素加减乘除，而不会依据矩阵的运算来进行</li>
+<li><code>numpy.tile()</code>的用法</li>
+</ul>
+<pre class="highlight"><code class="">a = [1,2,3,4]
+print(np.tile(a, (1, 2)))
+print(np.tile(a, (3, 1)))
+</code></pre>
+<pre class="highlight"><code class="">[[1 2 3 4 1 2 3 4]]
+[[1 2 3 4]
+ [1 2 3 4]
+ [1 2 3 4]]
+</code></pre>
+<blockquote>
+<p>可以发现，必须传入一个列表，当右边传入一个元组时，<code>left</code>表示复制的行数，<code>right</code>表示复制的列数，复制后生成一个<code>ndarray</code>形式的数组</p>
+</blockquote>
+
+      
+       
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>K-近邻算法</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.6k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Miki Zhu">Miki Zhu</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-03-06, 20:18:19</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-13, 11:04:58</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/" title="K-近邻算法">http://yoursite.com/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 MikiZhu</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#机器学习','#算法','#博客搭建','#python','#网站推荐','#考研经验',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        background: url("http://q8idlsxje.bkt.clouddn.com/%E6%B5%B7%E6%BB%A9.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>支持向量机 | Miki&#39;s blog</title>
+  <meta name="keywords" content=" 机器学习 ">
+  <meta name="description" content="支持向量机 | Miki&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:site_name" content="Miki&#39;s blog">
+<meta property="og:description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-09T07:02:46.000Z">
+<meta property="article:modified_time" content="2020-04-09T07:06:36.648Z">
+<meta property="article:author" content="Miki Zhu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/1.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/头像.jpg" />
+</a>
+<div class="author">
+    <span>Miki Zhu</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="email" href="mailto:747876457@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=747876457&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(25)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习">机器学习<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目实战">项目实战<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="博客搭建">博客搭建<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="学习网站推荐">学习网站推荐<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="考研经验">考研经验<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  " target="_blank" href="/about">关于</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_word_count" value="53.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">机器学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">博客搭建</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">网站推荐</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">考研经验</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="考研经验 "
+           href="/2020/02/20/%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95%E7%BB%8F%E9%AA%8C/"
+           data-tag="考研经验"
+           data-author="" >
+            <span class="post-title" title="考研初试经验">考研初试经验</span>
+            <span class="post-date" title="2020-02-20 19:33:48">2020/02/20</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/08/hexo-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="hexo 主题添加评论">hexo 主题添加评论</span>
+            <span class="post-date" title="2020-04-08 21:43:26">2020/04/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/03/python%E9%9D%A2%E8%AF%95%E9%A2%98/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python面试题(不定期更新)">python面试题(不定期更新)</span>
+            <span class="post-date" title="2020-04-03 21:14:43">2020/04/03</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="明天会下雨吗？">明天会下雨吗？</span>
+            <span class="post-date" title="2020-03-30 11:25:31">2020/03/30</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/23/%E5%86%B3%E7%AD%96%E6%A0%91%E5%AE%9E%E7%8E%B0Titanic-%E9%87%8D%E8%A6%81/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树实现Titanic(重要)">决策树实现Titanic(重要)</span>
+            <span class="post-date" title="2020-03-23 17:09:05">2020/03/23</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/21/Titanic-%E9%A1%B9%E7%9B%AE%E8%AF%A6%E8%A7%A3/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Titanic 项目详解">Titanic 项目详解</span>
+            <span class="post-date" title="2020-03-21 14:07:20">2020/03/21</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/19/kaggle%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="kaggle项目实战，Titanic analysis">kaggle项目实战，Titanic analysis</span>
+            <span class="post-date" title="2020-03-19 10:08:13">2020/03/19</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/17/Pytorch-%E6%90%AD%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 搭建神经网络">Pytorch 搭建神经网络</span>
+            <span class="post-date" title="2020-03-17 14:56:16">2020/03/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="CNN">CNN</span>
+            <span class="post-date" title="2020-03-16 09:11:00">2020/03/16</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/14/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8Ck%E5%9D%87%E5%80%BC/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="random forest and k means">random forest and k means</span>
+            <span class="post-date" title="2020-03-14 16:29:22">2020/03/14</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="支持向量机">支持向量机</span>
+            <span class="post-date" title="2020-03-13 20:53:20">2020/03/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/11/Matplotlab/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Matplotlab">Matplotlab</span>
+            <span class="post-date" title="2020-03-11 10:13:20">2020/03/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/10/pandas/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="pandas">pandas</span>
+            <span class="post-date" title="2020-03-10 09:20:27">2020/03/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/09/logical-regression/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="logical regression">logical regression</span>
+            <span class="post-date" title="2020-03-09 20:30:33">2020/03/09</span>
+        </a>
+        
+        <a  class="学习网站推荐 "
+           href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/"
+           data-tag="网站推荐"
+           data-author="" >
+            <span class="post-title" title="学习网站或工具推荐">学习网站或工具推荐</span>
+            <span class="post-date" title="2020-03-08 20:44:55">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E6%9E%90/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分析">贝叶斯分析</span>
+            <span class="post-date" title="2020-03-08 20:11:15">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/numpy/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="numpy的使用">numpy的使用</span>
+            <span class="post-date" title="2020-03-08 19:15:54">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/07/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2020-03-07 19:27:38">2020/03/07</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2020-03-06 20:18:19">2020/03/06</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/05/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="排序算法">排序算法</span>
+            <span class="post-date" title="2020-03-05 19:41:32">2020/03/05</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="数据结构与时间复杂度">数据结构与时间复杂度</span>
+            <span class="post-date" title="2020-03-04 21:00:32">2020/03/04</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习数学基础">机器学习数学基础</span>
+            <span class="post-date" title="2020-03-04 16:48:34">2020/03/04</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="哈希图 and 移动窗口">哈希图 and 移动窗口</span>
+            <span class="post-date" title="2020-03-03 18:49:52">2020/03/03</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="1 零基础学机器学习">1 零基础学机器学习</span>
+            <span class="post-date" title="2020-03-01 20:23:40">2020/03/01</span>
+        </a>
+        
+        <a  class="博客搭建 "
+           href="/2020/02/20/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="Windows系统下用hexo搭建个人博客">Windows系统下用hexo搭建个人博客</span>
+            <span class="post-date" title="2020-02-20 13:15:25">2020/02/20</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-支持向量机算法" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">支持向量机</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a class="color5">机器学习</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-14 19:48:32'>2020-03-13 20:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2.3k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#支持向量机"><span class="toc-text"> 支持向量机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#松弛变量和惩罚函数"><span class="toc-text"> 松弛变量和惩罚函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性svm"><span class="toc-text"> 线性SVM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#必须掌握的知识点"><span class="toc-text"> 必须掌握的知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对线性svm的建模"><span class="toc-text"> 对线性SVM的建模</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#确定目标函数优化对象"><span class="toc-text"> 确定目标函数&amp;&amp;优化对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建决策面方程"><span class="toc-text"> 构建决策面方程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两个难题"><span class="toc-text"> 两个难题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题的解决思路"><span class="toc-text"> 问题的解决思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获得约束条件"><span class="toc-text"> 获得约束条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求目标函数"><span class="toc-text"> 求目标函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对方程进行求解"><span class="toc-text"> 对方程进行求解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拉格朗日对偶"><span class="toc-text"> 拉格朗日对偶</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="支持向量机"><a class="markdownIt-Anchor" href="#支持向量机"></a> 支持向量机</h2>
+<ul>
+<li>向量内积(点乘)，对应相乘相加</li>
+<li>或者表示为<code>|x|*|y|*cosθ</code></li>
+<li>范数，平方和开根号</li>
+<li>推荐b站覃秉丰的机器学习</li>
+<li>核函数就是为了简便内积的运算而引入的，因为有些时候非线性的数据集不好处理，要进行低维转化为高维来寻找超平面，由此引入了核函数</li>
+</ul>
+<p>支持向量机<code>（SVM）support vector machine</code>，主要是用来解决二分类问题的，他被认为是最好的分类方法。因为他能解决线性回归不能解决的分类问题</p>
+<p><strong><code>SVM</code>就是试图把棍放在最佳位置，好让在棍的两边有尽可能大的间隙。这个间隙就是球到棍的距离。</strong></p>
+<p><img src="https://img-blog.csdn.net/20170923170200381?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>即使放了更多的球，棍仍然是一个好的分界线。</p>
+<p><img src="https://img-blog.csdn.net/20170923170228849?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>现在，假如我们现在有这样类型的数据，我们不能再使用一条直线将他们很好地区分开来了，使用<code>SVM</code>却可以。</p>
+<p><img src="https://img-blog.csdn.net/20170923170253159?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>我们需要对二维平面进行升维处理，找到一个最好的平面，将数据分类，我们将这个平面称为<strong>超平面</strong></p>
+<p><img src="https://img-blog.csdn.net/20170923170319898?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<h2 id="松弛变量和惩罚函数"><a class="markdownIt-Anchor" href="#松弛变量和惩罚函数"></a> 松弛变量和惩罚函数</h2>
+<p>因为实际的数据不可能没有错误的**(非线性情况)**，总会有分类错误的点(或者苹果跑到梨子那边了)</p>
+<ul>
+<li>松弛变量就是让支持向量(曲线)不断移动</li>
+<li>惩罚函数就是让分错的点越少越好(最好的时候就是刚好与分错的点相切)</li>
+</ul>
+<h2 id="线性svm"><a class="markdownIt-Anchor" href="#线性svm"></a> 线性<code>SVM</code></h2>
+<p>现在先看一下平面二分类的问题</p>
+<p><img src="https://img-blog.csdn.net/20170923170544874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>黑色实线为分界线，术语称为“决策面”，每个决策面对应了一个线性分类器，虽然从分类结果上看，分类器A和分类器B的效果是相同的。但是他们的性能是有差距的。<strong>在”决策面”不变的情况下，我又添加了一个红点。可以看到，分类器B依然能很好的分类结果，而分类器C则出现了分类错误。</strong></li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20170923170619352?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li><strong>而这个真正的最优解对应的两侧虚线所穿过的样本点，就是<code>SVM</code>中的支持样本点，称为”支持向量”。</strong></li>
+</ul>
+<h2 id="必须掌握的知识点"><a class="markdownIt-Anchor" href="#必须掌握的知识点"></a> 必须掌握的知识点</h2>
+<ol>
+<li>支持向量机的优点，即使数据再大，也比较好用，因为只用关心离决策面附近的几个点就行了</li>
+<li>核函数，将低维映射到高维的一种方法，但是高维的运算(内积)运算量是非常大的，核函数运算厉害之处是，即使映射到高维，但是数据处理依旧是在低维中进行</li>
+<li>线性核函数可以直接使用，不需要设置参数，径向基核函数可以将低维映射到无穷维，但是要设置一些参数，使用广泛的原因是因为，就算参数设置的不是很完美，依旧可以得到比较好的结果</li>
+<li><code>SVM</code>算法优点是：计算量不大，只用计算几个决策边界附近的点就行，错误率比较低</li>
+<li>缺点是：对调制的参数比较敏感，而且只适用于二分类问题</li>
+</ol>
+<h2 id="对线性svm的建模"><a class="markdownIt-Anchor" href="#对线性svm的建模"></a> 对线性<code>SVM</code>的建模</h2>
+<h3 id="确定目标函数优化对象"><a class="markdownIt-Anchor" href="#确定目标函数优化对象"></a> 确定目标函数&amp;&amp;优化对象</h3>
+<ul>
+<li>
+<p>目标函数，就是我们的目的是什么，在上面的例子中，我们希望将支持向量到决策面的距离越大，也就是<strong>分类间隔</strong></p>
+</li>
+<li>
+<p>优化对象，就是我们要调整什么参数，才能使得这个目标对象达到最优，这里我们指的是决策面</p>
+</li>
+<li>
+<p>为了解决实际问题，我们都需要进行公式表示，来对实际数据进行建模，并用数学来对问题进行解答，在建模的过程中，我们通常需要对实际问题进行假设</p>
+</li>
+</ul>
+<h3 id="构建决策面方程"><a class="markdownIt-Anchor" href="#构建决策面方程"></a> 构建决策面方程</h3>
+<p>我们都知道二维空间下一条直线的方式如下所示：</p>
+<p><img src="https://img-blog.csdn.net/20170923170727730?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>现在我们做个小小的改变，让原来的<code>x</code>轴变成<code>x1</code>，<code>y</code>轴变成<code>x2</code>。</p>
+<p><img src="https://img-blog.csdn.net/20170923170755765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>移项得：</p>
+<p><img src="https://img-blog.csdn.net/20170923170822756?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>将公式向量化得：</p>
+<p><img src="https://img-blog.csdn.net/20170923170855067?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>进一步向量化，用w列向量和x列向量和标量γ进一步向量化：</p>
+<p><img src="https://img-blog.csdn.net/20170923170921357?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>其中，向量w和x分别为：</p>
+<p><img src="https://img-blog.csdn.net/20170923170949079?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>二维空间的直线方程已经推导完成，将其推广到n为空间，就变成了超平面方程。(一个超平面，在二维空间的例子就是一个直线)但是它的公式没变，依然是：</p>
+<p><img src="https://img-blog.csdn.net/20170923171351900?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>不同之处在于：</p>
+<p><img src="https://img-blog.csdn.net/20170923171420742?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>我们已经顺利推导出了”决策面”方程，它就是我们的超平面方程，之后，我们统称其为超平面方程。</p>
+<p><img src="https://img-blog.csdn.net/20170923171540791?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>这个图非常重要，为了求出图中的距离d，我们只需找到离直线最近的点，再算出点到直线的距离即可</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20170923171610356?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>现在，将直线方程扩展到多维，求得我们现在的超平面方程，对公式进行如下变形：</p>
+<p><img src="https://img-blog.csdn.net/20170923171637926?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>这个d就是”分类间隔”。其中<code>||w||</code>表示w的二范数，求所有元素的平方和，然后再开方。比如对于二维平面：</p>
+<p><img src="https://img-blog.csdn.net/20170923171706926?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>那么，</p>
+<p><img src="https://img-blog.csdn.net/20170923171733417?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>推广到多维不难理解，<strong>范数就是变量系数平方和再开根号</strong></li>
+<li>接下来要解决的就是求距离最大值了</li>
+</ul>
+<h2 id="两个难题"><a class="markdownIt-Anchor" href="#两个难题"></a> 两个难题</h2>
+<ul>
+<li>如何判断决策面能够比较好地将两类分开完全呢</li>
+<li>如何找到距离决策面最近地两点呢</li>
+</ul>
+<p>也就是说，为了能够实现上面地分类，我们必须先找到一条直线，能够对数据进行正确地分类，这是最基本地要求，然后在已经分类好地条件下，找到距离决策面最近地几个点，调整决策面位置，使他们的距离到最大。(找到最优解)</p>
+<h2 id="问题的解决思路"><a class="markdownIt-Anchor" href="#问题的解决思路"></a> 问题的解决思路</h2>
+<p>这个二维平面上有两种点，我们分别对它们进行标记：</p>
+<ul>
+<li>红颜色的圆点标记为1，我们人为规定其为正样本；</li>
+<li>蓝颜色的五角星标记为-1，我们人为规定其为负样本。</li>
+</ul>
+<h3 id="获得约束条件"><a class="markdownIt-Anchor" href="#获得约束条件"></a> 获得约束条件</h3>
+<p>对每个样本点xi加上一个类别标签yi：</p>
+<p><img src="https://img-blog.csdn.net/20170923171905897?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li><strong>首先，我们要对不同样本点进行标签分类，为了后面方便计算，我们在这里将数据分成-1和1两类</strong></li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20170923171933138?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li><strong>平面上的所有点肯定是满足这个不等式的，即-1类的点，肯定在决策面的一边</strong></li>
+</ul>
+<p><strong>现在将条件变得更苛刻一些，即点到直线的距离，都是大于间隔<code>d</code>的</strong></p>
+<p><img src="https://img-blog.csdn.net/20170923172000544?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>式两边都除以d，就可以得到：</p>
+<p><img src="https://img-blog.csdn.net/20170923172027169?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>其中：</p>
+<p><img src="https://img-blog.csdn.net/20170923172051319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>让我们对<code>wd</code>和<code>γd</code>重新起个名字，就叫它们<code>w</code>和<code>γ</code>。因此，我们就可以说：”对于存在分类间隔的两类样本点，我们一定可以找到一些超平面面，使其对于所有的样本点均满足下面的条件：”</p>
+<p><img src="https://img-blog.csdn.net/20171030230804176?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>这个就是我们的约束条件，就是将点区分开来需要满足的条件，也就是说，如果我找到了一个决策面，不满足这个条件，那么这个决策面就是错误的</li>
+</ul>
+<p>进一步地，我们将约束条件写成：</p>
+<p><img src="https://img-blog.csdn.net/20170923172259072?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>因为<code>yi</code>只能取1或者-1，而由上面那个公式知道，负数乘负数依旧是正数</li>
+</ul>
+<h2 id="求目标函数"><a class="markdownIt-Anchor" href="#求目标函数"></a> 求目标函数</h2>
+<p>前面我们知道目标函数，也就是关于距离<code>d</code>的方程</p>
+<p><img src="https://img-blog.csdn.net/20170923172358421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p><strong>为了方便计算，我们先假设：任意支持向量上的点，到决策面的距离满足这条件</strong></p>
+<p><img src="https://img-blog.csdn.net/20170923172456094?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>进而将求d最大值问题化成了</p>
+<p><img src="https://img-blog.csdn.net/20170923172524509?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>要求d的最大值，转换成求w的最小值</li>
+</ul>
+<p>因为，我们只关心支持向量上的点。随后我们求解d的最大化问题变成了||w||的最小化问题。进而||w||的最小化问题等效于</p>
+<p><img src="https://img-blog.csdn.net/20170923172617826?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>这样表示是为了后面好求导，而且w的极值和该函数取极值的点是一样的（平方不影响）</li>
+</ul>
+<p>我们将最终的目标函数和约束条件放在一起进行描述：</p>
+<p><img src="https://img-blog.csdn.net/20170923172648006?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<blockquote>
+<p>缩写<code>s.t.</code>表示<code>”Subject to”，</code>是”服从某某条件”的意思。</p>
+</blockquote>
+<h2 id="对方程进行求解"><a class="markdownIt-Anchor" href="#对方程进行求解"></a> 对方程进行求解</h2>
+<p>为了对方程进行求解，我们需要先了解下拉格朗日函数</p>
+<p><img src="https://img-blog.csdn.net/20170923173128075?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>满足这个条件的，都可以用拉格朗日函数求极值</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20170923172648006?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<ul>
+<li>我们只需将上面第二个等式移项一下即可(左边移到右边)</li>
+</ul>
+<h3 id="拉格朗日对偶"><a class="markdownIt-Anchor" href="#拉格朗日对偶"></a> 拉格朗日对偶</h3>
+<p>大概意思就是说，我们可以看到，要求下面函数的最小值，依旧比较困难，我们可以利用拉格朗日对偶将问题转换(最大值的最小值，转换成求最小值的最大值)</p>
+<p><img src="https://img-blog.csdn.net/20170923172648006?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>接着利用对应的数学公式，我们可以将问题转变成：</p>
+<p><img src="https://img-blog.csdn.net/20170923174148322?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+<p>首先固定α，要让L(w,b,α)关于w和b最小化，我们分别对w和b偏导数，令其等于0，即：</p>
+<p><img src="https://img-blog.csdn.net/20170923174216260?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
+
+      
+       
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>支持向量机</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.3k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Miki Zhu">Miki Zhu</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-03-13, 20:53:20</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-14, 19:48:32</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/" title="支持向量机">http://yoursite.com/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 MikiZhu</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#机器学习','#算法','#博客搭建','#python','#网站推荐','#考研经验',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        background: url("http://q8idlsxje.bkt.clouddn.com/%E6%B5%B7%E6%BB%A9.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>pandas | Miki&#39;s blog</title>
+  <meta name="keywords" content=" 机器学习 ">
+  <meta name="description" content="pandas | Miki&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:site_name" content="Miki&#39;s blog">
+<meta property="og:description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-09T07:02:46.000Z">
+<meta property="article:modified_time" content="2020-04-09T07:06:36.648Z">
+<meta property="article:author" content="Miki Zhu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/1.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/头像.jpg" />
+</a>
+<div class="author">
+    <span>Miki Zhu</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="email" href="mailto:747876457@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=747876457&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(25)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习">机器学习<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目实战">项目实战<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="博客搭建">博客搭建<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="学习网站推荐">学习网站推荐<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="考研经验">考研经验<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  " target="_blank" href="/about">关于</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_word_count" value="53.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">机器学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">博客搭建</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">网站推荐</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">考研经验</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="考研经验 "
+           href="/2020/02/20/%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95%E7%BB%8F%E9%AA%8C/"
+           data-tag="考研经验"
+           data-author="" >
+            <span class="post-title" title="考研初试经验">考研初试经验</span>
+            <span class="post-date" title="2020-02-20 19:33:48">2020/02/20</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/08/hexo-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="hexo 主题添加评论">hexo 主题添加评论</span>
+            <span class="post-date" title="2020-04-08 21:43:26">2020/04/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/03/python%E9%9D%A2%E8%AF%95%E9%A2%98/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python面试题(不定期更新)">python面试题(不定期更新)</span>
+            <span class="post-date" title="2020-04-03 21:14:43">2020/04/03</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="明天会下雨吗？">明天会下雨吗？</span>
+            <span class="post-date" title="2020-03-30 11:25:31">2020/03/30</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/23/%E5%86%B3%E7%AD%96%E6%A0%91%E5%AE%9E%E7%8E%B0Titanic-%E9%87%8D%E8%A6%81/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树实现Titanic(重要)">决策树实现Titanic(重要)</span>
+            <span class="post-date" title="2020-03-23 17:09:05">2020/03/23</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/21/Titanic-%E9%A1%B9%E7%9B%AE%E8%AF%A6%E8%A7%A3/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Titanic 项目详解">Titanic 项目详解</span>
+            <span class="post-date" title="2020-03-21 14:07:20">2020/03/21</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/19/kaggle%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="kaggle项目实战，Titanic analysis">kaggle项目实战，Titanic analysis</span>
+            <span class="post-date" title="2020-03-19 10:08:13">2020/03/19</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/17/Pytorch-%E6%90%AD%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 搭建神经网络">Pytorch 搭建神经网络</span>
+            <span class="post-date" title="2020-03-17 14:56:16">2020/03/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="CNN">CNN</span>
+            <span class="post-date" title="2020-03-16 09:11:00">2020/03/16</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/14/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8Ck%E5%9D%87%E5%80%BC/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="random forest and k means">random forest and k means</span>
+            <span class="post-date" title="2020-03-14 16:29:22">2020/03/14</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="支持向量机">支持向量机</span>
+            <span class="post-date" title="2020-03-13 20:53:20">2020/03/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/11/Matplotlab/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Matplotlab">Matplotlab</span>
+            <span class="post-date" title="2020-03-11 10:13:20">2020/03/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/10/pandas/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="pandas">pandas</span>
+            <span class="post-date" title="2020-03-10 09:20:27">2020/03/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/09/logical-regression/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="logical regression">logical regression</span>
+            <span class="post-date" title="2020-03-09 20:30:33">2020/03/09</span>
+        </a>
+        
+        <a  class="学习网站推荐 "
+           href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/"
+           data-tag="网站推荐"
+           data-author="" >
+            <span class="post-title" title="学习网站或工具推荐">学习网站或工具推荐</span>
+            <span class="post-date" title="2020-03-08 20:44:55">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E6%9E%90/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分析">贝叶斯分析</span>
+            <span class="post-date" title="2020-03-08 20:11:15">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/numpy/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="numpy的使用">numpy的使用</span>
+            <span class="post-date" title="2020-03-08 19:15:54">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/07/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2020-03-07 19:27:38">2020/03/07</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2020-03-06 20:18:19">2020/03/06</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/05/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="排序算法">排序算法</span>
+            <span class="post-date" title="2020-03-05 19:41:32">2020/03/05</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="数据结构与时间复杂度">数据结构与时间复杂度</span>
+            <span class="post-date" title="2020-03-04 21:00:32">2020/03/04</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习数学基础">机器学习数学基础</span>
+            <span class="post-date" title="2020-03-04 16:48:34">2020/03/04</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="哈希图 and 移动窗口">哈希图 and 移动窗口</span>
+            <span class="post-date" title="2020-03-03 18:49:52">2020/03/03</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="1 零基础学机器学习">1 零基础学机器学习</span>
+            <span class="post-date" title="2020-03-01 20:23:40">2020/03/01</span>
+        </a>
+        
+        <a  class="博客搭建 "
+           href="/2020/02/20/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="Windows系统下用hexo搭建个人博客">Windows系统下用hexo搭建个人博客</span>
+            <span class="post-date" title="2020-02-20 13:15:25">2020/02/20</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-pandas" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">pandas</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a class="color5">机器学习</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-10 20:41:23'>2020-03-10 09:20</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3.5k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pandas和numpy的区别"><span class="toc-text"> pandas和numpy的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#series创建一维带标签的数组"><span class="toc-text"> Series创建一维带标签的数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#series数据的索引"><span class="toc-text"> Series数据的索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#直接索引"><span class="toc-text"> 直接索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用数组索引多个"><span class="toc-text"> 利用数组索引多个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切片索引下面会讲"><span class="toc-text"> 切片索引(下面会讲)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔索引"><span class="toc-text"> 布尔索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过python字典和series创建一维标签数组"><span class="toc-text"> 通过python字典和Series创建一维标签数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改series中的dtype"><span class="toc-text"> 修改Series中的dtype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#series的切片"><span class="toc-text"> Series的切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取出series中的标签"><span class="toc-text"> 取出Series中的标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用index属性可以直接获得标签并可迭代获取每个标签"><span class="toc-text"> 利用index属性，可以直接获得标签，并可迭代获取每个标签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取出series中的values"><span class="toc-text"> 取出Series中的values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取或者保存数据"><span class="toc-text"> 读取或者保存数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读取外部数据文件csvexceljsonpickle"><span class="toc-text"> 读取外部数据文件(csv,excel,json,pickle)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据的保存"><span class="toc-text"> 数据的保存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pandas的dataframe二维数据结构"><span class="toc-text"> pandas的DataFrame(二维数据结构)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改变索引index改变行columns改变列"><span class="toc-text"> 改变索引，index改变行，columns改变列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入字典创建二维列表"><span class="toc-text"> 引入字典创建二维列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dataframe的属性"><span class="toc-text"> DataFrame的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引dataframe的行或者列"><span class="toc-text"> 索引DataFrame的行或者列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布尔运算进行筛选"><span class="toc-text"> 布尔运算进行筛选</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改数组中的值"><span class="toc-text"> 更改数组中的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#给数据加某一列并且赋值"><span class="toc-text"> 给数据加某一列并且赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理丢失的数据"><span class="toc-text"> 处理丢失的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查数据是否有丢失npanyisnull"><span class="toc-text"> 检查数据是否有丢失np.any(),isnull()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并多个dataframe"><span class="toc-text"> 合并多个DataFrame</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#concat"><span class="toc-text"> concat()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据取交集部分合并"><span class="toc-text"> 数据取交集部分合并</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#append合并数据可以逐行添加"><span class="toc-text"> append合并数据,可以逐行添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge进行链接"><span class="toc-text"> merge进行链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据的可视化"><span class="toc-text"> 数据的可视化</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>
+<p><strong>axis=0表示操作行，axis=1表示操作列</strong></p>
+<p>pandas可以读取txt文件，使用pandas.read_table</p>
+</li>
+</ul>
+<h2 id="pandas和numpy的区别"><a class="markdownIt-Anchor" href="#pandas和numpy的区别"></a> pandas和numpy的区别</h2>
+<ul>
+<li>numpy一般是处理数值型数据</li>
+<li>pandas则可以处理c语言中结构体的数据，里面可以混合字符串和数值</li>
+</ul>
+<h2 id="series创建一维带标签的数组"><a class="markdownIt-Anchor" href="#series创建一维带标签的数组"></a> Series创建一维带标签的数组</h2>
+<ul>
+<li>语法：Series([list])</li>
+</ul>
+<pre class="highlight"><code class="">print(pd.Series([1,2,3,np.nan,8]))
+</code></pre>
+<pre class="highlight"><code class="">0    1.0
+1    2.0
+2    3.0
+3    NaN
+4    8.0
+dtype: float64
+</code></pre>
+<ul>
+<li>np.nan means NaN</li>
+<li>Series开头一定要大写</li>
+<li>默认存储的形式是float</li>
+</ul>
+<h3 id="series数据的索引"><a class="markdownIt-Anchor" href="#series数据的索引"></a> Series数据的索引</h3>
+<h4 id="直接索引"><a class="markdownIt-Anchor" href="#直接索引"></a> 直接索引</h4>
+<pre class="highlight"><code class="">t = pd.Series([1,2,3,np.nan,8], index=list('abcde'))
+print(t['b'])
+</code></pre>
+<ul>
+<li><strong>使用index属性，注意后面也要传入list数据类型</strong></li>
+</ul>
+<h4 id="利用数组索引多个"><a class="markdownIt-Anchor" href="#利用数组索引多个"></a> 利用数组索引多个</h4>
+<pre class="highlight"><code class="">dict1 = {
+    1:&quot;abc&quot;,
+    &quot;adidas&quot;:&quot;to be&quot;,
+    '5':6
+}
+t = pd.Series(dict1)
+print(t[[1,'5']])
+</code></pre>
+<pre class="highlight"><code class="">1    abc
+5      6
+dtype: object
+</code></pre>
+<h4 id="切片索引下面会讲"><a class="markdownIt-Anchor" href="#切片索引下面会讲"></a> 切片索引(下面会讲)</h4>
+<h4 id="布尔索引"><a class="markdownIt-Anchor" href="#布尔索引"></a> 布尔索引</h4>
+<pre class="highlight"><code class="">t = pd.Series([2,3,4,1])
+print(t[t &gt; 2])
+</code></pre>
+<pre class="highlight"><code class="">1    3
+2    4
+dtype: int64
+</code></pre>
+<ul>
+<li>选中t中所有大于2的值</li>
+</ul>
+<h3 id="通过python字典和series创建一维标签数组"><a class="markdownIt-Anchor" href="#通过python字典和series创建一维标签数组"></a> 通过python字典和Series创建一维标签数组</h3>
+<pre class="highlight"><code class="">dict1 = {
+    1:&quot;abc&quot;,
+    &quot;adidas&quot;:&quot;to be&quot;,
+    '5':6
+}
+t = pd.Series(dict1)
+print(t)
+</code></pre>
+<pre class="highlight"><code class="">1           abc
+adidas    to be
+5             6
+dtype: object
+</code></pre>
+<h3 id="修改series中的dtype"><a class="markdownIt-Anchor" href="#修改series中的dtype"></a> 修改Series中的dtype</h3>
+<pre class="highlight"><code class="">u = pd.Series([1.2,2,3,4])
+print(u)
+print(u.dtype)
+print(u.astype(int))
+</code></pre>
+<pre class="highlight"><code class="">0    1.2
+1    2.0
+2    3.0
+3    4.0
+dtype: float64
+float64
+0    1
+1    2
+2    3
+3    4
+dtype: int32
+</code></pre>
+<p>注意直接使用<code>u.astype(int)</code>不会改变u的类型(不会对u造成影响)</p>
+<h3 id="series的切片"><a class="markdownIt-Anchor" href="#series的切片"></a> Series的切片</h3>
+<pre class="highlight"><code class="">dict1 = {
+    1:&quot;abc&quot;,
+    &quot;adidas&quot;:&quot;to be&quot;,
+    '5':6
+}
+t = pd.Series(dict1)
+print(t[:2])
+</code></pre>
+<pre class="highlight"><code class="">1           abc
+adidas    to be
+dtype: object
+</code></pre>
+<h3 id="取出series中的标签"><a class="markdownIt-Anchor" href="#取出series中的标签"></a> 取出Series中的标签</h3>
+<h4 id="利用index属性可以直接获得标签并可迭代获取每个标签"><a class="markdownIt-Anchor" href="#利用index属性可以直接获得标签并可迭代获取每个标签"></a> 利用index属性，可以直接获得标签，并可迭代获取每个标签</h4>
+<pre class="highlight"><code class="">t = pd.Series([2,3,4,1])
+print(t.index)
+for i in t.index:
+    print(i)
+</code></pre>
+<pre class="highlight"><code class="">RangeIndex(start=0, stop=4, step=1)
+0
+1
+2
+3
+</code></pre>
+<ul>
+<li>还可以对index进行切片</li>
+</ul>
+<pre class="highlight"><code class="">t = pd.Series([2,3,4,1])
+print(t.index[1:])
+</code></pre>
+<pre class="highlight"><code class="">RangeIndex(start=1, stop=4, step=1)
+</code></pre>
+<h3 id="取出series中的values"><a class="markdownIt-Anchor" href="#取出series中的values"></a> 取出Series中的values</h3>
+<pre class="highlight"><code class="">t = pd.Series([2,3,4,1])
+print(t.values)
+</code></pre>
+<ul>
+<li><strong>series本质就是带标签的数组，可以切片和迭代等操作</strong></li>
+</ul>
+<h3 id="读取或者保存数据"><a class="markdownIt-Anchor" href="#读取或者保存数据"></a> 读取或者保存数据</h3>
+<h4 id="读取外部数据文件csvexceljsonpickle"><a class="markdownIt-Anchor" href="#读取外部数据文件csvexceljsonpickle"></a> 读取外部数据文件(csv,excel,json,pickle)</h4>
+<pre class="highlight"><code class="">path = r'C:\Users\asus\Desktop\usePydealdata\pydata-book\datasets\fec\P00000001-ALL.csv'
+result = pd.read_csv(path)
+print(result)
+</code></pre>
+<ul>
+<li>如果数据太多则会省略打印</li>
+</ul>
+<h4 id="数据的保存"><a class="markdownIt-Anchor" href="#数据的保存"></a> 数据的保存</h4>
+<pre class="highlight"><code class="">result = pd.read_csv(path)
+result.to_csv('student.csv')
+</code></pre>
+<ul>
+<li>这样数据就会被保存为相应的格式，会生成到程序目录下</li>
+</ul>
+<h3 id="pandas的dataframe二维数据结构"><a class="markdownIt-Anchor" href="#pandas的dataframe二维数据结构"></a> pandas的DataFrame(二维数据结构)</h3>
+<pre class="highlight"><code class="">t = np.arange(10).reshape((2, 5))
+print(pd.DataFrame(t))
+</code></pre>
+<pre class="highlight"><code class="">   0  1  2  3  4
+0  0  1  2  3  4
+1  5  6  7  8  9
+</code></pre>
+<ul>
+<li>拥有行索引和列索引axis=1表示纵向索引</li>
+</ul>
+<h3 id="改变索引index改变行columns改变列"><a class="markdownIt-Anchor" href="#改变索引index改变行columns改变列"></a> 改变索引，index改变行，columns改变列</h3>
+<pre class="highlight"><code class="">t = np.arange(10).reshape((2, 5))
+u = pd.DataFrame(t, index=list('ab'), columns=list('abcde'))
+print(u)
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d  e
+a  0  1  2  3  4
+b  5  6  7  8  9
+</code></pre>
+<h3 id="引入字典创建二维列表"><a class="markdownIt-Anchor" href="#引入字典创建二维列表"></a> 引入字典创建二维列表</h3>
+<pre class="highlight"><code class="">dict1 = {'name':['baba', 'mama'], 'age':[44,41],'sex':['male','female']}
+print(pd.DataFrame(dict1))
+</code></pre>
+<pre class="highlight"><code class="">   name  age     sex
+0  baba   44    male
+1  mama   41  female
+</code></pre>
+<ul>
+<li><strong>注意字典的键要对应一个数组</strong></li>
+</ul>
+<pre class="highlight"><code class="">list2 = [{'name':&quot;baba&quot;,'age':44,'tel':10086},{&quot;name&quot;:'mama','age':41,'tel':10086}]
+print(pd.DataFrame(list2))
+</code></pre>
+<pre class="highlight"><code class="">   name  age    tel
+0  baba   44  10086
+1  mama   41  10086
+</code></pre>
+<ul>
+<li>列表可以存放字典，来生成二维数组</li>
+</ul>
+<pre class="highlight"><code class="">list2 = [{'name':&quot;baba&quot;,'age':44,'tel':10086},{'age':41,'tel':10086}]
+print(pd.DataFrame(list2))
+</code></pre>
+<pre class="highlight"><code class="">   name  age    tel
+0  baba   44  10086
+1   NaN   41  10086
+</code></pre>
+<ul>
+<li><strong>pandas会把字典的所有键生成列的标签</strong></li>
+</ul>
+<pre class="highlight"><code class="">dict1 = {'name':['baba', 'mama'], 'age':[44,41],'sex':['male','female']}
+dict2 = {'name':['a', 'b'], 'age':[44,41],'sex':['male','female']}
+list1 = [dict1, dict2]
+print(pd.DataFrame(list1))
+</code></pre>
+<pre class="highlight"><code class="">           name       age             sex
+0  [baba, mama]  [44, 41]  [male, female]
+1        [a, b]  [44, 41]  [male, female]
+</code></pre>
+<h3 id="dataframe的属性"><a class="markdownIt-Anchor" href="#dataframe的属性"></a> DataFrame的属性</h3>
+<ul>
+<li>index，columns</li>
+</ul>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t.index)
+print(t.columns)
+</code></pre>
+<pre class="highlight"><code class="">RangeIndex(start=0, stop=2, step=1)
+Index(['a', 'b', 'c', 'd'], dtype='object')
+</code></pre>
+<ul>
+<li>values</li>
+</ul>
+<pre class="highlight"><code class="">[[1 2 3 4]
+ [2 3 4 5]]
+</code></pre>
+<ul>
+<li>describe计算每个维度的平均值等</li>
+</ul>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t.describe())
+</code></pre>
+<pre class="highlight"><code class="">              a         b         c         d
+count  2.000000  2.000000  2.000000  2.000000
+mean   1.500000  2.500000  3.500000  4.500000
+std    0.707107  0.707107  0.707107  0.707107
+min    1.000000  2.000000  3.000000  4.000000
+25%    1.250000  2.250000  3.250000  4.250000
+50%    1.500000  2.500000  3.500000  4.500000
+75%    1.750000  2.750000  3.750000  4.750000
+max    2.000000  3.000000  4.000000  5.000000
+</code></pre>
+<ul>
+<li>二维数组的转置.T</li>
+</ul>
+<pre class="highlight"><code class="">   0  1
+a  1  2
+b  2  3
+c  3  4
+d  4  5
+</code></pre>
+<ul>
+<li>排序sort_index(axis=,ascending=False)</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>ascending表示升序,如果不设置这个值，则默认升序，设置了后，则是倒序</p>
+</li>
+<li>
+<p>axis=0则是对行进行排序，axis=1则是对列进行排序</p>
+</li>
+</ul>
+</blockquote>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+u = t.sort_index(axis=0,ascending=False)
+print(u)
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+1  2  3  4  5
+0  1  2  3  4
+</code></pre>
+<ul>
+<li>sort_valuse(by=,ascending=False)</li>
+</ul>
+<blockquote>
+<p>可以指定通过哪一列进行排序</p>
+</blockquote>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+u = t.sort_values(by='b',ascending=False)
+print(u)
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+1  2  3  4  5
+0  1  2  3  4
+</code></pre>
+<h3 id="索引dataframe的行或者列"><a class="markdownIt-Anchor" href="#索引dataframe的行或者列"></a> 索引DataFrame的行或者列</h3>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+print('-----------')
+print(t.a)
+print(t['b'])
+print('-----------')
+print(t[0:1])
+print('-----------')
+#print(t[1])
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+-----------
+0    1
+1    2
+Name: a, dtype: int64
+0    2
+1    3
+Name: b, dtype: int64
+-----------
+   a  b  c  d
+0  1  2  3  4
+-----------
+</code></pre>
+<ul>
+<li>
+<p><strong><code>print(t[1])</code>is wrong use <code>print(t[1:])</code> instead</strong></p>
+</li>
+<li>
+<p><strong>loc[]方法</strong>,注意后面不是()(把loc看成一个二维矩阵就好理解啦)</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>下面程序是打印某一行的数据</li>
+</ul>
+</blockquote>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+print(t.loc[0])
+print(t.loc[1])
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+a    1
+b    2
+c    3
+d    4
+Name: 0, dtype: int64
+a    2
+b    3
+c    4
+d    5
+Name: 1, dtype: int64
+</code></pre>
+<blockquote>
+<ul>
+<li>下面是指定打印某一列的数据</li>
+</ul>
+</blockquote>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+print(t.loc[:,['a','b']])
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+   a  b
+0  1  2
+1  2  3
+</code></pre>
+<pre class="highlight"><code class="">print(t.loc[0,['a','b']])
+</code></pre>
+<pre class="highlight"><code class="">a    1
+b    2
+Name: 0, dtype: int64
+</code></pre>
+<ul>
+<li>iloc[index，columns]，按位置索引</li>
+</ul>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+print(t.iloc[0,1:2])#第0行第一个元素
+print(t.iloc[0,:])
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+b    2
+Name: 0, dtype: int64
+a    1
+b    2
+c    3
+d    4
+Name: 0, dtype: int64
+</code></pre>
+<blockquote>
+<p>如果想不连续挑选某些值</p>
+</blockquote>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+print(t.iloc[0,[1,3]])#这里不能用标签进行筛选
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+b    2
+d    4
+Name: 0, dtype: int64
+</code></pre>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+print(t.loc[0,['a','d']])#可以使用loc进行筛选
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+a    1
+d    4
+Name: 0, dtype: int64
+</code></pre>
+<h3 id="布尔运算进行筛选"><a class="markdownIt-Anchor" href="#布尔运算进行筛选"></a> 布尔运算进行筛选</h3>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+print(t.a &gt; 1)	#这样只是对a列进行筛选
+print(t[t.a &gt; 1])	#这样还可以打印abcd四个标签
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+0    False
+1     True
+Name: a, dtype: bool
+   a  b  c  d
+1  2  3  4  5
+</code></pre>
+<h3 id="更改数组中的值"><a class="markdownIt-Anchor" href="#更改数组中的值"></a> 更改数组中的值</h3>
+<ul>
+<li><strong>按位置进行修改iloc</strong></li>
+</ul>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+t.iloc[1,2] = 22
+print(t)
+</code></pre>
+<pre class="highlight"><code class="">   a  b   c  d
+0  1  2   3  4
+1  2  3  22  5
+</code></pre>
+<ul>
+<li><strong>按标签进行修改</strong></li>
+</ul>
+<blockquote>
+<p><strong>如果没有某个值，则会自动添加，改变原始数据</strong></p>
+</blockquote>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+t.loc[1,2] = 22
+print(t)
+t.loc[1,'b'] = 33
+print(t)
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d     2
+0  1  2  3  4   NaN
+1  2  3  4  5  22.0
+   a   b  c  d     2
+0  1   2  3  4   NaN
+1  2  33  4  5  22.0
+</code></pre>
+<ul>
+<li><strong>修改某一列或某一行的所有值</strong></li>
+</ul>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+t.loc[:,'a'] = 55
+print(t)
+t.loc[0,:] = 0
+print(t)
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+    a  b  c  d
+0  55  2  3  4
+1  55  3  4  5
+    a  b  c  d
+0   0  0  0  0
+1  55  3  4  5
+</code></pre>
+<ul>
+<li><strong>修改满足某一条件的值</strong></li>
+</ul>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+print(t)
+t[t.a &gt; 1] = 0#将所有的列改
+print(t)
+t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+t.a[t.a &gt; 1] = 0#将某一列进行修改
+print(t)
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d
+0  1  2  3  4
+1  2  3  4  5
+   a  b  c  d
+0  1  2  3  4
+1  0  0  0  0
+   a  b  c  d
+0  1  2  3  4
+1  0  3  4  5
+</code></pre>
+<h3 id="给数据加某一列并且赋值"><a class="markdownIt-Anchor" href="#给数据加某一列并且赋值"></a> 给数据加某一列并且赋值</h3>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+t['e'] = np.nan
+print(t)
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d   e
+0  1  2  3  4 NaN
+1  2  3  4  5 NaN
+</code></pre>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+t['e'] = np.nan
+t['f'] = pd.Series([33,34])#t['f'] = 1
+print(t)
+</code></pre>
+<pre class="highlight"><code class="">   a  b  c  d   e   f
+0  1  2  3  4 NaN  33
+1  2  3  4  5 NaN  34
+</code></pre>
+<ul>
+<li>加上一样的值或者是不一样的值都行</li>
+</ul>
+<h3 id="处理丢失的数据"><a class="markdownIt-Anchor" href="#处理丢失的数据"></a> 处理丢失的数据</h3>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+t.iloc[0,1] = np.nan
+print(t)
+print('---------')
+u = t.dropna(axis=0,how='any')#how={'any','all'}
+print(u)
+</code></pre>
+<pre class="highlight"><code class="">   a    b  c  d
+0  1  NaN  3  4
+1  2  3.0  4  5
+---------
+   a    b  c  d
+1  2  3.0  4  5
+</code></pre>
+<ul>
+<li>
+<p>axis=0表示处理行的数据，=1表示处理列，默认是处理行</p>
+</li>
+<li>
+<p>当how=‘any’时，则只要行数据中有NaN，则会删除这行，<strong>all是必须所有数据都为NaN才会删除</strong></p>
+</li>
+<li>
+<p>注意不会对原先的数组造成影响</p>
+</li>
+</ul>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+t.iloc[0,1] = np.nan
+print(t)
+print('---------')
+u = t.fillna(value=0)
+print(u)
+</code></pre>
+<pre class="highlight"><code class="">   a    b  c  d
+0  1  NaN  3  4
+1  2  3.0  4  5
+---------
+   a    b  c  d
+0  1  0.0  3  4
+1  2  3.0  4  5
+</code></pre>
+<ul>
+<li>给所有NaN填上数据</li>
+</ul>
+<h3 id="检查数据是否有丢失npanyisnull"><a class="markdownIt-Anchor" href="#检查数据是否有丢失npanyisnull"></a> 检查数据是否有丢失np.any(),isnull()</h3>
+<pre class="highlight"><code class="">t = pd.DataFrame([[1,2,3,4],[2,3,4,5]],columns=list('abcd'))
+u = np.any((t.isnull()))
+print(u)
+print('---------')
+t.iloc[0,1] = np.nan
+print(t)
+print('---------')
+print(t.isnull())
+print('---------')
+u = np.any((t.isnull()))
+print(u)
+</code></pre>
+<pre class="highlight"><code class="">False
+---------
+   a    b  c  d
+0  1  NaN  3  4
+1  2  3.0  4  5
+---------
+       a      b      c      d
+0  False   True  False  False
+1  False  False  False  False
+---------
+True
+</code></pre>
+<h2 id="合并多个dataframe"><a class="markdownIt-Anchor" href="#合并多个dataframe"></a> 合并多个DataFrame</h2>
+<h4 id="concat"><a class="markdownIt-Anchor" href="#concat"></a> concat()</h4>
+<pre class="highlight"><code class="">array1 = np.ones((3,4))*0
+array2 = np.ones((3,4))
+array3 = np.ones((3,4))*2
+df1 = pd.DataFrame(array1, columns=list('abcd'))
+df2 = pd.DataFrame(array2, columns=list('abcd'))
+df3 = pd.DataFrame(array3, columns=list('abcd'))
+print(pd.concat([df1,df2,df3],axis=0))
+</code></pre>
+<pre class="highlight"><code class="">     a    b    c    d
+0  0.0  0.0  0.0  0.0
+1  0.0  0.0  0.0  0.0
+2  0.0  0.0  0.0  0.0
+0  1.0  1.0  1.0  1.0
+1  1.0  1.0  1.0  1.0
+2  1.0  1.0  1.0  1.0
+0  2.0  2.0  2.0  2.0
+1  2.0  2.0  2.0  2.0
+2  2.0  2.0  2.0  2.0
+</code></pre>
+<ul>
+<li>axis表示选择操作方向，=0表示操作行，也就是行与行之间合并</li>
+<li>因为abcd属性是一样的，所以这里不适合操作列</li>
+</ul>
+<pre class="highlight"><code class="">print(pd.concat([df1,df2,df3], axis=0, ignore_index=True))
+</code></pre>
+<pre class="highlight"><code class="">     a    b    c    d
+0  0.0  0.0  0.0  0.0
+1  0.0  0.0  0.0  0.0
+2  0.0  0.0  0.0  0.0
+3  1.0  1.0  1.0  1.0
+4  1.0  1.0  1.0  1.0
+5  1.0  1.0  1.0  1.0
+6  2.0  2.0  2.0  2.0
+7  2.0  2.0  2.0  2.0
+8  2.0  2.0  2.0  2.0
+</code></pre>
+<h4 id="数据取交集部分合并"><a class="markdownIt-Anchor" href="#数据取交集部分合并"></a> 数据取交集部分合并</h4>
+<ul>
+<li>现在假设我们要将该数据进行合并</li>
+</ul>
+<pre class="highlight"><code class="">     a    b    c    d
+0  0.0  0.0  0.0  0.0
+1  0.0  0.0  0.0  0.0
+2  0.0  0.0  0.0  0.0
+     b    c    d    e
+0  1.0  1.0  1.0  1.0
+1  1.0  1.0  1.0  1.0
+2  1.0  1.0  1.0  1.0
+</code></pre>
+<pre class="highlight"><code class="">print(pd.concat([df1,df2], axis=0, ignore_index=True))
+</code></pre>
+<pre class="highlight"><code class="">     a    b    c    d    e
+0  0.0  0.0  0.0  0.0  NaN
+1  0.0  0.0  0.0  0.0  NaN
+2  0.0  0.0  0.0  0.0  NaN
+3  NaN  1.0  1.0  1.0  1.0
+4  NaN  1.0  1.0  1.0  1.0
+5  NaN  1.0  1.0  1.0  1.0
+</code></pre>
+<blockquote>
+<p><strong>直接合并后发现两者都没有的部分变成了NaN</strong></p>
+</blockquote>
+<ul>
+<li>使用join属性，可以取两者数据交集进行合并,默认是outer模式</li>
+</ul>
+<pre class="highlight"><code class="">print(pd.concat([df1,df2], axis=0, ignore_index=True, join='inner'))
+</code></pre>
+<pre class="highlight"><code class="">     b    c    d
+0  0.0  0.0  0.0
+1  0.0  0.0  0.0
+2  0.0  0.0  0.0
+3  1.0  1.0  1.0
+4  1.0  1.0  1.0
+5  1.0  1.0  1.0
+</code></pre>
+<pre class="highlight"><code class="">df1 = pd.DataFrame(array1, columns=list('abcd'), index=[1,2,3])
+df2 = pd.DataFrame(array2, columns=list('bcde'), index=[0,1,2])
+print(pd.concat([df1,df2], axis=1, ignore_index=True))
+</code></pre>
+<pre class="highlight"><code class="">     0    1    2    3    4    5    6    7
+0  NaN  NaN  NaN  NaN  1.0  1.0  1.0  1.0
+1  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0
+2  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0
+3  0.0  0.0  0.0  0.0  NaN  NaN  NaN  NaN
+</code></pre>
+<ul>
+<li>会出现和上面类似的情况，这时候用join_axis=[]</li>
+</ul>
+<pre class="highlight"><code class="">df1 = pd.DataFrame(array1, columns=list('abcd'), index=[1,2,3])
+df2 = pd.DataFrame(array2, columns=list('bcde'), index=[0,1,2])
+print(pd.concat([df1,df2], join_axes=[df1.index], axis=1))
+</code></pre>
+<pre class="highlight"><code class="">     a    b    c    d    b    c    d    e
+1  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0
+2  0.0  0.0  0.0  0.0  1.0  1.0  1.0  1.0
+3  0.0  0.0  0.0  0.0  NaN  NaN  NaN  NaN
+</code></pre>
+<blockquote>
+<p><strong>这样会按照df1的index进行合并</strong></p>
+</blockquote>
+<h3 id="append合并数据可以逐行添加"><a class="markdownIt-Anchor" href="#append合并数据可以逐行添加"></a> append合并数据,可以逐行添加</h3>
+<pre class="highlight"><code class="">df1 = pd.DataFrame(array1, columns=list('abcd'), index=[1,2,3])
+df2 = pd.DataFrame(array2, columns=list('bcde'), index=[0,1,2])
+print(df1.append(df2, ignore_index=True))
+</code></pre>
+<pre class="highlight"><code class="">     a    b    c    d    e
+0  0.0  0.0  0.0  0.0  NaN
+1  0.0  0.0  0.0  0.0  NaN
+2  0.0  0.0  0.0  0.0  NaN
+3  NaN  1.0  1.0  1.0  1.0
+4  NaN  1.0  1.0  1.0  1.0
+5  NaN  1.0  1.0  1.0  1.0
+</code></pre>
+<ul>
+<li>
+<p><code>df1.append([df2,df3], ignore_index=True, axis=1)</code></p>
+</li>
+<li>
+<p><strong>如果要添加某一行</strong></p>
+</li>
+</ul>
+<pre class="highlight"><code class="">df1 = pd.DataFrame(array1, columns=list('abcd'), index=[1,2,3])
+s1 = pd.Series([x*0 for x in range(4)], index=list('abcd'))
+print(df1.append(s1, ignore_index=True))
+</code></pre>
+<pre class="highlight"><code class="">     a    b    c    d
+0  0.0  0.0  0.0  0.0
+1  0.0  0.0  0.0  0.0
+2  0.0  0.0  0.0  0.0
+3  0.0  0.0  0.0  0.0
+</code></pre>
+<h3 id="merge进行链接"><a class="markdownIt-Anchor" href="#merge进行链接"></a> merge进行链接</h3>
+<ul>
+<li>现在假设有这两个数组（我试的存在问题，到时候再学习）</li>
+</ul>
+<pre class="highlight"><code class="">     A    B    C  key
+0  0.0  0.0  0.0  0.0
+1  0.0  0.0  0.0  0.0
+2  0.0  0.0  0.0  0.0
+   key    C    D    E
+0    0  1.0  1.0  1.0
+1    0  1.0  1.0  1.0
+2    0  1.0  1.0  1.0
+</code></pre>
+<pre class="highlight"><code class="">print(pd.merge(df1, df2, on='key'))
+</code></pre>
+<h2 id="数据的可视化"><a class="markdownIt-Anchor" href="#数据的可视化"></a> 数据的可视化</h2>
+
+      
+       
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>pandas</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3.5k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Miki Zhu">Miki Zhu</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-03-10, 09:20:27</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-10, 20:41:23</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/10/pandas/" title="pandas">http://yoursite.com/2020/03/10/pandas/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 MikiZhu</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#机器学习','#算法','#博客搭建','#python','#网站推荐','#考研经验',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        background: url("http://q8idlsxje.bkt.clouddn.com/%E6%B5%B7%E6%BB%A9.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

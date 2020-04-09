@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CNN | Miki&#39;s blog</title>
+  <meta name="keywords" content=" 机器学习 ">
+  <meta name="description" content="CNN | Miki&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:site_name" content="Miki&#39;s blog">
+<meta property="og:description" content="关于我 本人本科毕业于江西师范大学，就读于深圳大学电子于通信专业，，平时喜欢编程，希望能不断提高自己">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-09T07:02:46.000Z">
+<meta property="article:modified_time" content="2020-04-09T07:06:36.648Z">
+<meta property="article:author" content="Miki Zhu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/1.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/头像.jpg" />
+</a>
+<div class="author">
+    <span>Miki Zhu</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="email" href="mailto:747876457@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=747876457&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(25)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习">机器学习<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="项目实战">项目实战<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="博客搭建">博客搭建<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="学习网站推荐">学习网站推荐<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="考研经验">考研经验<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  " target="_blank" href="/about">关于</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="25">
+<input type="hidden" id="yelog_site_word_count" value="53.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color5">机器学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">博客搭建</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">网站推荐</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">考研经验</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="考研经验 "
+           href="/2020/02/20/%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95%E7%BB%8F%E9%AA%8C/"
+           data-tag="考研经验"
+           data-author="" >
+            <span class="post-title" title="考研初试经验">考研初试经验</span>
+            <span class="post-date" title="2020-02-20 19:33:48">2020/02/20</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/08/hexo-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="hexo 主题添加评论">hexo 主题添加评论</span>
+            <span class="post-date" title="2020-04-08 21:43:26">2020/04/08</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/03/python%E9%9D%A2%E8%AF%95%E9%A2%98/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python面试题(不定期更新)">python面试题(不定期更新)</span>
+            <span class="post-date" title="2020-04-03 21:14:43">2020/04/03</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/30/%E6%98%8E%E5%A4%A9%E4%BC%9A%E4%B8%8B%E9%9B%A8%E5%90%97%EF%BC%9F/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="明天会下雨吗？">明天会下雨吗？</span>
+            <span class="post-date" title="2020-03-30 11:25:31">2020/03/30</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/23/%E5%86%B3%E7%AD%96%E6%A0%91%E5%AE%9E%E7%8E%B0Titanic-%E9%87%8D%E8%A6%81/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树实现Titanic(重要)">决策树实现Titanic(重要)</span>
+            <span class="post-date" title="2020-03-23 17:09:05">2020/03/23</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/21/Titanic-%E9%A1%B9%E7%9B%AE%E8%AF%A6%E8%A7%A3/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Titanic 项目详解">Titanic 项目详解</span>
+            <span class="post-date" title="2020-03-21 14:07:20">2020/03/21</span>
+        </a>
+        
+        <a  class="项目实战 "
+           href="/2020/03/19/kaggle%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="kaggle项目实战，Titanic analysis">kaggle项目实战，Titanic analysis</span>
+            <span class="post-date" title="2020-03-19 10:08:13">2020/03/19</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/17/Pytorch-%E6%90%AD%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Pytorch 搭建神经网络">Pytorch 搭建神经网络</span>
+            <span class="post-date" title="2020-03-17 14:56:16">2020/03/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="CNN">CNN</span>
+            <span class="post-date" title="2020-03-16 09:11:00">2020/03/16</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/14/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E5%92%8Ck%E5%9D%87%E5%80%BC/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="random forest and k means">random forest and k means</span>
+            <span class="post-date" title="2020-03-14 16:29:22">2020/03/14</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E7%AE%97%E6%B3%95/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="支持向量机">支持向量机</span>
+            <span class="post-date" title="2020-03-13 20:53:20">2020/03/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/11/Matplotlab/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Matplotlab">Matplotlab</span>
+            <span class="post-date" title="2020-03-11 10:13:20">2020/03/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/10/pandas/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="pandas">pandas</span>
+            <span class="post-date" title="2020-03-10 09:20:27">2020/03/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/09/logical-regression/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="logical regression">logical regression</span>
+            <span class="post-date" title="2020-03-09 20:30:33">2020/03/09</span>
+        </a>
+        
+        <a  class="学习网站推荐 "
+           href="/2020/03/08/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%88%96%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/"
+           data-tag="网站推荐"
+           data-author="" >
+            <span class="post-title" title="学习网站或工具推荐">学习网站或工具推荐</span>
+            <span class="post-date" title="2020-03-08 20:44:55">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E6%9E%90/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分析">贝叶斯分析</span>
+            <span class="post-date" title="2020-03-08 20:11:15">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/08/numpy/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="numpy的使用">numpy的使用</span>
+            <span class="post-date" title="2020-03-08 19:15:54">2020/03/08</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/07/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2020-03-07 19:27:38">2020/03/07</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/06/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2020-03-06 20:18:19">2020/03/06</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/05/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="排序算法">排序算法</span>
+            <span class="post-date" title="2020-03-05 19:41:32">2020/03/05</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="数据结构与时间复杂度">数据结构与时间复杂度</span>
+            <span class="post-date" title="2020-03-04 21:00:32">2020/03/04</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习数学基础">机器学习数学基础</span>
+            <span class="post-date" title="2020-03-04 16:48:34">2020/03/04</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2020/03/03/leetcode%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="哈希图 and 移动窗口">哈希图 and 移动窗口</span>
+            <span class="post-date" title="2020-03-03 18:49:52">2020/03/03</span>
+        </a>
+        
+        <a  class="机器学习 "
+           href="/2020/03/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="1 零基础学机器学习">1 零基础学机器学习</span>
+            <span class="post-date" title="2020-03-01 20:23:40">2020/03/01</span>
+        </a>
+        
+        <a  class="博客搭建 "
+           href="/2020/02/20/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="Windows系统下用hexo搭建个人博客">Windows系统下用hexo搭建个人博客</span>
+            <span class="post-date" title="2020-02-20 13:15:25">2020/02/20</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-CNN原理" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">CNN</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a class="color5">机器学习</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-03-18 15:36:36'>2020-03-16 09:11</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3.6k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#监督学习无监督学习"><span class="toc-text"> 监督学习&amp;&amp;无监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛化能力"><span class="toc-text"> 泛化能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过拟合和欠拟合"><span class="toc-text"> 过拟合和欠拟合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后向传播"><span class="toc-text"> 后向传播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#损失函数"><span class="toc-text"> 损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化函数"><span class="toc-text"> 优化函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降法"><span class="toc-text"> 梯度下降法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局梯度下降法"><span class="toc-text"> 全局梯度下降法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#批量梯度下降法"><span class="toc-text"> 批量梯度下降法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机梯度下降法"><span class="toc-text"> 随机梯度下降法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活函数"><span class="toc-text"> 激活函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络"><span class="toc-text"> 卷积神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gpucpu"><span class="toc-text"> GPU&amp;&amp;CPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛顿法"><span class="toc-text"> 牛顿法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最小二乘法"><span class="toc-text"> 最小二乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#人工神经网络"><span class="toc-text"> 人工神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降法-2"><span class="toc-text"> 梯度下降法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络的黑盒"><span class="toc-text"> 神经网络的黑盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pytorch"><span class="toc-text"> PyTorch</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="监督学习无监督学习"><a class="markdownIt-Anchor" href="#监督学习无监督学习"></a> 监督学习&amp;&amp;无监督学习</h2>
+<p>监督学习-分类问题</p>
+<p>无监督学习-聚类问题</p>
+<h2 id="泛化能力"><a class="markdownIt-Anchor" href="#泛化能力"></a> 泛化能力</h2>
+<p>就是算法对不同问题的处理能力，如果一个算法只能针对一个问题，那么这个算法泛化能力就很差</p>
+<h2 id="过拟合和欠拟合"><a class="markdownIt-Anchor" href="#过拟合和欠拟合"></a> 过拟合和欠拟合</h2>
+<p><img src="http://q6ip4it64.bkt.clouddn.com/1.png?e=1584520548&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:Ln8dvny1SAQ7Xmc5kmW9IDW31d4=&amp;attname=" alt="img" /></p>
+<ul>
+<li>
+<p>过拟合就是学到了很多没必要的特征，比如一个男人穿着蓝色的衣服，神经网络可能把是否穿蓝色衣服作为区分男人女人的特征，这就是过拟合(我们知道男人和女人都可以穿蓝衣服)</p>
+</li>
+<li>
+<p>欠拟合就是提取到的特征比较少</p>
+</li>
+</ul>
+<p><strong>防止欠拟合</strong>，我们可以：</p>
+<ul>
+<li>增加特征项</li>
+<li>构造复杂的多项式，比如抛物线的数据，我们不可能用一次函数来拟合</li>
+<li>减少正则化参数(说白了就是减少限制项，如黑体辐射，我们通常要在后面加个误差项来限制整个方程)</li>
+</ul>
+<p><strong>防止过拟合：</strong></p>
+<ul>
+<li>增大训练的数据量：在大多数情况下发生过拟合是因为我们用于模型训练的数据量太小，搭建的模型过度捕获了数据的有限特征，这时就会出现过拟合，在增加参与模型训练的数据量后，模型自然就能捕获数据的更多特征，模型就不会过于依赖数据的个别特征。</li>
+<li>采用正则化的方法：假如限制函数</li>
+</ul>
+<h2 id="后向传播"><a class="markdownIt-Anchor" href="#后向传播"></a> 后向传播</h2>
+<p>后向传播其实就是不断对模型中的参数进行微调的过程，在进行多次微调后，得到最优参数组合(就像显微镜，先粗调，为了看的更清楚，我们再微调)，后向传播，其实就是应用<strong>微分在近似中的运算</strong>,高等数学116页</p>
+<ul>
+<li>比如我们现在得到一个函数表达式，现在要对x，y，z进行微调，微调多少就是对三个参数分别求偏导</li>
+</ul>
+<h2 id="损失函数"><a class="markdownIt-Anchor" href="#损失函数"></a> 损失函数</h2>
+<p>并不是每个算法的预测和分类能力都是百分之百的，谁都会出错，预测值和真实值的差，就叫损失值，深度学习中常用三种函数来表示损失值，如果损失值越高，我们就要调整参数，来降低损失值</p>
+<ul>
+<li>均方误差函数，每个真实值减对应的预测值平方后求和，再除N求平均</li>
+<li>均方根误差函数，对均方误差函数求根号</li>
+<li>平方绝对误差函数，均方误差函数中的平方换成绝对值</li>
+</ul>
+<h2 id="优化函数"><a class="markdownIt-Anchor" href="#优化函数"></a> 优化函数</h2>
+<p>再计算了损失函数后，我们需要对参数进行优化，因此引入优化函数，优化函数就是利用求当前值的梯度，然后用梯度乘以步长，就是参数的变化量</p>
+<p><img src="http://q6ip4it64.bkt.clouddn.com/%E6%A2%AF%E5%BA%A6.png?e=1584329197&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:XcRUJfVJmAglbBPu4noSjcQg2Zs=&amp;attname=" alt="image-20200316102408396" /></p>
+<h2 id="梯度下降法"><a class="markdownIt-Anchor" href="#梯度下降法"></a> 梯度下降法</h2>
+<p>梯度下降法是为了减小损失函数</p>
+<h3 id="全局梯度下降法"><a class="markdownIt-Anchor" href="#全局梯度下降法"></a> 全局梯度下降法</h3>
+<p>学习速率用于控制梯度更新的快慢，如果学习速率过快，参数的更新跨步就会变大，极易出现局部最优和抖动；如果学习速率过慢，梯度更新的迭代次数就会增加，参数更新、优化的时间也会变长，所以选择一个合理的学习速率是非常关键的。(学习速率其实就相当与步长，变化的步长)x-步长×偏导=x，缺点就是数据量太大的时候，要运行很久的时间</p>
+<h3 id="批量梯度下降法"><a class="markdownIt-Anchor" href="#批量梯度下降法"></a> 批量梯度下降法</h3>
+<p>将整个数据集分成很多部分，但这样容易造成找到的是局部最优解，不是全局最优解</p>
+<h2 id="随机梯度下降法"><a class="markdownIt-Anchor" href="#随机梯度下降法"></a> 随机梯度下降法</h2>
+<p>和批量梯度下降法差不多，但都容易找到的是局部最优解</p>
+<h2 id="激活函数"><a class="markdownIt-Anchor" href="#激活函数"></a> 激活函数</h2>
+<p>激活函数有什么用呢？我们在每一层神经元输出都包裹上一层激活函数，试想，如果一直是一次函数，那么一次函数作为下一层的输入，只是乘一个系数，依旧是一次函数，这样就不能很好对非线性问题进行拟合了，激活函数就是为了让线性函数变弯</p>
+<p>常用的激活函数有三种：</p>
+<ul>
+<li>sigmoid</li>
+<li>tanh</li>
+<li>ReLU</li>
+</ul>
+<p>sigmoid函数取值区间一直是处于0-1之间，缺陷是容易让梯度消失，我们知道在做系数优化的时候要做反向传播，反向传播就是对函数要优化的那个参数求偏导，而sigmoid每次求导，都只在0-1之间的小数，这样会使得曲线区域平坦，梯度就消失了</p>
+<p>tanh同样会有这样的问题</p>
+<p>而relu是最好用的，但是relu会让有些神经元永远不会被激活</p>
+<h2 id="卷积神经网络"><a class="markdownIt-Anchor" href="#卷积神经网络"></a> 卷积神经网络</h2>
+<p>**深度学习中的卷积与信号处理中的卷积概念是有区别的，**其实卷积的操作就是加法和乘法的组合</p>
+<p><a href="https://blog.csdn.net/weixin_39915444/article/details/81260003" target="_blank" rel="noopener">参考笔记1</a></p>
+<p><a href="https://blog.csdn.net/xzy_thu/article/details/69808817" target="_blank" rel="noopener">参考笔记2</a></p>
+<p><a href="http://m.elecfans.com/article/703346.html" target="_blank" rel="noopener">直接看这个</a></p>
+<p><a href="http://m.elecfans.com/tags/CNN.html" target="_blank" rel="noopener">学这个，蛮多有意思的</a></p>
+<ul>
+<li>
+<p>卷积层的主要作用就是对特诊进行提取，其中我们输入的图片会被转换成tensor，是一种三维张量，包括二维的长宽和颜色通道RGB，卷积核又叫Filter，是一个固定窗口的扫描器，<a href="http://cs231n.github.io/assets/conv-demo/index.html" target="_blank" rel="noopener">扫描动图</a>，也就是一个矩阵，假如卷积核全是由-1和1组成，那么说明，卷积核，其实是一个特征向量提取器，包含该特征的部分就会被提取出来，Filter1会扫描整个矩阵，看是否有类似的特征，与图像矩阵作内积(对应相乘相加)，内积后越大则特征越明显（所以不管该特征在图片的哪个位置，都能很好提取出来，具有很好的泛化能力），如果有很多个特征，则需要更多的卷积核，当这些特征都满足，神经元激活，计算机则认为这就是鸟，如果有很多层，RGB是三层，则卷积核也要被设置成三层的，对应内积，再把三层内积结果加起来，最后得到一个值<img src="https://img-blog.csdn.net/20180728135540435?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTkxNTQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" /></p>
+</li>
+<li>
+<p>经过第一次卷积后，我们就可以得到一个更小的矩阵，我们根据这个特征提取的矩阵，<strong>挑其中最大的</strong>，忽略里面比较小的，特征就会被保留下来，这就是<strong>特征图</strong>，将主要特征找出来有时图像太大，我们需要减少训练参数的数量，它被要求在随后的卷积层之间周期性地引进池化层。池化的唯一目的是减少图像的空间大小。池化在每一个纵深维度上独自完成，因此图像的纵深保持不变。池化层的最常见形式是最大池化。</p>
+<p><img src="http://q6ip4it64.bkt.clouddn.com/2.png?e=1584520548&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:tlMbUCMgTPxwSCYMntTD8PVp1G0=&amp;attname=" alt="img" /></p>
+<p>在这里，我们把步幅定为 2，池化尺寸也为 2。最大化执行也应用在每个卷机输出的深度尺寸中。正如你所看到的，最大池化操作后，4<em>4 卷积的输出变成了 2</em>2。<img src="https://img-blog.csdn.net/20180728135811552?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTkxNTQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" /></p>
+<p>让我们看看最大池化在真实图片中的效果如何。</p>
+<p><img src="http://q6ip4it64.bkt.clouddn.com/Snipaste_2020-03-18_15-28-57.png?e=1584520226&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:825zJ-dnztfPFvEBXwTms8PGWRc=&amp;attname=" alt="img" /></p>
+<p>正如你看到的，我们卷积了图像，并最大池化了它。最大池化图像仍然保留了汽车在街上的信息。如果你仔细观察的话，你会发现图像的尺寸已经减半。这可以很大程度上减少参数。</p>
+</li>
+<li>
+<p>转化成特征图后，就要将特征图拉成矢量，输入到神经网络中，经过黑盒子，完成分类</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>通常我们在处理时，要将矩阵拉成矢量保存下来，上面图中，Filter扫描框框，在矩阵的位置编号和矢量的位置编号对应起来，这样就变成了CNN</li>
+<li>Filter中的矩阵参数，是计算机自己学习获得的，不需要人为设置</li>
+</ul>
+</blockquote>
+<h2 id="gpucpu"><a class="markdownIt-Anchor" href="#gpucpu"></a> GPU&amp;&amp;CPU</h2>
+<p>CPU（Central Processing Unit）是电脑最主要的部件，他的主要功能是解释计算机指令以及处理计算机软件中的数据，说白了就是做指挥工作，统筹各方面。CPU相当于整个电脑的心脏，而GPU相当于显卡的心脏。</p>
+<p><img src="https://pic4.zhimg.com/80/918367f36e34c18dc1f92bd16760dae1_720w.jpg" alt="img" /></p>
+<p>Cache意思时缓存</p>
+<p>CPU和GPU都包含运算单元，但是CPU的运算功能比GPU的要强大的多，能处理很多复杂的逻辑运算，但是GPU的运算只能处理一些简单的逻辑运算(就像CPU运算是专家，能解决很多复杂问题，GPU运算是小学生，只能解决一些很简单的加减乘除)，但是CPU的运算部分很少,GPU的运算部分很多（几个专家和一群小学生），每个小学生都能处理一些单独的问题，对于一些需要很简单的重复运算，专家肯定干不过小学生的<a href="https://www.zhihu.com/question/19903344" target="_blank" rel="noopener">来自知乎</a></p>
+<p>GPU的工作大部分就是这样，计算量大，但没什么技术含量，而且要重复很多很多次。就像你有个工作需要算几亿次一百以内加减乘除一样，最好的办法就是雇上几十个小学生一起算，一人算一部分，反正这些计算也没什么技术含量，纯粹体力活而已。而CPU就像老教授，积分微分都会算，就是工资高，一个老教授资顶二十个小学生，你要是富士康你雇哪个？GPU就是这样，用很多简单的计算单元去完成大量的计算任务，纯粹的人海战术。这种策略基于一个前提，就是小学生A和小学生B的工作没有什么依赖性，是互相独立的。很多涉及到大量计算的问题基本都有这种特性，比如你说的破解密码，挖矿和很多图形学的计算。这些计算可以分解为多个相同的简单小任务，每个任务就可以分给一个小学生去做。但还有一些任务涉及到“流”的问题。比如你去相亲，双方看着顺眼才能继续发展。总不能你这边还没见面呢，那边找人把证都给领了。这种比较复杂的问题都是CPU来做的。</p>
+<p>总而言之，CPU和GPU因为最初用来处理的任务就不同，所以设计上有不小的区别。而某些任务和GPU最初用来解决的问题比较相似，所以用GPU来算了。GPU的运算速度取决于雇了多少小学生，CPU的运算速度取决于请了多么厉害的教授。教授处理复杂任务的能力是碾压小学生的，但是对于没那么复杂的任务，还是顶不住人多。当然现在的GPU也能做一些稍微复杂的工作了，相当于升级成初中生高中生的水平。但还需要CPU来把数据喂到嘴边才能开始干活，究竟还是靠CPU来管的。</p>
+<h2 id="牛顿法"><a class="markdownIt-Anchor" href="#牛顿法"></a> 牛顿法</h2>
+<h2 id="最小二乘法"><a class="markdownIt-Anchor" href="#最小二乘法"></a> 最小二乘法</h2>
+<h2 id="人工神经网络"><a class="markdownIt-Anchor" href="#人工神经网络"></a> 人工神经网络</h2>
+<ul>
+<li>人工神经网络是通过模拟人脑的神经元设计的算法，通常可归纳为三层，输入层，隐藏层，输出层，人脑的神经元就是，轴突受到刺激，然后就会产生电信号，当电信号超过阈值时，就会向下一个神经元传递，人工神经网络也是这样，每一个输入都对应一个权值，输入乘权值再求和，当求和后的值大于阈值，就会输出信号，否则不输出信号（我们可以将输出输入到单位阶跃函数上，大于0则输出1）</li>
+<li>感知机的出现相当于最简单的神经网络，他的出现主要是解决线性分类问题，并不能解决非线性问题，因此就有人在中间假如了隐藏层，同时能够将信号反向传递，来调整权值，来进行更好地拟合。这种就能够自我学习了，因为能自己调整参数</li>
+<li>多加了一层神经层是不是就更好了呢？明显不是地，当神经层越多，就越容易产生梯度消失的问题，这样计算机就不能自我优化了</li>
+</ul>
+<h2 id="梯度下降法-2"><a class="markdownIt-Anchor" href="#梯度下降法-2"></a> 梯度下降法</h2>
+<p>神经网络运用的就是属于梯度下降法，假设现在有个函数y=x**2，我们知道最小值在x=0处取到，梯度下降法就是计算某点的斜率，向斜率的方向移动，再计算新的斜率，再移动，直到斜率为0时或者小于一定误差时，就停下来。但是现实生活中的函数图像并不是都像x**2那样，通常都是许多个局部最优和一个全局最优，其中全局最优很难找到，神经网络虽然可以找到局部最优，但是它找到的局部最优解依旧可以很多地解决当前地问题</p>
+<h2 id="神经网络的黑盒"><a class="markdownIt-Anchor" href="#神经网络的黑盒"></a> 神经网络的黑盒</h2>
+<p>神经网络简单分成输入，黑盒，输出</p>
+<ul>
+<li>输入层，我们假设输入层是一张图片</li>
+<li>黑盒，神经元分成很多层，第一层是对图片的特征进行初步提取，这时我们人还是可以根据这些特诊认出这张图片，当经过第二层神经元特诊提取后，我们就很难认出这个图片了，几乎只有计算机自己认识</li>
+<li>输出层，当我们再次输入数据时，计算机就能根据相同特征进行判断</li>
+</ul>
+<h2 id="pytorch"><a class="markdownIt-Anchor" href="#pytorch"></a> PyTorch</h2>
+<pre class="highlight"><code class="">import torch
+import numpy as np
+
+np_data  = np.arange(6).reshape((2, 3))
+将数据转换成pytorch
+torch_data = torch.from_numpy(np_data)
+#将数据转换成numpy格式
+trans_to_np = torch_data.numpy()
+
+print(&quot;numpy data:\n&quot;, np_data)
+print(&quot;torch data:\n&quot;, torch_data)
+print(&quot;transport to numpy data:\n&quot;, trans_to_np)
+</code></pre>
+<pre class="highlight"><code class="">numpy data:
+ [[0 1 2]
+ [3 4 5]]
+torch data:
+ tensor([[0, 1, 2],
+        [3, 4, 5]], dtype=torch.int32)
+transport to numpy data:
+ [[0 1 2]
+ [3 4 5]]
+tensor([[0, 1, 2],
+        [3, 4, 5]], dtype=torch.int32)
+</code></pre>
+
+      
+       
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>CNN</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3.6k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="Miki Zhu">Miki Zhu</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-03-16, 09:11:00</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-18, 15:36:36</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/" title="CNN">http://yoursite.com/2020/03/16/CNN%E5%8E%9F%E7%90%86/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 MikiZhu</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#机器学习','#算法','#博客搭建','#python','#网站推荐','#考研经验',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        background: url("http://q8idlsxje.bkt.clouddn.com/%E6%B5%B7%E6%BB%A9.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
