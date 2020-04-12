@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>logical regression | Miki&#39;s blog</title>
+  <title>KNN实战之海伦约会 | Miki&#39;s blog</title>
   <meta name="keywords" content=" 机器学习 ">
-  <meta name="description" content="logical regression | Miki&#39;s blog">
+  <meta name="description" content="KNN实战之海伦约会 | Miki&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="keywords: author: Miki language: zh-CN timezone:">
 <meta property="og:type" content="website">
@@ -441,13 +441,19 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-logical-regression" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-KNN实战之海伦约会" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">logical regression</h1>
+        <h1 class="article-title">KNN实战之海伦约会</h1>
     
     <div class="article-meta">
         
         
+        
+        <span class="book">
+            
+                <a  data-rel="机器学习实战">机器学习实战</a>
+            
+        </span>
         
         
         <span class="tag">
@@ -459,12 +465,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-13 20:47:40'>2020-03-09 20:30</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-12 08:23:22'>2020-04-12 08:22</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:772</span>
+        <span>字数:1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -483,7 +489,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是回归"><span class="toc-text"> 什么是回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑回归"><span class="toc-text"> 逻辑回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sigmoid函数"><span class="toc-text"> Sigmoid函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降法"><span class="toc-text"> 梯度下降法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考博客"><span class="toc-text"> 参考博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-text"> 问题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#knn算法实现"><span class="toc-text"> KNN算法实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导入模块"><span class="toc-text"> 导入模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据读取"><span class="toc-text"> 数据读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看标签种类"><span class="toc-text"> 查看标签种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分训练集和测试集"><span class="toc-text"> 划分训练集和测试集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据的归一化"><span class="toc-text"> 数据的归一化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改变数据的index"><span class="toc-text"> 改变数据的index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算距离"><span class="toc-text"> 计算距离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预测标签"><span class="toc-text"> 预测标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算准确率"><span class="toc-text"> 计算准确率</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#knn算法优缺点"><span class="toc-text"> KNN算法优缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题总结"><span class="toc-text"> 问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编程中遇到的问题"><span class="toc-text"> 编程中遇到的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整代码"><span class="toc-text"> 完整代码</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -499,48 +505,177 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是回归"><a class="markdownIt-Anchor" href="#什么是回归"></a> 什么是回归</h2>
-<p>最简单的回归就是用一条的曲线，来拟合所有的数值，这个点要尽可能离所有点都比较接近，用求和来计算</p>
-<h2 id="逻辑回归"><a class="markdownIt-Anchor" href="#逻辑回归"></a> 逻辑回归</h2>
-<p>机器学习中的逻辑回归是用来分类的，而不是进行拟合的，利用回归来画出边界，进行分类</p>
-<h2 id="sigmoid函数"><a class="markdownIt-Anchor" href="#sigmoid函数"></a> Sigmoid函数</h2>
-<p><code>Sigomoid</code>函数看上去就像阶跃函数一样，但是阶跃函数在跳跃点处不好把握，所以找了它来替代（可以将任何输入，不论<code>x</code>范围是多少，都可以映射到0-1区间，<code>y</code>输出为0-1）</p>
-<p><img src="https://img-blog.csdn.net/20170830195915704?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
-<ul>
-<li>z值其实是每个特征量，也就是没给自变量，乘以一个系数，再求和得出，因此，我们需要得到如何计算最佳回归系数</li>
+        <p><ul class="markdownIt-TOC">
+<li><a href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97">导入模块</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96">数据读取</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%A0%87%E7%AD%BE%E7%A7%8D%E7%B1%BB">查看标签种类</a></li>
+<li><a href="#%E5%88%92%E5%88%86%E8%AE%AD%E7%BB%83%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86">划分训练集和测试集</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BD%92%E4%B8%80%E5%8C%96">数据的归一化</a></li>
+<li><a href="#%E6%94%B9%E5%8F%98%E6%95%B0%E6%8D%AE%E7%9A%84index">改变数据的index</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E8%B7%9D%E7%A6%BB">计算距离</a></li>
+<li><a href="#%E9%A2%84%E6%B5%8B%E6%A0%87%E7%AD%BE">预测标签</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E5%87%86%E7%A1%AE%E7%8E%87">计算准确率</a></li>
+<li><a href="#%E7%BC%96%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98">编程中遇到的问题</a></li>
 </ul>
-<p><img src="https://img-blog.csdn.net/20170830200052982?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
-<p><img src="https://img-blog.csdn.net/20170830195855344?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
-<ul>
-<li>用矩阵表示就是这样，<code>x</code>表示输入的数据，<code>θ</code>表示最佳参数</li>
-</ul>
-<h2 id="梯度下降法"><a class="markdownIt-Anchor" href="#梯度下降法"></a> 梯度下降法</h2>
-<p>我们先看个简单的求极大值的例子。一个看了就会想到高中生活的函数：</p>
-<p><img src="https://img-blog.csdn.net/20170830200337262?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
-<p>来吧，做高中题。这个函数的极值怎么求？显然这个函数开口向下，存在极大值，它的函数图像为：</p>
-<p><img src="https://img-blog.csdn.net/20170830200401362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
-<p>求极值，先求函数的导数：</p>
-<p><img src="https://img-blog.csdn.net/20170831221629911?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
-<p>令导数为0，可求出x=2即取得函数f(x)的极大值。极大值等于f(2)=4</p>
-<p>但是真实环境中的函数不会像上面这么简单，就算求出了函数的导数，也很难精确计算出函数的极值。此时我们就可以用迭代的方法来做。就像爬坡一样，一点一点逼近极值。这种寻找最佳拟合参数的方法，就是最优化算法。爬坡这个动作用数学公式表达即为：</p>
-<p><img src="https://img-blog.csdn.net/20170830200457026?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
-<ul>
-<li>导数就是<code>tanα</code>乘一个系数就相当于不断向前前进</li>
-</ul>
-<p>其中，α为步长，也就是学习速率，控制更新的幅度。效果如下图所示：</p>
-<p><img src="https://img-blog.csdn.net/20170830200522945?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYzQwNjQ5NTc2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img" /></p>
-<p>比如从(0,0)开始，迭代路径就是1-&gt;2-&gt;3-&gt;4-&gt;…-&gt;n，直到求出的x为函数极大值的近似值，停止迭代。</p>
+</p>
+<p><strong>先看下原始数据情况</strong></p>
+<pre class="highlight"><code class="">40920	8.326976	0.953952	largeDoses
+14488	7.153469	1.673904	smallDoses
+26052	1.441871	0.805124	didntLike
+75136	13.147394	0.428964	didntLike
+38344	1.669788	0.134296	didntLike
+72993	10.141740	1.032955	didntLike
+35948	6.830792	1.213192	largeDoses
+42666	13.276369	0.543880	largeDoses
+</code></pre>
 <blockquote>
-<p>寻找最优解其实还有很多算法，比如蚁群算法，遗传算法等，但是这些算法只能寻找单一目标，所以现在就有了多目标算法（就像我找工作，我想找那种钱多的，轻松的…）</p>
+<p>一共有四列数据，最后一列为标签</p>
 </blockquote>
+<h1 id="knn算法实现"><a class="markdownIt-Anchor" href="#knn算法实现"></a> KNN算法实现</h1>
+<h2 id="导入模块"><a class="markdownIt-Anchor" href="#导入模块"></a> 导入模块</h2>
+<pre class="highlight"><code class="">import pandas as pd
+from sklearn.model_selection import train_test_split
+</code></pre>
+<p>由于数据比较简单，只需要用到两个模块即可</p>
+<h2 id="数据读取"><a class="markdownIt-Anchor" href="#数据读取"></a> 数据读取</h2>
+<pre class="highlight"><code class="">path = r'C:\Users\asus\Desktop\机器学习实战数据\海伦约会数据\datingTestSet.txt'
+# 这样第一行就不会变成标签
+data = pd.read_table(path,header=None)
+
+data.info()
+</code></pre>
 <ul>
-<li>梯度上升法是用来寻找最大值的，而梯度下降法是寻找最小值的</li>
+<li>防止第一行数据作为columns，读取数据时加上代码</li>
 </ul>
-<h2 id="参考博客"><a class="markdownIt-Anchor" href="#参考博客"></a> 参考博客</h2>
-<p><a href="https://blog.csdn.net/c406495762/article/details/77723333" target="_blank" rel="noopener">https://blog.csdn.net/c406495762/article/details/77723333</a></p>
-<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
-<p>从上图可以看出数据的分布情况。假设Sigmoid函数的输入记为z，那么z=w0x0 + w1x1 + w2x2，即可将数据分割开。其中，x0为全是1的向量，x1为数据集的第一列数据，x2为数据集的第二列数据。另z=0，则0=w0 + w1x1 + w2x2。横坐标为x1，纵坐标为x2。这个方程未知的参数为w0，w1，w2，也就是我们需要求的回归系数(最优参数)。</p>
-<p>为什么x0可以等于1呢？</p>
+<h2 id="查看标签种类"><a class="markdownIt-Anchor" href="#查看标签种类"></a> 查看标签种类</h2>
+<pre class="highlight"><code class="">tag = data.iloc[:,3].unique().tolist()
+tag_dict = dict(zip(tag,[x for x in range(3)]))
+data.iloc[:,3] = data.iloc[:,3].map(tag_dict)
+</code></pre>
+<ul>
+<li>利用unique查看标签种类，并转换成列表</li>
+<li>这里我对标签进行了编码，其实KNN不需要</li>
+</ul>
+<h2 id="划分训练集和测试集"><a class="markdownIt-Anchor" href="#划分训练集和测试集"></a> 划分训练集和测试集</h2>
+<pre class="highlight"><code class=""># 0:3但不会取到3
+x, y = data.iloc[:,0:3], data.iloc[:,3]
+x_train, x_test, y_train, y_test= train_test_split(x, y, test_size=0.3)
+</code></pre>
+<h2 id="数据的归一化"><a class="markdownIt-Anchor" href="#数据的归一化"></a> 数据的归一化</h2>
+<pre class="highlight"><code class=""># 归一化处理
+x_train = (x_train - x_train.min()) / (x_train.max() - x_train.min())
+x_test = (x_test - x_test.min()) / (x_test.max() - x_test.min())
+</code></pre>
+<ul>
+<li>pandas可以像numpy一样，用一行数据减去一列数据</li>
+</ul>
+<h2 id="改变数据的index"><a class="markdownIt-Anchor" href="#改变数据的index"></a> 改变数据的index</h2>
+<pre class="highlight"><code class="">x_train.index = [i for i in range(len(x_train.index))]
+x_test.index = [i for i in range(len(x_test.index))]
+y_train.index = [i for i in range(len(y_train.index))]
+y_test.index = [i for i in range(len(y_test.index))]
+</code></pre>
+<p><strong>其实这里可以直接：</strong></p>
+<pre class="highlight"><code class="">x_train.index =  range(len(x_train.index))
+</code></pre>
+<h2 id="计算距离"><a class="markdownIt-Anchor" href="#计算距离"></a> 计算距离</h2>
+<ul>
+<li>欧氏距离就是求平方和再开根号，这里开不开都没太大问题</li>
+</ul>
+<pre class="highlight"><code class="">result = (x_test.iloc[1,:] - x_train)**2
+distance = result.iloc[:,0]+result.iloc[:,1]+result.iloc[:,2]
+</code></pre>
+<h2 id="预测标签"><a class="markdownIt-Anchor" href="#预测标签"></a> 预测标签</h2>
+<pre class="highlight"><code class="">k = 33
+y_test = pd.DataFrame(y_test)
+for i in range(x_test.shape[0]):
+    result = (x_test.iloc[i,:] - x_train)**2
+    distance = result.iloc[:,0]+result.iloc[:,1]+result.iloc[:,2]
+    tag_ranks = distance.sort_values()[0:k].index
+    y_test.loc[i,'Predict'] = int(y_train.iloc[tag_ranks].value_counts()\
+        .sort_values(ascending=False).index[0])
+</code></pre>
+<h2 id="计算准确率"><a class="markdownIt-Anchor" href="#计算准确率"></a> 计算准确率</h2>
+<pre class="highlight"><code class="">wrong = 0
+for i in range(y_test.shape[0]):
+    if y_test.iloc[i,0] != int(y_test.iloc[i,1]):
+        wrong += 1
+print(f'正确率是{1 - wrong/y_test.shape[0]}')
+</code></pre>
+<h1 id="knn算法优缺点"><a class="markdownIt-Anchor" href="#knn算法优缺点"></a> KNN算法优缺点</h1>
+<p><strong>优点：</strong></p>
+<ul>
+<li>算法简单易懂</li>
+<li>对标签类型不敏感，是数值型还是字符串类型没关系</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>计算量太大，每个测试数据，都要与训练数据计算距离</li>
+<li>预测不准确，受K值影响大</li>
+</ul>
+<h1 id="问题总结"><a class="markdownIt-Anchor" href="#问题总结"></a> 问题总结</h1>
+<h2 id="编程中遇到的问题"><a class="markdownIt-Anchor" href="#编程中遇到的问题"></a> 编程中遇到的问题</h2>
+<ol>
+<li><strong>读取数据时，第一行数据作为了columns名称</strong></li>
+</ol>
+<p><strong>解决：加个header=None</strong></p>
+<pre class="highlight"><code class="">data = pd.read_table(path,header=None)
+</code></pre>
+<ol start="2">
+<li><strong>当分好训练集和测试集时，想给标签添加新的一列</strong></li>
+</ol>
+<p><strong>当执行完这个命令后，数据的标签就被分离了出来</strong></p>
+<pre class="highlight"><code class="">x, y = data.iloc[:,0:3], data.iloc[:,3]
+x_train, x_test, y_train, y_test= train_test_split(x, y, test_size=0.3)
+
+</code></pre>
+<p><strong>x_test是测试集标签，y_test是测试集标签，x_test是Dataframe，而y_test是Series，当我预测结果时,想再y_test添加新的一列Predict，发现报错了</strong></p>
+<pre class="highlight"><code class="">y_test.loc[i,'Predict'] = int(y_train.iloc[tag_ranks].value_counts()\
+        .sort_values(ascending=False).index[0])
+</code></pre>
+<p><strong>解决：将Series转换成DataFrame即可</strong></p>
+<pre class="highlight"><code class="">y_test = pd.DataFrame(y_test)
+</code></pre>
+<h1 id="完整代码"><a class="markdownIt-Anchor" href="#完整代码"></a> 完整代码</h1>
+<pre class="highlight"><code class="">import pandas as pd
+from sklearn.model_selection import train_test_split
+
+path = r'C:\Users\asus\Desktop\机器学习实战数据\海伦约会数据\datingTestSet.txt'
+data = pd.read_table(path,header=None)
+
+tag = data.iloc[:,3].unique().tolist()
+tag_dict = dict(zip(tag,[x for x in range(3)]))
+data.iloc[:,3] = data.iloc[:,3].map(tag_dict)
+
+x, y = data.iloc[:,0:3], data.iloc[:,3]
+x_train, x_test, y_train, y_test= train_test_split(x, y, test_size=0.3)
+
+x_train = (x_train - x_train.min()) / (x_train.max() - x_train.min())
+x_test = (x_test - x_test.min()) / (x_test.max() - x_test.min())
+
+x_train.index = [i for i in range(len(x_train.index))]
+x_test.index = [i for i in range(len(x_test.index))]
+y_train.index = [i for i in range(len(y_train.index))]
+y_test.index = [i for i in range(len(y_test.index))]
+
+result = (x_test.iloc[1,:] - x_train)**2
+distance = result.iloc[:,0]+result.iloc[:,1]+result.iloc[:,2]
+
+k = 33
+y_test = pd.DataFrame(y_test)
+for i in range(x_test.shape[0]):
+    result = (x_test.iloc[i,:] - x_train)**2
+    distance = result.iloc[:,0]+result.iloc[:,1]+result.iloc[:,2]
+    tag_ranks = distance.sort_values()[0:k].index
+    y_test.loc[i,'Predict'] = int(y_train.iloc[tag_ranks].value_counts()\
+        .sort_values(ascending=False).index[0])
+        
+wrong = 0
+for i in range(y_test.shape[0]):
+    if y_test.iloc[i,0] != int(y_test.iloc[i,1]):
+        wrong += 1
+print(f'正确率是{1 - wrong/y_test.shape[0]}')
+</code></pre>
 
       
        
@@ -550,12 +685,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>logical regression</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">772</span></p>
+    <p><span class="copy-title">文章标题:</span>KNN实战之海伦约会</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Miki Zhu">Miki Zhu</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-03-09, 20:30:33</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-13, 20:47:40</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/09/logical-regression/" title="logical regression">http://yoursite.com/2020/03/09/logical-regression/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-12, 08:22:12</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-12, 08:23:22</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/12/KNN%E5%AE%9E%E6%88%98%E4%B9%8B%E6%B5%B7%E4%BC%A6%E7%BA%A6%E4%BC%9A/" title="KNN实战之海伦约会">http://yoursite.com/2020/04/12/KNN%E5%AE%9E%E6%88%98%E4%B9%8B%E6%B5%B7%E4%BC%A6%E7%BA%A6%E4%BC%9A/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
