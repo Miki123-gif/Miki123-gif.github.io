@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>CNN | Miki&#39;s blog</title>
+  <title>马尔可夫链 | Miki&#39;s blog</title>
   <meta name="keywords" content=" 机器学习 ">
-  <meta name="description" content="CNN | Miki&#39;s blog">
+  <meta name="description" content="马尔可夫链 | Miki&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="keywords: author: Miki language: zh-CN timezone:">
 <meta property="og:type" content="website">
@@ -463,13 +463,19 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-CNN原理" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-马尔可夫链" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">CNN</h1>
+        <h1 class="article-title">马尔可夫链</h1>
     
     <div class="article-meta">
         
         
+        
+        <span class="book">
+            
+                <a  data-rel="机器学习">机器学习</a>
+            
+        </span>
         
         
         <span class="tag">
@@ -481,12 +487,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-18 15:36:36'>2020-03-16 09:11</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-14 19:20:37'>2020-04-14 19:09</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3.6k</span>
+        <span>字数:1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -516,7 +522,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#监督学习无监督学习"><span class="toc-text"> 监督学习&amp;&amp;无监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛化能力"><span class="toc-text"> 泛化能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过拟合和欠拟合"><span class="toc-text"> 过拟合和欠拟合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后向传播"><span class="toc-text"> 后向传播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#损失函数"><span class="toc-text"> 损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化函数"><span class="toc-text"> 优化函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降法"><span class="toc-text"> 梯度下降法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局梯度下降法"><span class="toc-text"> 全局梯度下降法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#批量梯度下降法"><span class="toc-text"> 批量梯度下降法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机梯度下降法"><span class="toc-text"> 随机梯度下降法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活函数"><span class="toc-text"> 激活函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卷积神经网络"><span class="toc-text"> 卷积神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gpucpu"><span class="toc-text"> GPU&amp;&amp;CPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#牛顿法"><span class="toc-text"> 牛顿法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最小二乘法"><span class="toc-text"> 最小二乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#人工神经网络"><span class="toc-text"> 人工神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度下降法-2"><span class="toc-text"> 梯度下降法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络的黑盒"><span class="toc-text"> 神经网络的黑盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pytorch"><span class="toc-text"> PyTorch</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -532,144 +538,72 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="监督学习无监督学习"><a class="markdownIt-Anchor" href="#监督学习无监督学习"></a> 监督学习&amp;&amp;无监督学习</h2>
-<p>监督学习-分类问题</p>
-<p>无监督学习-聚类问题</p>
-<h2 id="泛化能力"><a class="markdownIt-Anchor" href="#泛化能力"></a> 泛化能力</h2>
-<p>就是算法对不同问题的处理能力，如果一个算法只能针对一个问题，那么这个算法泛化能力就很差</p>
-<h2 id="过拟合和欠拟合"><a class="markdownIt-Anchor" href="#过拟合和欠拟合"></a> 过拟合和欠拟合</h2>
-<p><img src="http://q6ip4it64.bkt.clouddn.com/1.png?e=1584520548&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:Ln8dvny1SAQ7Xmc5kmW9IDW31d4=&amp;attname=" alt="img" /></p>
+        <p></p>
+<p>马尔可夫问题：**</p>
+<p>我们用马尔可夫链，来描述马尔可夫随机过程</p>
+<p><strong>马尔可夫过程，是随机过程的核心，可以看看知乎上<a href="https://www.zhihu.com/question/26694486/answer/349872296" target="_blank" rel="noopener">随机过程讲解，详细讲述了概率，通俗易懂</a>，很有帮助，学习一门知识，不应该一上来就是讲数学，但最后应该回归数学，用数学的语言去描述</strong></p>
+<p><strong>概率其实是我们根据已有的知识，对将来的事进行预测，这个事件能重复多次实验，如抛一枚硬币，我们知道得到正面的概率是1/2</strong></p>
+<ol>
+<li>是因为我们知道硬币有两面，已经具有这样的知识</li>
+<li>是因为我们能进行多次实验，假如这个事件只能发生一次，又何来的1/2呢</li>
+</ol>
 <ul>
-<li>
-<p>过拟合就是学到了很多没必要的特征，比如一个男人穿着蓝色的衣服，神经网络可能把是否穿蓝色衣服作为区分男人女人的特征，这就是过拟合(我们知道男人和女人都可以穿蓝衣服)</p>
-</li>
-<li>
-<p>欠拟合就是提取到的特征比较少</p>
-</li>
+<li>假如现代人生小孩，只要生了男孩，则不会生小孩了，如果生的是女孩，则会继续生下去，直到生男孩为止，这样以后会造成男女比例失调吗？</li>
 </ul>
-<p><strong>防止欠拟合</strong>，我们可以：</p>
-<ul>
-<li>增加特征项</li>
-<li>构造复杂的多项式，比如抛物线的数据，我们不可能用一次函数来拟合</li>
-<li>减少正则化参数(说白了就是减少限制项，如黑体辐射，我们通常要在后面加个误差项来限制整个方程)</li>
-</ul>
-<p><strong>防止过拟合：</strong></p>
-<ul>
-<li>增大训练的数据量：在大多数情况下发生过拟合是因为我们用于模型训练的数据量太小，搭建的模型过度捕获了数据的有限特征，这时就会出现过拟合，在增加参与模型训练的数据量后，模型自然就能捕获数据的更多特征，模型就不会过于依赖数据的个别特征。</li>
-<li>采用正则化的方法：假如限制函数</li>
-</ul>
-<h2 id="后向传播"><a class="markdownIt-Anchor" href="#后向传播"></a> 后向传播</h2>
-<p>后向传播其实就是不断对模型中的参数进行微调的过程，在进行多次微调后，得到最优参数组合(就像显微镜，先粗调，为了看的更清楚，我们再微调)，后向传播，其实就是应用<strong>微分在近似中的运算</strong>,高等数学116页</p>
-<ul>
-<li>比如我们现在得到一个函数表达式，现在要对x，y，z进行微调，微调多少就是对三个参数分别求偏导</li>
-</ul>
-<h2 id="损失函数"><a class="markdownIt-Anchor" href="#损失函数"></a> 损失函数</h2>
-<p>并不是每个算法的预测和分类能力都是百分之百的，谁都会出错，预测值和真实值的差，就叫损失值，深度学习中常用三种函数来表示损失值，如果损失值越高，我们就要调整参数，来降低损失值</p>
-<ul>
-<li>均方误差函数，每个真实值减对应的预测值平方后求和，再除N求平均</li>
-<li>均方根误差函数，对均方误差函数求根号</li>
-<li>平方绝对误差函数，均方误差函数中的平方换成绝对值</li>
-</ul>
-<h2 id="优化函数"><a class="markdownIt-Anchor" href="#优化函数"></a> 优化函数</h2>
-<p>再计算了损失函数后，我们需要对参数进行优化，因此引入优化函数，优化函数就是利用求当前值的梯度，然后用梯度乘以步长，就是参数的变化量</p>
-<p><img src="http://q6ip4it64.bkt.clouddn.com/%E6%A2%AF%E5%BA%A6.png?e=1584329197&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:XcRUJfVJmAglbBPu4noSjcQg2Zs=&amp;attname=" alt="image-20200316102408396" /></p>
-<h2 id="梯度下降法"><a class="markdownIt-Anchor" href="#梯度下降法"></a> 梯度下降法</h2>
-<p>梯度下降法是为了减小损失函数</p>
-<h3 id="全局梯度下降法"><a class="markdownIt-Anchor" href="#全局梯度下降法"></a> 全局梯度下降法</h3>
-<p>学习速率用于控制梯度更新的快慢，如果学习速率过快，参数的更新跨步就会变大，极易出现局部最优和抖动；如果学习速率过慢，梯度更新的迭代次数就会增加，参数更新、优化的时间也会变长，所以选择一个合理的学习速率是非常关键的。(学习速率其实就相当与步长，变化的步长)x-步长×偏导=x，缺点就是数据量太大的时候，要运行很久的时间</p>
-<h3 id="批量梯度下降法"><a class="markdownIt-Anchor" href="#批量梯度下降法"></a> 批量梯度下降法</h3>
-<p>将整个数据集分成很多部分，但这样容易造成找到的是局部最优解，不是全局最优解</p>
-<h2 id="随机梯度下降法"><a class="markdownIt-Anchor" href="#随机梯度下降法"></a> 随机梯度下降法</h2>
-<p>和批量梯度下降法差不多，但都容易找到的是局部最优解</p>
-<h2 id="激活函数"><a class="markdownIt-Anchor" href="#激活函数"></a> 激活函数</h2>
-<p>激活函数有什么用呢？我们在每一层神经元输出都包裹上一层激活函数，试想，如果一直是一次函数，那么一次函数作为下一层的输入，只是乘一个系数，依旧是一次函数，这样就不能很好对非线性问题进行拟合了，激活函数就是为了让线性函数变弯</p>
-<p>常用的激活函数有三种：</p>
-<ul>
-<li>sigmoid</li>
-<li>tanh</li>
-<li>ReLU</li>
-</ul>
-<p>sigmoid函数取值区间一直是处于0-1之间，缺陷是容易让梯度消失，我们知道在做系数优化的时候要做反向传播，反向传播就是对函数要优化的那个参数求偏导，而sigmoid每次求导，都只在0-1之间的小数，这样会使得曲线区域平坦，梯度就消失了</p>
-<p>tanh同样会有这样的问题</p>
-<p>而relu是最好用的，但是relu会让有些神经元永远不会被激活</p>
-<h2 id="卷积神经网络"><a class="markdownIt-Anchor" href="#卷积神经网络"></a> 卷积神经网络</h2>
-<p>**深度学习中的卷积与信号处理中的卷积概念是有区别的，**其实卷积的操作就是加法和乘法的组合</p>
-<p><a href="https://blog.csdn.net/weixin_39915444/article/details/81260003" target="_blank" rel="noopener">参考笔记1</a></p>
-<p><a href="https://blog.csdn.net/xzy_thu/article/details/69808817" target="_blank" rel="noopener">参考笔记2</a></p>
-<p><a href="http://m.elecfans.com/article/703346.html" target="_blank" rel="noopener">直接看这个</a></p>
-<p><a href="http://m.elecfans.com/tags/CNN.html" target="_blank" rel="noopener">学这个，蛮多有意思的</a></p>
-<ul>
-<li>
-<p>卷积层的主要作用就是对特诊进行提取，其中我们输入的图片会被转换成tensor，是一种三维张量，包括二维的长宽和颜色通道RGB，卷积核又叫Filter，是一个固定窗口的扫描器，<a href="http://cs231n.github.io/assets/conv-demo/index.html" target="_blank" rel="noopener">扫描动图</a>，也就是一个矩阵，假如卷积核全是由-1和1组成，那么说明，卷积核，其实是一个特征向量提取器，包含该特征的部分就会被提取出来，Filter1会扫描整个矩阵，看是否有类似的特征，与图像矩阵作内积(对应相乘相加)，内积后越大则特征越明显（所以不管该特征在图片的哪个位置，都能很好提取出来，具有很好的泛化能力），如果有很多个特征，则需要更多的卷积核，当这些特征都满足，神经元激活，计算机则认为这就是鸟，如果有很多层，RGB是三层，则卷积核也要被设置成三层的，对应内积，再把三层内积结果加起来，最后得到一个值<img src="https://img-blog.csdn.net/20180728135540435?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTkxNTQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" /></p>
-</li>
-<li>
-<p>经过第一次卷积后，我们就可以得到一个更小的矩阵，我们根据这个特征提取的矩阵，<strong>挑其中最大的</strong>，忽略里面比较小的，特征就会被保留下来，这就是<strong>特征图</strong>，将主要特征找出来有时图像太大，我们需要减少训练参数的数量，它被要求在随后的卷积层之间周期性地引进池化层。池化的唯一目的是减少图像的空间大小。池化在每一个纵深维度上独自完成，因此图像的纵深保持不变。池化层的最常见形式是最大池化。</p>
-<p><img src="http://q6ip4it64.bkt.clouddn.com/2.png?e=1584520548&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:tlMbUCMgTPxwSCYMntTD8PVp1G0=&amp;attname=" alt="img" /></p>
-<p>在这里，我们把步幅定为 2，池化尺寸也为 2。最大化执行也应用在每个卷机输出的深度尺寸中。正如你所看到的，最大池化操作后，4<em>4 卷积的输出变成了 2</em>2。<img src="https://img-blog.csdn.net/20180728135811552?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTkxNTQ0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" /></p>
-<p>让我们看看最大池化在真实图片中的效果如何。</p>
-<p><img src="http://q6ip4it64.bkt.clouddn.com/Snipaste_2020-03-18_15-28-57.png?e=1584520226&amp;token=IeqxMYJS9TcEnX8V6lUXD9FF_y3SCdOBApPAMpRy:825zJ-dnztfPFvEBXwTms8PGWRc=&amp;attname=" alt="img" /></p>
-<p>正如你看到的，我们卷积了图像，并最大池化了它。最大池化图像仍然保留了汽车在街上的信息。如果你仔细观察的话，你会发现图像的尺寸已经减半。这可以很大程度上减少参数。</p>
-</li>
-<li>
-<p>转化成特征图后，就要将特征图拉成矢量，输入到神经网络中，经过黑盒子，完成分类</p>
-</li>
-</ul>
-<blockquote>
-<ul>
-<li>通常我们在处理时，要将矩阵拉成矢量保存下来，上面图中，Filter扫描框框，在矩阵的位置编号和矢量的位置编号对应起来，这样就变成了CNN</li>
-<li>Filter中的矩阵参数，是计算机自己学习获得的，不需要人为设置</li>
-</ul>
-</blockquote>
-<h2 id="gpucpu"><a class="markdownIt-Anchor" href="#gpucpu"></a> GPU&amp;&amp;CPU</h2>
-<p>CPU（Central Processing Unit）是电脑最主要的部件，他的主要功能是解释计算机指令以及处理计算机软件中的数据，说白了就是做指挥工作，统筹各方面。CPU相当于整个电脑的心脏，而GPU相当于显卡的心脏。</p>
-<p><img src="https://pic4.zhimg.com/80/918367f36e34c18dc1f92bd16760dae1_720w.jpg" alt="img" /></p>
-<p>Cache意思时缓存</p>
-<p>CPU和GPU都包含运算单元，但是CPU的运算功能比GPU的要强大的多，能处理很多复杂的逻辑运算，但是GPU的运算只能处理一些简单的逻辑运算(就像CPU运算是专家，能解决很多复杂问题，GPU运算是小学生，只能解决一些很简单的加减乘除)，但是CPU的运算部分很少,GPU的运算部分很多（几个专家和一群小学生），每个小学生都能处理一些单独的问题，对于一些需要很简单的重复运算，专家肯定干不过小学生的<a href="https://www.zhihu.com/question/19903344" target="_blank" rel="noopener">来自知乎</a></p>
-<p>GPU的工作大部分就是这样，计算量大，但没什么技术含量，而且要重复很多很多次。就像你有个工作需要算几亿次一百以内加减乘除一样，最好的办法就是雇上几十个小学生一起算，一人算一部分，反正这些计算也没什么技术含量，纯粹体力活而已。而CPU就像老教授，积分微分都会算，就是工资高，一个老教授资顶二十个小学生，你要是富士康你雇哪个？GPU就是这样，用很多简单的计算单元去完成大量的计算任务，纯粹的人海战术。这种策略基于一个前提，就是小学生A和小学生B的工作没有什么依赖性，是互相独立的。很多涉及到大量计算的问题基本都有这种特性，比如你说的破解密码，挖矿和很多图形学的计算。这些计算可以分解为多个相同的简单小任务，每个任务就可以分给一个小学生去做。但还有一些任务涉及到“流”的问题。比如你去相亲，双方看着顺眼才能继续发展。总不能你这边还没见面呢，那边找人把证都给领了。这种比较复杂的问题都是CPU来做的。</p>
-<p>总而言之，CPU和GPU因为最初用来处理的任务就不同，所以设计上有不小的区别。而某些任务和GPU最初用来解决的问题比较相似，所以用GPU来算了。GPU的运算速度取决于雇了多少小学生，CPU的运算速度取决于请了多么厉害的教授。教授处理复杂任务的能力是碾压小学生的，但是对于没那么复杂的任务，还是顶不住人多。当然现在的GPU也能做一些稍微复杂的工作了，相当于升级成初中生高中生的水平。但还需要CPU来把数据喂到嘴边才能开始干活，究竟还是靠CPU来管的。</p>
-<h2 id="牛顿法"><a class="markdownIt-Anchor" href="#牛顿法"></a> 牛顿法</h2>
-<h2 id="最小二乘法"><a class="markdownIt-Anchor" href="#最小二乘法"></a> 最小二乘法</h2>
-<h2 id="人工神经网络"><a class="markdownIt-Anchor" href="#人工神经网络"></a> 人工神经网络</h2>
-<ul>
-<li>人工神经网络是通过模拟人脑的神经元设计的算法，通常可归纳为三层，输入层，隐藏层，输出层，人脑的神经元就是，轴突受到刺激，然后就会产生电信号，当电信号超过阈值时，就会向下一个神经元传递，人工神经网络也是这样，每一个输入都对应一个权值，输入乘权值再求和，当求和后的值大于阈值，就会输出信号，否则不输出信号（我们可以将输出输入到单位阶跃函数上，大于0则输出1）</li>
-<li>感知机的出现相当于最简单的神经网络，他的出现主要是解决线性分类问题，并不能解决非线性问题，因此就有人在中间假如了隐藏层，同时能够将信号反向传递，来调整权值，来进行更好地拟合。这种就能够自我学习了，因为能自己调整参数</li>
-<li>多加了一层神经层是不是就更好了呢？明显不是地，当神经层越多，就越容易产生梯度消失的问题，这样计算机就不能自我优化了</li>
-</ul>
-<h2 id="梯度下降法-2"><a class="markdownIt-Anchor" href="#梯度下降法-2"></a> 梯度下降法</h2>
-<p>神经网络运用的就是属于梯度下降法，假设现在有个函数y=x**2，我们知道最小值在x=0处取到，梯度下降法就是计算某点的斜率，向斜率的方向移动，再计算新的斜率，再移动，直到斜率为0时或者小于一定误差时，就停下来。但是现实生活中的函数图像并不是都像x**2那样，通常都是许多个局部最优和一个全局最优，其中全局最优很难找到，神经网络虽然可以找到局部最优，但是它找到的局部最优解依旧可以很多地解决当前地问题</p>
-<h2 id="神经网络的黑盒"><a class="markdownIt-Anchor" href="#神经网络的黑盒"></a> 神经网络的黑盒</h2>
-<p>神经网络简单分成输入，黑盒，输出</p>
-<ul>
-<li>输入层，我们假设输入层是一张图片</li>
-<li>黑盒，神经元分成很多层，第一层是对图片的特征进行初步提取，这时我们人还是可以根据这些特诊认出这张图片，当经过第二层神经元特诊提取后，我们就很难认出这个图片了，几乎只有计算机自己认识</li>
-<li>输出层，当我们再次输入数据时，计算机就能根据相同特征进行判断</li>
-</ul>
-<h2 id="pytorch"><a class="markdownIt-Anchor" href="#pytorch"></a> PyTorch</h2>
-<pre class="highlight"><code class="">import torch
-import numpy as np
+<p><strong>生育问题是典型的稳态马尔科夫过程，下一次生育不受上一次生育的影响。 根据马氏过程的特性，你知道历史无需考虑历史路径， 最终的平衡概率只取决于每一步的概率。所以无论你怎么玩，不论是你拼命想生男孩还是女孩，都无法影响人口比例。</strong></p>
+<pre class="highlight"><code class="">import random
 
-np_data  = np.arange(6).reshape((2, 3))
-将数据转换成pytorch
-torch_data = torch.from_numpy(np_data)
-#将数据转换成numpy格式
-trans_to_np = torch_data.numpy()
 
-print(&quot;numpy data:\n&quot;, np_data)
-print(&quot;torch data:\n&quot;, torch_data)
-print(&quot;transport to numpy data:\n&quot;, trans_to_np)
+class Family:
+    def __init__(self):
+        self.male = 1000
+        self.female = 1000
+
+    def birth(self):
+        result = random.choice([0, 1])
+        if result == 1:
+            self.male += 1
+        else:
+            self.female += 1
+            self.birth() # 利用递归实现
+
+    def proportion(self):
+        for i in range(1000000):# 设置家庭数量
+            self.birth()
+        print(f'{self.male/(self.male + self.female)}')
+
+
+f = Family()
+f.proportion() # 0.49965832555061
 </code></pre>
-<pre class="highlight"><code class="">numpy data:
- [[0 1 2]
- [3 4 5]]
-torch data:
- tensor([[0, 1, 2],
-        [3, 4, 5]], dtype=torch.int32)
-transport to numpy data:
- [[0 1 2]
- [3 4 5]]
-tensor([[0, 1, 2],
-        [3, 4, 5]], dtype=torch.int32)
+<p><strong>计算机仿真结果说明，这样是不造成男女比例失调的，结果总是在0.5上下波动，这其实就是马尔可夫随机过程</strong></p>
+<ol>
+<li>马尔可夫随机过程是什么？</li>
+</ol>
+<p>一个事物的将来，只于其现在的状态有关，而不依赖其过去，这里有两份资料</p>
+<ul>
+<li><a href="https://blog.csdn.net/bitcarmanlee/article/details/82819860" target="_blank" rel="noopener">股市的马尔可夫模型</a>，有代码讲解</li>
+<li><a href="https://www.zhihu.com/question/26665048" target="_blank" rel="noopener">马尔可夫的状态矩阵</a>，有例子说明</li>
+</ul>
+<p>假如一个模型符合马尔可夫过程，只要他的状态矩阵确定了，我们可以根据其现在的状态，推测出其将来的状态是多少</p>
+<p>假如现在有0，1，2三个状态，0状态可以保持不变，也可以转换到1，2状态</p>
+<p>00表示当前状态0变换到将来状态0的概率是0.1，这就是转移矩阵</p>
+<pre class="highlight"><code class="">     0    1    2
+0   [0.1,0.2,0.3]
+1   [0.1,0.2,0.3]
+2   [0.6,0.5,0.4] 
 </code></pre>
+<p>假如之前的状态0，1，2无所谓，我们知道，他转移到下一个状态的概率为[0.5,0.6,0.4],这个行向量就被称做初始状态，当我们知道这个概率时，就可以计算将来的所有状态概率，只需要用这个行向量乘以转移矩阵p即可，得到一个新的行向量，这个结果再乘以矩阵p，就可以得到以后所有的概率，具体可以看上面的第二个链接</p>
+<p><strong>总结：</strong></p>
+<p>如果一个过程是markov过程，这个过程就得到了神简化，你只需要知道第n步是如何与第n-1步相关的，一般由一组条件概率表述，就可以求得整个过程。一个巨大的随机过程，其内核仅仅是这样一组条件概率，而知道了这组条件概率，就可以衍生整个过程。</p>
+<p><strong>有趣的现象：</strong></p>
+<p>当转移矩阵设定好并且不变时，无论初始的状态设置为多少，只要转移矩阵不变，那么计算无数多次后，行向量会逐渐收敛</p>
+<p><strong>马尔科夫链的收敛条件：</strong></p>
+<ol>
+<li>可能的转移状态是有限的</li>
+<li>状态转移矩阵，不发生变化(<strong>重要</strong>)</li>
+<li>状态之间，能够相互转变，也就是要能够形成一个状态矩阵</li>
+</ol>
 
       
        
@@ -679,12 +613,12 @@ tensor([[0, 1, 2],
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>CNN</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">3.6k</span></p>
+    <p><span class="copy-title">文章标题:</span>马尔可夫链</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="Miki Zhu">Miki Zhu</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-03-16, 09:11:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-18, 15:36:36</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/16/CNN%E5%8E%9F%E7%90%86/" title="CNN">http://yoursite.com/2020/03/16/CNN%E5%8E%9F%E7%90%86/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-14, 19:09:29</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-14, 19:20:37</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/14/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/" title="马尔可夫链">http://yoursite.com/2020/04/14/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
